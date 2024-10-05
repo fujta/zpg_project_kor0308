@@ -1,13 +1,16 @@
 #include "Application.h"
+#include "ModelFactory.h"
+#include "ShaderFactory.h"
 #include <iostream>
 
-Application::Application() : window(nullptr), shader(nullptr), model(nullptr) {}
+Application::Application() : window(nullptr), shader(nullptr), model(nullptr), squareModel(nullptr) {}
 
 Application::~Application() {
     if (window) glfwDestroyWindow(window);
     glfwTerminate();
     delete shader;
     delete model;
+    delete squareModel;
 }
 
 void Application::initialization() {
@@ -30,19 +33,13 @@ void Application::initialization() {
 }
 
 void Application::createShaders() {
-    shader = new Shader();
-    const char* vertex_shader = "#version 330\nlayout(location=0) in vec3 vp;void main () { gl_Position = vec4(vp, 1.0);}";
-    const char* fragment_shader = "#version 330\nout vec4 frag_colour;void main () { frag_colour = vec4(0.5, 0.0, 0.5, 1.0);}";
-    shader->loadShaders(vertex_shader, fragment_shader);
+    shader = ShaderFactory::createShader("baseVertexShader.glsl", "baseFragmentShader.glsl");
+    squareShader = ShaderFactory::createShader("baseVertexShader.glsl", "redColorFragmentShader.glsl");
 }
 
 void Application::createModels() {
-    float points[] = {
-        0.0f, 0.5f, 0.0f,
-        0.5f, -0.5f, 0.0f,
-       -0.5f, -0.5f, 0.0f
-    };
-    model = new Model(points, 9); // 9 = 3 vertices, 3 coordinates each
+    model = ModelFactory::createModel(ShapeType::TRIANGLE, glm::vec3(0.0f, 0.0f, 0.0f));
+    squareModel = ModelFactory::createModel(ShapeType::SQUARE, glm::vec3(0.5f, 0.5f, 0.0f));
 }
 
 void Application::run() {
@@ -50,7 +47,12 @@ void Application::run() {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         shader->use();
-        model->render();
+
+        shader->setUniformColor(0.5f, 1.5f, 0.5f, 1.0f);
+        model->render(ShapeType::TRIANGLE);
+
+        squareShader->use();
+        squareModel->render(ShapeType::SQUARE);
 
         glfwSwapBuffers(window);
         glfwPollEvents();

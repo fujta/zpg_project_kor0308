@@ -2,6 +2,7 @@
 #define MODEL_H
 
 #include <GL/glew.h>
+#include "ModelFactory.h"
 
 class Model {
 private:
@@ -12,7 +13,7 @@ private:
 public:
     Model(float* points, int pointCount);
     ~Model();
-    void render();
+    void render(ShapeType shapeType);
 };
 
 #endif

@@ -17,7 +17,13 @@ Model::~Model() {
     glDeleteVertexArrays(1, &VAO);
 }
 
-void Model::render() {
+void Model::render(ShapeType shapeType) {
     glBindVertexArray(VAO);
-    glDrawArrays(GL_TRIANGLES, 0, pointCount / 3); // Draw triangles
+
+    if (shapeType == TRIANGLE) {
+		glDrawArrays(GL_TRIANGLES, 0, pointCount / 3);
+    }
+    else if (shapeType == SQUARE) {
+        glDrawArrays(GL_TRIANGLE_STRIP, 0, pointCount / 3);
+    }
 }

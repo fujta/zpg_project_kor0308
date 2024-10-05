@@ -133,12 +133,21 @@
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Model.cpp" />
+    <ClCompile Include="ModelFactory.cpp" />
     <ClCompile Include="Shader.cpp" />
+    <ClCompile Include="ShaderFactory.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
     <ClInclude Include="Model.h" />
+    <ClInclude Include="ModelFactory.h" />
     <ClInclude Include="Shader.h" />
+    <ClInclude Include="ShaderFactory.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="baseFragmentShader.glsl" />
+    <None Include="baseVertexShader.glsl" />
+    <None Include="redColorFragmentShader.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

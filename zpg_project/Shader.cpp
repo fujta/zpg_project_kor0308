@@ -17,6 +17,7 @@ GLuint Shader::compileShader(const char* source, GLenum type) {
     glCompileShader(shader);
     GLint status;
     glGetShaderiv(shader, GL_COMPILE_STATUS, &status);
+
     if (status == GL_FALSE) {
         GLint infoLogLength;
         glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &infoLogLength);
@@ -41,6 +42,7 @@ void Shader::loadShaders(const char* vertexShaderSource, const char* fragmentSha
 
     GLint status;
     glGetProgramiv(shaderProgram, GL_LINK_STATUS, &status);
+
     if (status == GL_FALSE) {
         GLint infoLogLength;
         glGetProgramiv(shaderProgram, GL_INFO_LOG_LENGTH, &infoLogLength);
@@ -56,4 +58,9 @@ void Shader::loadShaders(const char* vertexShaderSource, const char* fragmentSha
 
 void Shader::use() {
     glUseProgram(shaderProgram);
+}
+
+void Shader::setUniformColor(float r, float g, float b, float a) {
+    GLint colorLocation = glGetUniformLocation(shaderProgram, "fragColor");
+    glUniform4f(colorLocation, r, g, b, a);
 }
