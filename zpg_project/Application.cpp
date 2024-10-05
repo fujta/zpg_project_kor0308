@@ -9,6 +9,7 @@ Application::~Application() {
     if (window) glfwDestroyWindow(window);
     glfwTerminate();
     delete shader;
+    delete squareShader;
     delete model;
     delete squareModel;
 }
@@ -47,7 +48,6 @@ void Application::run() {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         shader->use();
-
         shader->setUniformColor(0.5f, 1.5f, 0.5f, 1.0f);
         model->render(ShapeType::TRIANGLE);
 
