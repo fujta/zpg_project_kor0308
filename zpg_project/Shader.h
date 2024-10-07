@@ -3,7 +3,11 @@
 
 #include <GL/glew.h>
 #include <string>
-#include <glm/glm.hpp>
+
+#include <glm/gtc/type_ptr.hpp>
+#include <glm/glm.hpp>                      // For basic GLM types like vec3 and mat4
+#include <glm/gtc/matrix_transform.hpp>      // For matrix transformations like rotate, translate, scale
+
 
 class Shader {
 private:
@@ -16,6 +20,7 @@ public:
     ~Shader();
     void loadShaders(const char* vertexShaderSource, const char* fragmentShaderSource);
     void setUniformColor(float r, float g, float b, float a);
+    void setUniformLocation();
     void use();
 };
 

@@ -44,15 +44,16 @@ void Application::createModels() {
 }
 
 void Application::run() {
+    glEnable(GL_DEPTH_TEST);//Do depth comparisons and update the depth buffer.
     while (!glfwWindowShouldClose(window)) {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         shader->use();
-        shader->setUniformColor(0.5f, 1.5f, 0.5f, 1.0f);
+        //shader->setUniformColor(0.5f, 1.5f, 0.5f, 1.0f);
         model->render(ShapeType::TRIANGLE);
 
-        squareShader->use();
-        squareModel->render(ShapeType::SQUARE);
+       // squareShader->use();
+       // squareModel->render(ShapeType::SQUARE);
 
         glfwSwapBuffers(window);
         glfwPollEvents();

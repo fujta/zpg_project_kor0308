@@ -1,18 +1,21 @@
 #include "ModelFactory.h"
 #include "Model.h"
 
+#include "sphere.h"
+#include "bushes.h"
+
 Model* ModelFactory::createModel(ShapeType type, glm::vec3 position) {
     float* points = nullptr;
     int pointCount = 0;
 
     if (type == TRIANGLE) {
-        static float trianglePoints[] = {
-            position.x + 0.0f, position.y + 0.5f, 0.0f,
-            position.x + 0.5f, position.y - 0.5f, 0.0f,
-            position.x + -0.5f, position.y - 0.5f, 0.0f
-        };
-        points = trianglePoints;
-        pointCount = 9;
+        //static float a[] = {
+        //     -.5f, -.5f, .5f,  0, 0, 1,
+        //     -.5f, .5f, .5f,  0, 0, 1,
+        //       .5f, .5f, .5f,  0, 0, 1,
+        //       .5f, -.5f, .5f,  0, 0, 1 };
+        points = bushes;
+        pointCount = 26190;
     }
     else if (type == SQUARE) {
         static float squarePoints[] = {
