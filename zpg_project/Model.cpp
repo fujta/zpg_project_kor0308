@@ -25,10 +25,16 @@ Model::~Model() {
 void Model::render(ShapeType shapeType) {
     glBindVertexArray(VAO);
 
-    if (shapeType == TRIANGLE) {
-		glDrawArrays(GL_TRIANGLES, 0, pointCount / 3);
+    if (shapeType == TRIANGLE || shapeType == BUSH) {
+		glDrawArrays(GL_TRIANGLE_FAN, 0, pointCount / 3);
+    }
+    else if (shapeType == TREE) {
+        glDrawArrays(GL_TRIANGLES, 0, 92814);
     }
     else if (shapeType == SQUARE) {
         glDrawArrays(GL_TRIANGLE_STRIP, 0, pointCount / 3);
+    }
+    else {
+		std::cout << "Warning! Missing shape type\n";
     }
 }

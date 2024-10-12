@@ -20,7 +20,7 @@ public:
     ~Shader();
     void loadShaders(const char* vertexShaderSource, const char* fragmentShaderSource);
     void setUniformColor(float r, float g, float b, float a);
-    void setUniformLocation();
+    void setUniformLocation(glm::mat4 modelMatrix);
     void use();
 };
 

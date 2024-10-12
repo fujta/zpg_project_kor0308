@@ -1,26 +1,28 @@
 #ifndef APPLICATION_H
 #define APPLICATION_H
 
-#include "Shader.h"
 #include "Model.h"
+#include "Scene.h"
 
 #include <GLFW/glfw3.h>
+#include <vector>
 
 class Application {
 private:
     GLFWwindow* window;
-    Shader* shader;
-    Shader* squareShader;
 
-    Model* model;
-    Model* squareModel;
+    std::vector<Scene*> scenes;
+    int currentSceneIndex;
 
+    void changeSceneOnUserInteraction();
+    void userActionTransformations(DrawableObject* drawableObject);
+    
 public:
     Application();
     ~Application();
+
     void initialization();
-    void createShaders();
-    void createModels();
+    void createScenes();
     void run();
 };
 

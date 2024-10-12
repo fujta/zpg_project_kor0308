@@ -65,20 +65,7 @@ void Shader::setUniformColor(float r, float g, float b, float a) {
     glUniform4f(colorLocation, r, g, b, a);
 }
 
-void Shader::setUniformLocation() {
-    //glm::mat4 M = glm::mat4(1.0f);
-
-    //// Define myView to move the object 3 units away from the camera
-    //float myView = 0;
-
-    //// Apply transformations
-    //M = glm::rotate(glm::mat4(1.0f), 0.78539816f, glm::vec3(0.0f, 1.0f, 0.0f));  // Rotate 45 degrees around the Y-axis
-    //M = glm::rotate(M, 0.78539816f, glm::vec3(1.0f, 0.0f, 0.0f));  // Rotate 45 degrees around the X-axis
-    //M = glm::translate(M, glm::vec3(0.0f, 0.0f, myView));  // Move the object 3 units away from the camera
-    //M = glm::scale(M, glm::vec3(0.5f));  // Scale the object down to 50% of its size
-
-    glm::mat4 M = glm::mat4(1.0f);
-
+void Shader::setUniformLocation(glm::mat4 modelMatrix) {
     GLint modelMatrixLoc = glGetUniformLocation(shaderProgram, "modelMatrix");
-    glUniformMatrix4fv(modelMatrixLoc, 1, GL_FALSE, glm::value_ptr(M));
+    glUniformMatrix4fv(modelMatrixLoc, 1, GL_FALSE, glm::value_ptr(modelMatrix));
 }
