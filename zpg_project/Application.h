@@ -7,6 +7,8 @@
 #include <GLFW/glfw3.h>
 #include <vector>
 
+#include "CameraMovementEnum.h"
+
 class Application {
 private:
     GLFWwindow* window;
@@ -14,9 +16,21 @@ private:
     std::vector<Scene*> scenes;
     int currentSceneIndex;
 
+    static Application* instance;
+
+    static void mouseCallback(GLFWwindow* window, double xpos, double ypos);
+    static void framebufferSizeCallback(GLFWwindow* window, int width, int height);
+
     void changeSceneOnUserInteraction();
-    void userActionTransformations(DrawableObject* drawableObject);
-    
+    void userActions(float deltaTime);
+
+    float lastX;
+    float lastY;
+    bool firstMouse;
+
+    float deltaTime;
+    float lastFrame;
+
 public:
     Application();
     ~Application();
@@ -24,6 +38,8 @@ public:
     void initialization();
     void createScenes();
     void run();
+
+    static Application* getInstance();
 };
 
-#endif
+#endif // APPLICATION_H

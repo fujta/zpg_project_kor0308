@@ -8,18 +8,17 @@
 class DrawableObject
 {
 public:
-	DrawableObject(ShapeType shapeType);
-	~DrawableObject();
+    DrawableObject(ShapeType shapeType);
+    ~DrawableObject();
 
-	void render();
-	void createShaders(const std::string& vertexShaderPath, const std::string& fragmentShaderPath);
-	void createModel();
-	Transform& getTransform();
+    void render();
+    void createShaders(const std::string& vertexShaderPath, const std::string& fragmentShaderPath, Camera* camera);
+    void createModel();
+    Transform& getTransform();
 
 private:
-	ShapeType shapeType;
-	Model* model;
-	Shader* shader;
-	Transform* transform;
+    ShapeType shapeType;
+    Model* model;
+    Shader* shader;
+    Transform* transform;
 };
-

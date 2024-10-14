@@ -7,7 +7,7 @@ using namespace std;
 class ShaderFactory
 {
 public:
-	static Shader* createShader(string vertexShaderPath, string fragmentShaderPath);
+    static Shader* createShader(const string& vertexShaderPath, const string& fragmentShaderPath, Camera* camera);
 private:
-	static string readShaderFromFile(const string path);
+    static string readShaderFromFile(const string& path);
 };

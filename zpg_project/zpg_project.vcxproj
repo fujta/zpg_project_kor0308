@@ -131,6 +131,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="DrawableObject.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Model.cpp" />
@@ -144,6 +145,9 @@
   <ItemGroup>
     <ClInclude Include="Application.h" />
     <ClInclude Include="bushes.h" />
+    <ClInclude Include="Camera.h" />
+    <ClInclude Include="CameraMovementEnum.h" />
+    <ClInclude Include="ICameraObserver.h" />
     <ClInclude Include="DrawableObject.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="ModelFactory.h" />

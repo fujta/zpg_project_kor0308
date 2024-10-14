@@ -1,13 +1,34 @@
 #include "Shader.h"
 #include <iostream>
 
-Shader::Shader() {
+Shader::Shader(Camera* camera) {
     shaderProgram = 0;
+    this->camera = camera;
+    camera->addObserver(this);
 }
 
 Shader::~Shader() {
     if (shaderProgram != 0) {
         glDeleteProgram(shaderProgram);
+    }
+    camera->removeObserver(this);
+}
+
+void Shader::onCameraUpdated() {
+    this->use();
+    glm::mat4 view = camera->getViewMatrix();
+    glm::mat4 projection = camera->getProjectionMatrix();
+    glUniformMatrix4fv(viewMatrixLoc, 1, GL_FALSE, glm::value_ptr(view));
+    glUniformMatrix4fv(projectionMatrixLoc, 1, GL_FALSE, glm::value_ptr(projection));
+}
+
+void Shader::setUniformMatrix(const std::string& name, const glm::mat4& matrix) {
+    GLint location = glGetUniformLocation(shaderProgram, name.c_str());
+    if (location == -1) {
+        std::cerr << "Uniform " << name << " not found." << std::endl;
+    }
+    else {
+        glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(matrix));
     }
 }
 
@@ -40,6 +61,9 @@ void Shader::loadShaders(const char* vertexShaderSource, const char* fragmentSha
     glAttachShader(shaderProgram, fragmentShader);
     glLinkProgram(shaderProgram);
 
+    viewMatrixLoc = glGetUniformLocation(shaderProgram, "viewMatrix");
+    projectionMatrixLoc = glGetUniformLocation(shaderProgram, "projectionMatrix");
+
     GLint status;
     glGetProgramiv(shaderProgram, GL_LINK_STATUS, &status);
 
@@ -54,6 +78,8 @@ void Shader::loadShaders(const char* vertexShaderSource, const char* fragmentSha
 
     glDeleteShader(vertexShader);
     glDeleteShader(fragmentShader);
+
+    onCameraUpdated();
 }
 
 void Shader::use() {
@@ -65,7 +91,7 @@ void Shader::setUniformColor(float r, float g, float b, float a) {
     glUniform4f(colorLocation, r, g, b, a);
 }
 
-void Shader::setUniformLocation(glm::mat4 modelMatrix) {
+void Shader::setUniformLocation(const glm::mat4& modelMatrix) {
     GLint modelMatrixLoc = glGetUniformLocation(shaderProgram, "modelMatrix");
     glUniformMatrix4fv(modelMatrixLoc, 1, GL_FALSE, glm::value_ptr(modelMatrix));
 }

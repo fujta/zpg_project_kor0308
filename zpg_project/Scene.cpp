@@ -1,34 +1,34 @@
 #include "Scene.h"
 
-Scene::Scene() {}
+Scene::Scene(float aspectRatio) {
+    camera = new Camera(aspectRatio);
+}
 
 Scene::~Scene() {
-	for (auto obj : drawableObjects) {
-		delete obj;
-	}
+    delete camera;
+    for (auto obj : drawableObjects) {
+        delete obj;
+    }
+}
+
+Camera* Scene::getCamera() {
+    return camera;
 }
 
 void Scene::render() {
-	//shader->use();
-	//shader->setUniformLocation();
-	//model->render(ShapeType::TRIANGLE);
-
-	//squareShader->use();
-	//squareModel->render(ShapeType::SQUARE);
-
-	for (auto drawableObject : drawableObjects) {
-		drawableObject->render();
-	}
+    for (auto drawableObject : drawableObjects) {
+        drawableObject->render();
+    }
 }
 
 void Scene::addDrawableObject(DrawableObject* drawableObject)
 {
-	drawableObjects.push_back(drawableObject);
+    drawableObjects.push_back(drawableObject);
 }
 
 DrawableObject* Scene::getDrawableObject(int index) {
-	if (index >= 0 && index < drawableObjects.size()) {
-		return drawableObjects[index];
-	}
-	return nullptr;
+    if (index >= 0 && index < drawableObjects.size()) {
+        return drawableObjects[index];
+    }
+    return nullptr;
 }
