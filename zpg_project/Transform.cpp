@@ -3,13 +3,17 @@
 Transform::Transform()
     : position(0.0f), scale(1.0f), rotationMatrix(1.0f) {}
 
-void Transform::setPosition(const glm::vec3& pos) {
+Transform& Transform::setPosition(const glm::vec3& pos) {
     position = pos;
+
+    return *this;
 }
 
-void Transform::setRotation(float angleDegrees, const glm::vec3& axis) {
+Transform& Transform::setRotation(float angleDegrees, const glm::vec3& axis) {
     rotationAngleDegrees = angleDegrees;
     rotationMatrix = glm::rotate(glm::mat4(1.0f), glm::radians(angleDegrees), glm::normalize(axis));
+
+    return *this;
 }
 
 void Transform::rotate(float angleDegrees, const glm::vec3& axis) {
@@ -17,8 +21,10 @@ void Transform::rotate(float angleDegrees, const glm::vec3& axis) {
     rotationMatrix = glm::rotate(rotationMatrix, glm::radians(angleDegrees), glm::normalize(axis));
 }
 
-void Transform::setScale(const glm::vec3& scl) {
+Transform& Transform::setScale(const glm::vec3& scl) {
     scale = scl;
+
+    return *this;
 }
 
 glm::mat4 Transform::getModelMatrix() const {

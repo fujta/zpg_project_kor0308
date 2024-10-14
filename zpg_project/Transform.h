@@ -7,10 +7,10 @@ class Transform {
 public:
     Transform();
 
-    void setPosition(const glm::vec3& position);
-    void setRotation(float angleDegrees, const glm::vec3& axis);
+    Transform& setPosition(const glm::vec3& position);
+    Transform& setRotation(float angleDegrees, const glm::vec3& axis);
     void rotate(float angleDegrees, const glm::vec3& axis);
-    void setScale(const glm::vec3& scale);
+    Transform& setScale(const glm::vec3& scale);
 
     glm::mat4 getModelMatrix() const;
 	glm::vec3 getPosition() const;

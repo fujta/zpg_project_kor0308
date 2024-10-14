@@ -94,16 +94,16 @@ void Application::createScenes() {
     bushObject->createModel();
 
     // Set transformations
-    bushObject->getTransform().setPosition(glm::vec3(0.5f, 0.0f, 0.0f));
-	bushObject->getTransform().setRotation(45.0f, glm::vec3(1.0f, 0.9f, 0.0f));
-    bushObject->getTransform().setScale(glm::vec3(1.5f));
+    bushObject->getTransform()
+        .setPosition(glm::vec3(0.5f, 0.0f, 0.0f))
+        .setRotation(45.0f, glm::vec3(1.0f, 0.9f, 0.0f))
+        .setScale(glm::vec3(1.5f));
     scene1->addDrawableObject(bushObject);
 
     DrawableObject* treeObject = new DrawableObject(ShapeType::TREE);
     treeObject->createShaders("baseVertexShader.glsl", "redColorFragmentShader.glsl");
     treeObject->createModel();
-    treeObject->getTransform().setPosition(glm::vec3(-0.5f, -0.5f, 0.0f));
-    treeObject->getTransform().setScale(glm::vec3(0.19f));
+    treeObject->getTransform().setPosition(glm::vec3(-0.5f, -0.5f, 0.0f)).setScale(glm::vec3(0.19f));
     scene1->addDrawableObject(treeObject);
 
     // Second Scene - Forest
@@ -121,9 +121,10 @@ void Application::createScenes() {
         float rotationAngle = NumberGenerator::randomFloat(0.0f, 360.0f);
         float scaleValue = NumberGenerator::randomFloat(0.01f, 0.19f);
 
-        treeObject->getTransform().setPosition(position);
-        treeObject->getTransform().setRotation(rotationAngle, glm::vec3(0.0f, 1.0f, 0.0f));
-        treeObject->getTransform().setScale(glm::vec3(scaleValue));
+        treeObject->getTransform()
+            .setPosition(position)
+            .setRotation(rotationAngle, glm::vec3(0.0f, 1.0f, 0.0f))
+            .setScale(glm::vec3(scaleValue));
 
         scene2->addDrawableObject(treeObject);
     }
@@ -139,9 +140,7 @@ void Application::createScenes() {
         float rotationAngle = NumberGenerator::randomFloat(0.0f, 360.0f);
         float scaleValue = NumberGenerator::randomFloat(0.1f, 0.5f);
 
-        bushObject->getTransform().setPosition(position);
-        bushObject->getTransform().setRotation(rotationAngle, glm::vec3(0.0f, 1.0f, 0.0f));
-        bushObject->getTransform().setScale(glm::vec3(scaleValue));
+        bushObject->getTransform().setPosition(position).setRotation(rotationAngle, glm::vec3(0.0f, 1.0f, 0.0f)).setScale(glm::vec3(scaleValue));
 
         scene2->addDrawableObject(bushObject);
     }
