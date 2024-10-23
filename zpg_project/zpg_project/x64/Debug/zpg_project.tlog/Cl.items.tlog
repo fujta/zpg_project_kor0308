@@ -5,7 +5,12 @@ C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\main.cpp;C:\Users\Vojta\D
 C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\Model.cpp;C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\zpg_project\x64\Debug\Model.obj
 C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\ModelFactory.cpp;C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\zpg_project\x64\Debug\ModelFactory.obj
 C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\NumberGenerator.cpp;C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\zpg_project\x64\Debug\NumberGenerator.obj
+C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\Rotate.cpp;C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\zpg_project\x64\Debug\Rotate.obj
+C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\Scale.cpp;C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\zpg_project\x64\Debug\Scale.obj
 C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\Scene.cpp;C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\zpg_project\x64\Debug\Scene.obj
+C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\SceneFactory.cpp;C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\zpg_project\x64\Debug\SceneFactory.obj
 C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\Shader.cpp;C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\zpg_project\x64\Debug\Shader.obj
 C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\ShaderFactory.cpp;C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\zpg_project\x64\Debug\ShaderFactory.obj
-C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\Transform.cpp;C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\zpg_project\x64\Debug\Transform.obj
+C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\TransformFacade.cpp;C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\zpg_project\x64\Debug\TransformFacade.obj
+C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\Transformation.cpp;C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\zpg_project\x64\Debug\Transformation.obj
+C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\Translate.cpp;C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\zpg_project\x64\Debug\Translate.obj

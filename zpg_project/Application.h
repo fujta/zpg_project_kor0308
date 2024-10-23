@@ -8,6 +8,7 @@
 #include <vector>
 
 #include "CameraMovementEnum.h"
+#include "SceneFactory.h"
 
 class Application {
 private:

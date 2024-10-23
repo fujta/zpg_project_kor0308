@@ -73,6 +73,9 @@ void Application::changeSceneOnUserInteraction() {
     if (glfwGetKey(window, GLFW_KEY_2) == GLFW_PRESS) {
         currentSceneIndex = 1;
     }
+    if (glfwGetKey(window, GLFW_KEY_3) == GLFW_PRESS) {
+        currentSceneIndex = 2;
+    }
 }
 
 void Application::userActions(float deltaTime) {
@@ -120,66 +123,9 @@ void Application::framebufferSizeCallback(GLFWwindow* window, int width, int hei
 }
 
 void Application::createScenes() {
-    // First Scene - Single bush and tree
-    Scene* scene1 = new Scene(4.0f / 3.0f);
-    scenes.push_back(scene1);
-
-    // Create multiple objects
-    DrawableObject* bushObject = new DrawableObject(ShapeType::BUSH);
-    bushObject->createShaders("baseVertexShader.glsl", "baseFragmentShader.glsl", scene1->getCamera());
-    bushObject->createModel();
-
-    // Set transformations
-    bushObject->getTransform()
-        .setPosition(glm::vec3(0.5f, 0.0f, 0.0f))
-        .setRotation(45.0f, glm::vec3(1.0f, 0.9f, 0.0f))
-        .setScale(glm::vec3(1.5f));
-    scene1->addDrawableObject(bushObject);
-
-    DrawableObject* treeObject = new DrawableObject(ShapeType::TREE);
-    treeObject->createShaders("baseVertexShader.glsl", "redColorFragmentShader.glsl", scene1->getCamera());
-    treeObject->createModel();
-    treeObject->getTransform().setPosition(glm::vec3(-0.5f, -0.5f, 0.0f)).setScale(glm::vec3(0.19f));
-    scene1->addDrawableObject(treeObject);
-
-    // Second Scene - Forest
-    Scene* scene2 = new Scene(4.0f / 3.0f);
-    scenes.push_back(scene2);
-
-    int numTrees = 50;
-    for (int i = 0; i < numTrees; ++i) {
-        DrawableObject* treeObject = new DrawableObject(ShapeType::TREE);
-        treeObject->createShaders("baseVertexShader.glsl", "baseFragmentShader.glsl", scene2->getCamera());
-        treeObject->createModel();
-
-        // Random transformations
-        glm::vec3 position = glm::vec3(NumberGenerator::randomFloat(-10.0f, 10.0f), 0.0f, NumberGenerator::randomFloat(-10.0f, 10.0f));
-        float rotationAngle = NumberGenerator::randomFloat(0.0f, 360.0f);
-        float scaleValue = NumberGenerator::randomFloat(0.01f, 0.19f);
-
-        treeObject->getTransform()
-            .setPosition(position)
-            .setRotation(rotationAngle, glm::vec3(0.0f, 1.0f, 0.0f))
-            .setScale(glm::vec3(scaleValue));
-
-        scene2->addDrawableObject(treeObject);
-    }
-
-    int numBushes = 50;
-    for (int i = 0; i < numBushes; ++i) {
-        DrawableObject* bushObject = new DrawableObject(ShapeType::BUSH);
-        bushObject->createShaders("baseVertexShader.glsl", "baseFragmentShader.glsl", scene2->getCamera());
-        bushObject->createModel();
-
-        // Random transformations
-        glm::vec3 position = glm::vec3(NumberGenerator::randomFloat(-3.0f, 3.0f), 0.0f, NumberGenerator::randomFloat(-3.0f, 3.0f));
-        float rotationAngle = NumberGenerator::randomFloat(0.0f, 360.0f);
-        float scaleValue = NumberGenerator::randomFloat(0.1f, 0.5f);
-
-        bushObject->getTransform().setPosition(position).setRotation(rotationAngle, glm::vec3(0.0f, 1.0f, 0.0f)).setScale(glm::vec3(scaleValue));
-
-        scene2->addDrawableObject(bushObject);
-    }
+	scenes.push_back(SceneFactory::createBaseScene());
+	scenes.push_back(SceneFactory::createForestScene());
+	scenes.push_back(SceneFactory::createLightScene());
 
     currentSceneIndex = 0;
 }

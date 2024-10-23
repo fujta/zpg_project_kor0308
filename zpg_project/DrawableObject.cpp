@@ -2,7 +2,7 @@
 
 DrawableObject::DrawableObject(ShapeType shapeType) : model(nullptr), shader(nullptr) {
     this->shapeType = shapeType;
-    this->transform = new Transform();
+    this->transform = new TransformFacade();
 }
 
 DrawableObject::~DrawableObject()
@@ -26,6 +26,6 @@ void DrawableObject::render() {
     model->render(shapeType);
 }
 
-Transform& DrawableObject::getTransform() {
+TransformFacade& DrawableObject::setTransform() {
     return *transform;
 }

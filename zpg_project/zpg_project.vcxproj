@@ -137,10 +137,15 @@
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="ModelFactory.cpp" />
     <ClCompile Include="NumberGenerator.cpp" />
+    <ClCompile Include="Rotate.cpp" />
+    <ClCompile Include="Scale.cpp" />
     <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="SceneFactory.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="ShaderFactory.cpp" />
-    <ClCompile Include="Transform.cpp" />
+    <ClCompile Include="TransformFacade.cpp" />
+    <ClCompile Include="Transformation.cpp" />
+    <ClCompile Include="Translate.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
@@ -153,13 +158,18 @@
     <ClInclude Include="ModelFactory.h" />
     <ClInclude Include="NumberGenerator.h" />
     <ClInclude Include="plain.h" />
+    <ClInclude Include="Rotate.h" />
+    <ClInclude Include="Scale.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="SceneFactory.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="ShaderFactory.h" />
     <ClInclude Include="sphere.h" />
     <ClInclude Include="suzi_flat.h" />
     <ClInclude Include="suzi_smooth.h" />
-    <ClInclude Include="Transform.h" />
+    <ClInclude Include="TransformFacade.h" />
+    <ClInclude Include="Transformation.h" />
+    <ClInclude Include="Translate.h" />
     <ClInclude Include="tree.h" />
   </ItemGroup>
   <ItemGroup>

@@ -16,9 +16,13 @@ Model* ModelFactory::createModel(ShapeType type, glm::vec3 position) {
     else if (type == TREE) {
         points = tree;
 		pointCount = 610814;
-    }
+	}
+	else if (type == SPHERE) {
+		points = sphere;
+		pointCount = 20520;
+	}
     else {
-        std::cout << "Warning! Missing shape type\n";
+        std::cout << "Warning! Missing shape type in ModelFactory.cpp\n";
     }
 
     return new Model(points, pointCount);

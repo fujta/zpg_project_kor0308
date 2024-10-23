@@ -25,6 +25,12 @@
     <Filter Include="Header Files\utils">
       <UniqueIdentifier>{ff7510e7-ce9e-48f9-9d85-83e539330850}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\transformations">
+      <UniqueIdentifier>{5ccd27c5-319e-4656-828b-57202e40245a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\transformations">
+      <UniqueIdentifier>{d7eae59a-0aa9-443c-a88e-c3e0e44d1d0d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -51,7 +57,7 @@
     <ClCompile Include="DrawableObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Transform.cpp">
+    <ClCompile Include="TransformFacade.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="NumberGenerator.cpp">
@@ -59,6 +65,21 @@
     </ClCompile>
     <ClCompile Include="Camera.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Rotate.cpp">
+      <Filter>Source Files\transformations</Filter>
+    </ClCompile>
+    <ClCompile Include="Scale.cpp">
+      <Filter>Source Files\transformations</Filter>
+    </ClCompile>
+    <ClCompile Include="Transformation.cpp">
+      <Filter>Source Files\transformations</Filter>
+    </ClCompile>
+    <ClCompile Include="Translate.cpp">
+      <Filter>Source Files\transformations</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -89,7 +110,7 @@
     <ClInclude Include="DrawableObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Transform.h">
+    <ClInclude Include="TransformFacade.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="NumberGenerator.h">
@@ -115,6 +136,21 @@
     </ClInclude>
     <ClInclude Include="CameraMovementEnum.h">
       <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Scale.h">
+      <Filter>Header Files\transformations</Filter>
+    </ClInclude>
+    <ClInclude Include="Rotate.h">
+      <Filter>Header Files\transformations</Filter>
+    </ClInclude>
+    <ClInclude Include="Translate.h">
+      <Filter>Header Files\transformations</Filter>
+    </ClInclude>
+    <ClInclude Include="Transformation.h">
+      <Filter>Header Files\transformations</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

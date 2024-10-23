@@ -3,7 +3,7 @@
 #include "Model.h"
 #include "Shader.h"
 #include "ShaderFactory.h"
-#include "Transform.h"
+#include "TransformFacade.h"
 
 class DrawableObject
 {
@@ -14,11 +14,11 @@ public:
     void render();
     void createShaders(const std::string& vertexShaderPath, const std::string& fragmentShaderPath, Camera* camera);
     void createModel();
-    Transform& getTransform();
+    TransformFacade& setTransform();
 
 private:
     ShapeType shapeType;
     Model* model;
     Shader* shader;
-    Transform* transform;
+    TransformFacade* transform;
 };

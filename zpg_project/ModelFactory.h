@@ -5,7 +5,7 @@
 #include <iostream>
 
 class Model;
-enum ShapeType { TRIANGLE, SQUARE, BUSH, TREE };
+enum ShapeType { TRIANGLE, SQUARE, BUSH, TREE, SPHERE };
 
 class ModelFactory {
 public:
