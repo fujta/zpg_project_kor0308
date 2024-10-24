@@ -5,7 +5,7 @@
 #include "ShaderFactory.h"
 using namespace std;
 
-Shader* ShaderFactory::createShader(const string& vertexShaderPath, const string& fragmentShaderPath, Camera* camera) {
+Shader* ShaderFactory::createShader(const string& vertexShaderPath, const string& fragmentShaderPath, Camera* camera, Light* light) {
     string vertexShaderCode = readShaderFromFile(vertexShaderPath);
     string fragmentShaderCode = readShaderFromFile(fragmentShaderPath);
 
@@ -13,7 +13,7 @@ Shader* ShaderFactory::createShader(const string& vertexShaderPath, const string
         return nullptr;
     }
 
-    Shader* shader = new Shader(camera);
+    Shader* shader = new Shader(camera, light);
     shader->loadShaders(vertexShaderCode.c_str(), fragmentShaderCode.c_str());
 
     return shader;

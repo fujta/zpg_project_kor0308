@@ -12,8 +12,12 @@ DrawableObject::~DrawableObject()
     delete transform;
 }
 
-void DrawableObject::createShaders(const std::string& vertexShaderPath, const std::string& fragmentShaderPath, Camera* camera) {
-    shader = ShaderFactory::createShader(vertexShaderPath, fragmentShaderPath, camera);
+void DrawableObject::createShaders(const std::string& vertexShaderPath, const std::string& fragmentShaderPath, Camera* camera, Light* light) {
+    shader = ShaderFactory::createShader(vertexShaderPath, fragmentShaderPath, camera, light);
+}
+
+void DrawableObject::createShaders(Shader* shader) {
+    this->shader = shader;
 }
 
 void DrawableObject::createModel() {
@@ -21,9 +25,14 @@ void DrawableObject::createModel() {
 }
 
 void DrawableObject::render() {
-    shader->use();
-    shader->setUniformLocation(transform->getModelMatrix());
-    model->render(shapeType);
+    if (shader) {
+        shader->use();
+        shader->setUniformLocation(transform->getModelMatrix());
+        model->render(shapeType);
+    }
+    else {
+        std::cerr << "Shader is nullptr, cannot render DrawableObject." << std::endl;
+    }
 }
 
 TransformFacade& DrawableObject::setTransform() {

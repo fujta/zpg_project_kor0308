@@ -21,5 +21,6 @@ glm::mat4 TransformFacade::getModelMatrix() const
 	for (Transformation* transformation : transformations) {
 		modelMatrix = transformation->apply(modelMatrix);
 	}
+
 	return modelMatrix;
 }

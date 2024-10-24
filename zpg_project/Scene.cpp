@@ -6,6 +6,7 @@ Scene::Scene(float aspectRatio) {
 
 Scene::~Scene() {
     delete camera;
+
     for (auto obj : drawableObjects) {
         delete obj;
     }
@@ -30,5 +31,6 @@ DrawableObject* Scene::getDrawableObject(int index) {
     if (index >= 0 && index < drawableObjects.size()) {
         return drawableObjects[index];
     }
+
     return nullptr;
 }

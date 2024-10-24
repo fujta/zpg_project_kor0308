@@ -12,7 +12,8 @@ public:
     ~DrawableObject();
 
     void render();
-    void createShaders(const std::string& vertexShaderPath, const std::string& fragmentShaderPath, Camera* camera);
+    void createShaders(const std::string& vertexShaderPath, const std::string& fragmentShaderPath, Camera* camera, Light* light = nullptr);
+    void createShaders(Shader* shader);
     void createModel();
     TransformFacade& setTransform();
 

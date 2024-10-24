@@ -35,7 +35,7 @@ void Model::render(ShapeType shapeType) {
         glDrawArrays(GL_TRIANGLE_STRIP, 0, pointCount / 3);
 	}
 	else if (shapeType == SPHERE) {
-		glDrawArrays(GL_TRIANGLES, 0, pointCount * 3);
+		glDrawArrays(GL_TRIANGLES, 0, pointCount / 3);
 	}
     else {
 		std::cout << "Warning! Missing shape type in model.cpp\n";

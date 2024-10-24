@@ -22,7 +22,7 @@ Scene* SceneFactory::createBaseScene() {
     scene1->addDrawableObject(bushObject);
 
     DrawableObject* treeObject = new DrawableObject(ShapeType::TREE);
-    treeObject->createShaders("baseVertexShader.glsl", "redColorFragmentShader.glsl", scene1->getCamera());
+    treeObject->createShaders("baseVertexShader.glsl", "baseFragmentShader.glsl", scene1->getCamera());
     treeObject->createModel();
     scene1->addDrawableObject(treeObject);
 
@@ -75,41 +75,59 @@ Scene* SceneFactory::createForestScene() {
 }
 
 Scene* SceneFactory::createLightScene() {
-	// Third Scene - Light
-	Scene* scene3 = new Scene(4.0f / 3.0f);
+    // Third Scene - Light
+    Scene* scene3 = new Scene(4.0f / 3.0f);
 
-	DrawableObject* sphereObject1 = new DrawableObject(ShapeType::SPHERE);
-    sphereObject1->createShaders("baseVertexShader.glsl", "baseFragmentShader.glsl", scene3->getCamera());
+    // Vytvoøení jediného svìtla
+    Light* light = new Light();
+
+    // Vytvoøení Shaderu s jediným svìtlem
+    ShaderFactory factory;
+    Shader* shader = factory.createShader("lightVertexShader.glsl", "lambertLightFragmentShader.glsl", scene3->getCamera(), light);
+
+    if (!shader) {
+        std::cerr << "Failed to create shader." << std::endl;
+        return nullptr;
+    }
+
+    // Vytvoøení a nastavení sphereObject1
+    DrawableObject* sphereObject1 = new DrawableObject(ShapeType::SPHERE);
+    sphereObject1->createShaders(shader); // Pøedpokládám, že máte metodu, která pøijímá Shader pointer
     sphereObject1->createModel();
-	sphereObject1->setTransform()
-		.addTransformation(new Translate(glm::vec3(2.0f, 0.0f, 0.0f)))
-		.addTransformation(new Scale(glm::vec3(0.5f, 0.5f, 0.5f)));
-	scene3->addDrawableObject(sphereObject1);
+    sphereObject1->setTransform()
+        .addTransformation(new Translate(glm::vec3(2.0f, 0.0f, 0.0f)))
+        .addTransformation(new Scale(glm::vec3(0.5f, 0.5f, 0.5f)));
+    scene3->addDrawableObject(sphereObject1);
 
+    // Vytvoøení a nastavení sphereObject2
     DrawableObject* sphereObject2 = new DrawableObject(ShapeType::SPHERE);
-    sphereObject2->createShaders("baseVertexShader.glsl", "baseFragmentShader.glsl", scene3->getCamera());
+    sphereObject2->createShaders(shader);
     sphereObject2->createModel();
     sphereObject2->setTransform()
         .addTransformation(new Translate(glm::vec3(2.0f, 0.0f, 2.0f)))
         .addTransformation(new Scale(glm::vec3(0.5f, 0.5f, 0.5f)));
     scene3->addDrawableObject(sphereObject2);
 
+    // Vytvoøení a nastavení sphereObject3
     DrawableObject* sphereObject3 = new DrawableObject(ShapeType::SPHERE);
-    sphereObject3->createShaders("baseVertexShader.glsl", "baseFragmentShader.glsl", scene3->getCamera());
+    sphereObject3->createShaders(shader);
     sphereObject3->createModel();
     sphereObject3->setTransform()
         .addTransformation(new Translate(glm::vec3(0.0f, 0.0f, 2.0f)))
         .addTransformation(new Scale(glm::vec3(0.5f, 0.5f, 0.5f)));
     scene3->addDrawableObject(sphereObject3);
 
+    // Vytvoøení a nastavení sphereObject4
     DrawableObject* sphereObject4 = new DrawableObject(ShapeType::SPHERE);
-    sphereObject4->createShaders("baseVertexShader.glsl", "baseFragmentShader.glsl", scene3->getCamera());
+    sphereObject4->createShaders(shader);
     sphereObject4->createModel();
     sphereObject4->setTransform()
         .addTransformation(new Translate(glm::vec3(0.0f, 0.0f, 0.0f)))
         .addTransformation(new Scale(glm::vec3(0.5f, 0.5f, 0.5f)));
     scene3->addDrawableObject(sphereObject4);
 
+    light->setPosition(glm::vec3(0.0f, 10.0f, 0.0f));
+    light->setColor(glm::vec4(1.0f, 0.0f, 0.0f, 1.0f));
 
-	return scene3;  
+    return scene3;
 }

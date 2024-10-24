@@ -31,6 +31,7 @@ private:
 public:
     Camera(float aspectRatio);
 
+	glm::vec3 getPosition();
     glm::mat4 getViewMatrix();
     glm::mat4 getProjectionMatrix();
     void processMouseMovement(float xoffset, float yoffset);

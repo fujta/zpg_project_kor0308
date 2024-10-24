@@ -8,6 +8,8 @@
 #include "Translate.h"
 #include "Rotate.h"
 
+#include "Light.h"
+
 class SceneFactory
 {
 public:

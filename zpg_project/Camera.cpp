@@ -16,6 +16,10 @@ Camera::Camera(float aspectRatio)
     updateCameraVectors();
 }
 
+glm::vec3 Camera::getPosition() {
+	return position;
+}
+
 void Camera::updateCameraVectors() {
     glm::vec3 front;
     front.x = cos(glm::radians(horizontalAngle)) * cos(glm::radians(verticalAngle));
