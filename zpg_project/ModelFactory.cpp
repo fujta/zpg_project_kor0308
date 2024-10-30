@@ -19,8 +19,8 @@ Model* ModelFactory::createModel(ShapeType type, glm::vec3 position) {
 		pointCount = 610814;
 	}
 	else if (type == SPHERE) {
-		points = suziSmooth;
-		pointCount = 17424;
+		points = sphere;
+		pointCount = 20520;
 	}
     else {
         std::cout << "Warning! Missing shape type in ModelFactory.cpp\n";

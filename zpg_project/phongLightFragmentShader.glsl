@@ -1,27 +1,25 @@
 #version 330
 
-in vec4 ex_worldPosition;
-in vec3 ex_worldNormal;
+in vec3 FragPos;
+in vec3 Normal;
 out vec4 out_Color;
 
 uniform vec3 lightPosition;
 uniform vec4 lightColor;
-uniform vec4 objectColor;
 uniform vec3 viewPosition;
-uniform float shininess;
 
-void main(void) {
-    vec3 normal = normalize(ex_worldNormal);
-    vec3 lightVector = normalize(lightPosition - vec3(ex_worldPosition));
-    vec3 viewDir = normalize(viewPosition - vec3(ex_worldPosition));
+void main() {
+    vec4 ambient = vec4(0.1, 0.1, 0.1, 1.0) * lightColor;
 
-    float dot_product = max(dot(lightVector, normal), 0.0);
-    vec4 diffuse = dot_product * lightColor * objectColor;
+    vec3 norm = normalize(Normal);
+    vec3 lightDir = normalize(lightPosition - FragPos);
+    float diff = max(dot(norm, lightDir), 0.0);
+    vec4 diffuse = diff * lightColor;
 
-    vec3 reflectDir = reflect(-lightVector, normal);
-    float spec = pow(max(dot(viewDir, reflectDir), 0.0), shininess);
-    vec4 specular = spec * lightColor;
+    vec3 viewDir = normalize(viewPosition - FragPos);
+    vec3 reflectDir = reflect(-lightDir, norm);
+    float spec = pow(max(dot(viewDir, reflectDir), 0.0), 32.0);
+    vec4 specular = vec4(0.5, 0.5, 0.5, 1.0) * spec * lightColor;
 
-    vec4 ambient = vec4(0.1, 0.1, 0.1, 1.0);
     out_Color = ambient + diffuse + specular;
 }
