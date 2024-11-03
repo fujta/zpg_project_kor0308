@@ -1,25 +1,33 @@
 #include "Shader.h"
 #include <iostream>
 
-Shader::Shader(Camera* camera, Light* light) {
+Shader::Shader(Camera* camera, Light* light, const string& vertexShaderPath, const string& fragmentShaderPath) {
     shaderProgram = 0;
     this->camera = camera;
     camera->addObserver(this);
 
-    this->light = light;
-    if (this->light) {
+    if (this->light = light) {
         this->light->addObserver(this);
     }
+     
+    shaderLoader = new ShaderLoader(vertexShaderPath.c_str(), fragmentShaderPath.c_str(), &shaderProgram);
+    viewMatrixLoc = glGetUniformLocation(shaderProgram, "viewMatrix");
+    projectionMatrixLoc = glGetUniformLocation(shaderProgram, "projectionMatrix");
+    onCameraUpdated();
 }
 
 Shader::~Shader() {
     if (shaderProgram != 0) {
         glDeleteProgram(shaderProgram);
     }
+
     camera->removeObserver(this);
     if (light) {
         light->removeObserver(this);
     }
+
+	shaderLoader->deleteShader();
+	delete shaderLoader;
 }
 
 void Shader::onCameraUpdated() {
@@ -50,76 +58,17 @@ void Shader::onLightUpdated() {
     glUniform1f(glGetUniformLocation(shaderProgram, "shininess"), shininess);
 }
 
-void Shader::setUniformMatrix(const std::string& name, const glm::mat4& matrix) {
-    GLint location = glGetUniformLocation(shaderProgram, name.c_str());
-    if (location == -1) {
-        std::cerr << "Uniform " << name << " not found." << std::endl;
-    }
-    else {
-        glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(matrix));
-    }
-}
-
-GLuint Shader::compileShader(const char* source, GLenum type) {
-    GLuint shader = glCreateShader(type);
-    glShaderSource(shader, 1, &source, NULL);
-    glCompileShader(shader);
-    GLint status;
-    glGetShaderiv(shader, GL_COMPILE_STATUS, &status);
-
-    if (status == GL_FALSE) {
-        GLint infoLogLength;
-        glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &infoLogLength);
-        GLchar* strInfoLog = new GLchar[infoLogLength + 1];
-        glGetShaderInfoLog(shader, infoLogLength, NULL, strInfoLog);
-        std::cerr << "Shader compilation error: " << strInfoLog << std::endl;
-        delete[] strInfoLog;
-        glDeleteShader(shader);
-        return 0;
-    }
-    return shader;
-}
-
-void Shader::loadShaders(const char* vertexShaderSource, const char* fragmentShaderSource) {
-    GLuint vertexShader = compileShader(vertexShaderSource, GL_VERTEX_SHADER);
-    GLuint fragmentShader = compileShader(fragmentShaderSource, GL_FRAGMENT_SHADER);
-
-    shaderProgram = glCreateProgram();
-    glAttachShader(shaderProgram, vertexShader);
-    glAttachShader(shaderProgram, fragmentShader);
-    glLinkProgram(shaderProgram);
-
-    viewMatrixLoc = glGetUniformLocation(shaderProgram, "viewMatrix");
-    projectionMatrixLoc = glGetUniformLocation(shaderProgram, "projectionMatrix");
-
-    GLint status;
-    glGetProgramiv(shaderProgram, GL_LINK_STATUS, &status);
-
-    if (status == GL_FALSE) {
-        GLint infoLogLength;
-        glGetProgramiv(shaderProgram, GL_INFO_LOG_LENGTH, &infoLogLength);
-        GLchar* strInfoLog = new GLchar[infoLogLength + 1];
-        glGetProgramInfoLog(shaderProgram, infoLogLength, NULL, strInfoLog);
-        std::cerr << "Program linking error: " << strInfoLog << std::endl;
-        delete[] strInfoLog;
-    }
-
-    glDeleteShader(vertexShader);
-    glDeleteShader(fragmentShader);
-
-    onCameraUpdated();
-}
-
 void Shader::use() {
     glUseProgram(shaderProgram);
 }
 
+[[depreacted("Should set an object color through Light")]]
 void Shader::setUniformColor(float r, float g, float b, float a) {
     GLint colorLocation = glGetUniformLocation(shaderProgram, "fragColor");
     glUniform4f(colorLocation, r, g, b, a);
 }
 
-void Shader::setUniformLocation(const glm::mat4& modelMatrix) {
+void Shader::setUniformMatrix(const glm::mat4& modelMatrix) {
     GLint modelMatrixLoc = glGetUniformLocation(shaderProgram, "modelMatrix");
     glUniformMatrix4fv(modelMatrixLoc, 1, GL_FALSE, glm::value_ptr(modelMatrix));
 

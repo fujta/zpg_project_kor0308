@@ -8,6 +8,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
+#include "ShaderLoader.h"
 #include "Camera.h"
 #include "Light.h"
 #include "ICameraObserver.h"
@@ -18,6 +19,7 @@ private:
     GLuint shaderProgram; // Must not be accessible from outside
     Camera* camera;
     Light* light;
+	ShaderLoader* shaderLoader;
 
     GLint viewMatrixLoc;
     GLint projectionMatrixLoc;
@@ -25,12 +27,11 @@ private:
     GLuint compileShader(const char* source, GLenum type);
 
 public:
-    Shader(Camera* camera, Light* light);
+    Shader(Camera* camera, Light* light, const string& vertexShaderPath, const string& fragmentShaderPath);
     ~Shader();
-    void loadShaders(const char* vertexShaderSource, const char* fragmentShaderSource);
+
     void setUniformColor(float r, float g, float b, float a);
-    void setUniformLocation(const glm::mat4& modelMatrix);
-    void setUniformMatrix(const std::string& name, const glm::mat4& matrix);
+    void setUniformMatrix(const glm::mat4& modelMatrix);
     void use();
 
     void onCameraUpdated() override;

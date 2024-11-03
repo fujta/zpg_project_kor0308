@@ -144,6 +144,7 @@
     <ClCompile Include="SceneFactory.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="ShaderFactory.cpp" />
+    <ClCompile Include="ShaderLoader.cpp" />
     <ClCompile Include="TransformFacade.cpp" />
     <ClCompile Include="Transformation.cpp" />
     <ClCompile Include="Translate.cpp" />
@@ -168,6 +169,7 @@
     <ClInclude Include="SceneFactory.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="ShaderFactory.h" />
+    <ClInclude Include="ShaderLoader.h" />
     <ClInclude Include="sphere.h" />
     <ClInclude Include="suzi_flat.h" />
     <ClInclude Include="suzi_smooth.h" />

@@ -27,7 +27,7 @@ void DrawableObject::createModel() {
 void DrawableObject::render() {
     if (shader) {
         shader->use();
-        shader->setUniformLocation(transform->getModelMatrix());
+        shader->setUniformMatrix(transform->getModelMatrix());
         model->render(shapeType);
     }
     else {

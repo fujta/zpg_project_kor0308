@@ -78,9 +78,6 @@
     <ClCompile Include="DrawableObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TransformFacade.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="NumberGenerator.cpp">
       <Filter>Source Files\_utils</Filter>
     </ClCompile>
@@ -123,6 +120,12 @@
     <ClCompile Include="UserInputController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ShaderLoader.cpp">
+      <Filter>Source Files\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="TransformFacade.cpp">
+      <Filter>Source Files\_transformations</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h">
@@ -135,9 +138,6 @@
       <Filter>Header Files\_objects</Filter>
     </ClInclude>
     <ClInclude Include="DrawableObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TransformFacade.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="NumberGenerator.h">
@@ -202,6 +202,12 @@
     </ClInclude>
     <ClInclude Include="UserInputController.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderLoader.h">
+      <Filter>Header Files\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="TransformFacade.h">
+      <Filter>Header Files\_transformations</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
