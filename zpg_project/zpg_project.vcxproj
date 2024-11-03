@@ -147,6 +147,7 @@
     <ClCompile Include="TransformFacade.cpp" />
     <ClCompile Include="Transformation.cpp" />
     <ClCompile Include="Translate.cpp" />
+    <ClCompile Include="UserInputController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
@@ -174,6 +175,7 @@
     <ClInclude Include="Transformation.h" />
     <ClInclude Include="Translate.h" />
     <ClInclude Include="tree.h" />
+    <ClInclude Include="UserInputController.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="baseFragmentShader.glsl" />

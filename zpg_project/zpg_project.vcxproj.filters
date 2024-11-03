@@ -120,6 +120,9 @@
     <ClCompile Include="Light.cpp">
       <Filter>Source Files\Light</Filter>
     </ClCompile>
+    <ClCompile Include="UserInputController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h">
@@ -196,6 +199,9 @@
     </ClInclude>
     <ClInclude Include="Light.h">
       <Filter>Header Files\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="UserInputController.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
