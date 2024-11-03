@@ -21,5 +21,5 @@ private:
     ShapeType shapeType;
     Model* model;
     Shader* shader;
-    TransformFacade* transform;
+    TransformFacade* transformFacade;
 };

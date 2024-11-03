@@ -6,7 +6,7 @@ Light::Light()
 {
 	lightPosition = glm::vec3(0.0f, 10.0f, 0.0f);
 	lightColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
-	objectColor = glm::vec4(0.5f, 0.5f, 1.0f, 1.0f);
+	objectColor = glm::vec4(0.5f, 0.5f, 0.5f, 0.5f);
 	shininess = 32.0f;
 }
 

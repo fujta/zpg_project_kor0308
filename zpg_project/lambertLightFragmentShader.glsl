@@ -6,7 +6,7 @@ out vec4 out_Color;
 
 uniform vec3 lightPosition;
 uniform vec4 lightColor;
-//uniform vec4 objectColor;
+//uniform vec4 objectColor; TODO: add object color when needed
 
 void main(void) {
     vec3 normal = normalize(Normal);

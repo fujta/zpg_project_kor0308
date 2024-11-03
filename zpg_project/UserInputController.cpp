@@ -29,4 +29,7 @@ void UserInputController::handleSceneChange(GLFWwindow* window, int& currentScen
 	if (glfwGetKey(window, GLFW_KEY_3) == GLFW_PRESS) {
 		currentSceneIndex = 2;
 	}
+	if (glfwGetKey(window, GLFW_KEY_4) == GLFW_PRESS) {
+		currentSceneIndex = 3;
+	}
 }

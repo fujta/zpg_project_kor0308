@@ -99,6 +99,7 @@ void Application::createScenes() {
 	scenes.push_back(SceneFactory::createBaseScene());
 	scenes.push_back(SceneFactory::createForestScene());
 	scenes.push_back(SceneFactory::createLightScene());
+	scenes.push_back(SceneFactory::createLightDemonstrateScene());
 
     currentSceneIndex = 0;
 }

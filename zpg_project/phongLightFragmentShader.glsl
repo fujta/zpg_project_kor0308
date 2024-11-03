@@ -7,6 +7,7 @@ out vec4 out_Color;
 uniform vec3 lightPosition;
 uniform vec4 lightColor;
 uniform vec3 viewPosition;
+//uniform vec4 objectColor; TODO: add object color when needed
 
 void main() {
     vec4 ambient = vec4(0.1, 0.1, 0.1, 1.0) * lightColor;

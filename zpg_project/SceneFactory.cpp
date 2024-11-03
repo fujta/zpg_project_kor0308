@@ -82,7 +82,7 @@ Scene* SceneFactory::createLightScene() {
 
 	// Create only one shader with light
     ShaderFactory factory;
-    Shader* shader = factory.createShader("lightVertexShader.glsl", "phongLightFragmentShader.glsl", scene3->getCamera(), light);
+    Shader* shader = factory.createShader("lightVertexShader.glsl", "blinnPhongLightFragmentShader.glsl", scene3->getCamera(), light);
 
     if (!shader) {
         std::cerr << "Failed to create shader." << std::endl;
@@ -127,7 +127,63 @@ Scene* SceneFactory::createLightScene() {
     scene3->addDrawableObject(sphereObject4);
 
     light->setPosition(glm::vec3(0.0f, 10.0f, 0.0f));
-    light->setColor(glm::vec4(1.0f, 1.0f, 1.0f, 1.0f));
+    light->setColor(glm::vec4(0.5f, 0.5f, 0.1f, 1.0f));
 
     return scene3;
+}
+
+Scene* SceneFactory::createLightDemonstrateScene() {
+	// Fourth Scene - Light Demonstrate
+	Scene* scene4 = new Scene(4.0f / 3.0f);
+
+	Light* light1 = new Light();
+	Light* light2 = new Light();
+	Light* light3 = new Light();
+	Light* light4 = new Light();
+
+	// Create and set sphereObject1
+	DrawableObject* sphereObject1 = new DrawableObject(ShapeType::SPHERE);
+	sphereObject1->createShaders("lightVertexShader.glsl", "constantLightFragmentShader.glsl", scene4->getCamera(), light1);
+	sphereObject1->createModel();
+    sphereObject1->setTransform()
+        .addTransformation(new Translate(glm::vec3(2.0f, 0.0f, 0.0f)))
+        .addTransformation(new Scale(glm::vec3(0.5f, 0.5f, 0.5f)));
+	scene4->addDrawableObject(sphereObject1);
+    light1->setPosition(glm::vec3(0.0f, 10.0f, 5.0f));
+    light1->setColor(glm::vec4(1.0f, 1.0f, 1.0f, 1.0f));
+
+	// Create and set sphereObject2
+	DrawableObject* sphereObject2 = new DrawableObject(ShapeType::SPHERE);
+    sphereObject2->createShaders("lightVertexShader.glsl", "lambertLightFragmentShader.glsl", scene4->getCamera(), light2);
+	sphereObject2->createModel();
+	sphereObject2->setTransform()
+		.addTransformation(new Translate(glm::vec3(4.0f, 0.0f, 0.0f)))
+        .addTransformation(new Scale(glm::vec3(0.5f, 0.5f, 0.5f)));
+	scene4->addDrawableObject(sphereObject2);
+    light2->setPosition(glm::vec3(0.0f, 10.0f, 7.0f));
+    light2->setColor(glm::vec4(1.0f, 1.0f, 1.0f, 1.0f));
+
+	// Create and set sphereObject3
+	DrawableObject* sphereObject3 = new DrawableObject(ShapeType::SPHERE);
+    sphereObject3->createShaders("lightVertexShader.glsl", "phongLightFragmentShader.glsl", scene4->getCamera(), light3);
+	sphereObject3->createModel();
+    sphereObject3->setTransform()
+        .addTransformation(new Translate(glm::vec3(6.0f, 0.0f, 0.0f)))
+        .addTransformation(new Scale(glm::vec3(0.5f, 0.5f, 0.5f)));
+	scene4->addDrawableObject(sphereObject3);
+    light3->setPosition(glm::vec3(0.0f, 10.0f, 9.0f));
+    light3->setColor(glm::vec4(1.0f, 1.0f, 1.0f, 1.0f));
+
+    // Create and set sphereObject4
+    DrawableObject* sphereObject4 = new DrawableObject(ShapeType::SPHERE);
+    sphereObject4->createShaders("lightVertexShader.glsl", "blinnPhongLightFragmentShader.glsl", scene4->getCamera(), light4);
+    sphereObject4->createModel();
+    sphereObject4->setTransform()
+        .addTransformation(new Translate(glm::vec3(8.0f, 0.0f, 0.0f)))
+        .addTransformation(new Scale(glm::vec3(0.5f, 0.5f, 0.5f)));
+    scene4->addDrawableObject(sphereObject4);
+    light4->setPosition(glm::vec3(0.0f, 10.0f, 11.0f));
+    light4->setColor(glm::vec4(1.0f, 1.0f, 1.0f, 1.0f));
+
+	return scene4;
 }

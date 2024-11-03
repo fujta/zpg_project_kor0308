@@ -1,6 +1,6 @@
 #include "TransformFacade.h"
 
-TransformFacade::TransformFacade() : modelMatrix(1.0f) {}
+TransformFacade::TransformFacade() {}
 
 TransformFacade::~TransformFacade() {
 	for (Transformation* transformation : transformations) {

@@ -13,14 +13,8 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\_transformations">
-      <UniqueIdentifier>{d7eae59a-0aa9-443c-a88e-c3e0e44d1d0d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\_objects">
       <UniqueIdentifier>{8b6b7292-7487-437c-aeda-77799aa06bd8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\_transformations">
-      <UniqueIdentifier>{5ccd27c5-319e-4656-828b-57202e40245a}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\_shaders">
       <UniqueIdentifier>{bfe33277-0ae8-42bc-83d6-9863773e1181}</UniqueIdentifier>
@@ -67,6 +61,18 @@
     <Filter Include="Source Files\Light">
       <UniqueIdentifier>{0a551a94-6668-4256-89c0-6bb60a682cb3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Transform">
+      <UniqueIdentifier>{389e6eae-7706-4d6b-9c36-5b03ba78ca59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Transform\_transformations">
+      <UniqueIdentifier>{5ccd27c5-319e-4656-828b-57202e40245a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Transform">
+      <UniqueIdentifier>{bd405b7c-827a-44a1-810e-433f2e2935a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Transform\_transformations">
+      <UniqueIdentifier>{d7eae59a-0aa9-443c-a88e-c3e0e44d1d0d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -82,16 +88,16 @@
       <Filter>Source Files\_utils</Filter>
     </ClCompile>
     <ClCompile Include="Rotate.cpp">
-      <Filter>Source Files\_transformations</Filter>
+      <Filter>Source Files\Transform\_transformations</Filter>
     </ClCompile>
     <ClCompile Include="Scale.cpp">
-      <Filter>Source Files\_transformations</Filter>
+      <Filter>Source Files\Transform\_transformations</Filter>
     </ClCompile>
     <ClCompile Include="Transformation.cpp">
-      <Filter>Source Files\_transformations</Filter>
+      <Filter>Source Files\Transform\_transformations</Filter>
     </ClCompile>
     <ClCompile Include="Translate.cpp">
-      <Filter>Source Files\_transformations</Filter>
+      <Filter>Source Files\Transform\_transformations</Filter>
     </ClCompile>
     <ClCompile Include="Shader.cpp">
       <Filter>Source Files\Shader</Filter>
@@ -124,7 +130,7 @@
       <Filter>Source Files\Shader</Filter>
     </ClCompile>
     <ClCompile Include="TransformFacade.cpp">
-      <Filter>Source Files\_transformations</Filter>
+      <Filter>Source Files\Transform</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -159,16 +165,16 @@
       <Filter>Header Files\_utils</Filter>
     </ClInclude>
     <ClInclude Include="Scale.h">
-      <Filter>Header Files\_transformations</Filter>
+      <Filter>Header Files\Transform\_transformations</Filter>
     </ClInclude>
     <ClInclude Include="Rotate.h">
-      <Filter>Header Files\_transformations</Filter>
+      <Filter>Header Files\Transform\_transformations</Filter>
     </ClInclude>
     <ClInclude Include="Translate.h">
-      <Filter>Header Files\_transformations</Filter>
+      <Filter>Header Files\Transform\_transformations</Filter>
     </ClInclude>
     <ClInclude Include="Transformation.h">
-      <Filter>Header Files\_transformations</Filter>
+      <Filter>Header Files\Transform\_transformations</Filter>
     </ClInclude>
     <ClInclude Include="Shader.h">
       <Filter>Header Files\Shader</Filter>
@@ -194,9 +200,6 @@
     <ClInclude Include="Camera.h">
       <Filter>Header Files\Camera</Filter>
     </ClInclude>
-    <ClInclude Include="ILightObserver.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Light.h">
       <Filter>Header Files\Light</Filter>
     </ClInclude>
@@ -207,7 +210,10 @@
       <Filter>Header Files\Shader</Filter>
     </ClInclude>
     <ClInclude Include="TransformFacade.h">
-      <Filter>Header Files\_transformations</Filter>
+      <Filter>Header Files\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="ILightObserver.h">
+      <Filter>Header Files\Light</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -6,7 +6,8 @@ Shader::Shader(Camera* camera, Light* light, const string& vertexShaderPath, con
     this->camera = camera;
     camera->addObserver(this);
 
-    if (this->light = light) {
+    this->light = light;
+    if (light) {
         this->light->addObserver(this);
     }
      
@@ -50,11 +51,13 @@ void Shader::onLightUpdated() {
     glm::vec3 lightPosition = light->getPosition();
     glm::vec4 lightColor = light->getColor();
 	glm::vec3 viewPosition = camera->getPosition();
+	glm::vec4 objectColor = light->getObjectColor();
     float shininess = light->getShininess();
 
     glUniform3fv(glGetUniformLocation(shaderProgram, "lightPosition"), 1, glm::value_ptr(lightPosition));
     glUniform4fv(glGetUniformLocation(shaderProgram, "lightColor"), 1, glm::value_ptr(lightColor));
     glUniform3fv(glGetUniformLocation(shaderProgram, "viewPosition"), 1, glm::value_ptr(viewPosition));
+    glUniform4fv(glGetUniformLocation(shaderProgram, "objectColor"), 1, glm::value_ptr(objectColor));
     glUniform1f(glGetUniformLocation(shaderProgram, "shininess"), shininess);
 }
 

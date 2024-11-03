@@ -18,6 +18,5 @@ public:
     glm::mat4 getModelMatrix() const;
 
 private:
-	glm::mat4 modelMatrix;
 	vector<Transformation*> transformations;
 };

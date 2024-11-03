@@ -1,6 +1,29 @@
-﻿  Shader.cpp
+﻿  Application.cpp
 C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\Light.h(6,10): warning C4067: Po direktivě preprocesoru byly neočekávané tokeny – očekával se nový řádek.
-  (kompilování zdrojového souboru Shader.cpp)
+  (kompilování zdrojového souboru Application.cpp)
   
-C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\Shader.cpp(65,2): warning C5030: Atribut [[depreacted]] nebyl rozpoznán
+C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\Application.cpp(55,28): warning C4244: inicializování: double se převádí na float; může dojít ke ztrátě dat.
+C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\Application.cpp(77,22): warning C4244: =: double se převádí na float; může dojít ke ztrátě dat.
+C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\Application.cpp(78,22): warning C4244: =: double se převádí na float; může dojít ke ztrátě dat.
+C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\Application.cpp(82,19): warning C4244: inicializování: double se převádí na float; může dojít ke ztrátě dat.
+C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\Application.cpp(83,19): warning C4244: inicializování: double se převádí na float; může dojít ke ztrátě dat.
+C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\Application.cpp(85,18): warning C4244: =: double se převádí na float; může dojít ke ztrátě dat.
+C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\Application.cpp(86,18): warning C4244: =: double se převádí na float; může dojít ke ztrátě dat.
+  DrawableObject.cpp
+C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\Light.h(6,10): warning C4067: Po direktivě preprocesoru byly neočekávané tokeny – očekával se nový řádek.
+  (kompilování zdrojového souboru DrawableObject.cpp)
+  
+  Scene.cpp
+C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\Light.h(6,10): warning C4067: Po direktivě preprocesoru byly neočekávané tokeny – očekával se nový řádek.
+  (kompilování zdrojového souboru Scene.cpp)
+  
+  SceneFactory.cpp
+C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\Light.h(6,10): warning C4067: Po direktivě preprocesoru byly neočekávané tokeny – očekával se nový řádek.
+  (kompilování zdrojového souboru SceneFactory.cpp)
+  
+  main.cpp
+C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\Light.h(6,10): warning C4067: Po direktivě preprocesoru byly neočekávané tokeny – očekával se nový řádek.
+  (kompilování zdrojového souboru main.cpp)
+  
+  Generování kódu...
   zpg_project.vcxproj -> C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\x64\Debug\zpg_project.exe

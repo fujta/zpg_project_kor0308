@@ -2,14 +2,14 @@
 
 DrawableObject::DrawableObject(ShapeType shapeType) : model(nullptr), shader(nullptr) {
     this->shapeType = shapeType;
-    this->transform = new TransformFacade();
+    this->transformFacade = new TransformFacade();
 }
 
 DrawableObject::~DrawableObject()
 {
     delete model;
     delete shader;
-    delete transform;
+    delete transformFacade;
 }
 
 void DrawableObject::createShaders(const std::string& vertexShaderPath, const std::string& fragmentShaderPath, Camera* camera, Light* light) {
@@ -27,7 +27,7 @@ void DrawableObject::createModel() {
 void DrawableObject::render() {
     if (shader) {
         shader->use();
-        shader->setUniformMatrix(transform->getModelMatrix());
+        shader->setUniformMatrix(transformFacade->getModelMatrix());
         model->render(shapeType);
     }
     else {
@@ -36,5 +36,5 @@ void DrawableObject::render() {
 }
 
 TransformFacade& DrawableObject::setTransform() {
-    return *transform;
+    return *transformFacade;
 }
