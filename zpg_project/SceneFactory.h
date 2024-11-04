@@ -1,5 +1,4 @@
 #pragma once
-
 #include "Scene.h"
 #include "DrawableObject.h"
 #include "NumberGenerator.h"
@@ -7,8 +6,14 @@
 #include "Scale.h"
 #include "Translate.h"
 #include "Rotate.h"
+#include "RotateAnimation.h"
+#include "TranslateAnimation.h"
 
 #include "Light.h"
+#include "ConstantLight.h"
+#include "LambertLight.h"
+#include "PhongLight.h"
+#include "BlinnLight.h"
 
 class SceneFactory
 {

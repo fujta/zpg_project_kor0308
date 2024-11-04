@@ -3,6 +3,10 @@
 
 Shader::Shader(Camera* camera, Light* light, const string& vertexShaderPath, const string& fragmentShaderPath) {
     shaderProgram = 0;
+
+	this->setCamera(camera);
+	this->addLight(light);
+
     this->camera = camera;
     camera->addObserver(this);
 
@@ -31,6 +35,26 @@ Shader::~Shader() {
 	delete shaderLoader;
 }
 
+void Shader::addLight(Light* light) {
+    if (!light) return;
+    this->light = light;
+    light->addObserver(this);
+    onLightUpdated();
+}
+
+void Shader::setCamera(Camera* camera) {
+    if (this->camera) {
+        this->camera->removeObserver(this);
+    }
+
+    this->camera = camera;
+
+    if (camera) {
+        camera->addObserver(this);
+        onCameraUpdated();
+    }
+}
+
 void Shader::onCameraUpdated() {
     this->use();
 
@@ -50,16 +74,26 @@ void Shader::onLightUpdated() {
 
     glm::vec3 lightPosition = light->getPosition();
     glm::vec4 lightColor = light->getColor();
-	glm::vec3 viewPosition = camera->getPosition();
-	glm::vec4 objectColor = light->getObjectColor();
+    glm::vec3 viewPosition = camera->getPosition();
+    glm::vec4 objectColor = light->getObjectColor();
     float shininess = light->getShininess();
+
+	cout << shininess << endl;
 
     glUniform3fv(glGetUniformLocation(shaderProgram, "lightPosition"), 1, glm::value_ptr(lightPosition));
     glUniform4fv(glGetUniformLocation(shaderProgram, "lightColor"), 1, glm::value_ptr(lightColor));
     glUniform3fv(glGetUniformLocation(shaderProgram, "viewPosition"), 1, glm::value_ptr(viewPosition));
     glUniform4fv(glGetUniformLocation(shaderProgram, "objectColor"), 1, glm::value_ptr(objectColor));
     glUniform1f(glGetUniformLocation(shaderProgram, "shininess"), shininess);
+    glUniform1i(glGetUniformLocation(shaderProgram, "numberOfLights"), 1);
+
+    glm::vec4 lightPosition4 = glm::vec4(lightPosition, 1.0f);
+    glUniform4fv(glGetUniformLocation(shaderProgram, "lights[0].position"), 1, glm::value_ptr(lightPosition4));
+    glUniform4fv(glGetUniformLocation(shaderProgram, "lights[0].color"), 1, glm::value_ptr(lightColor));
+    glUniform1f(glGetUniformLocation(shaderProgram, "lights[0].intensity"), 1.0f);
+    glUniform1f(glGetUniformLocation(shaderProgram, "lights[0].ambientStrength"), 0.1f);
 }
+
 
 void Shader::use() {
     glUseProgram(shaderProgram);

@@ -16,6 +16,10 @@ void DrawableObject::createShaders(const std::string& vertexShaderPath, const st
     shader = ShaderFactory::createShader(vertexShaderPath, fragmentShaderPath, camera, light);
 }
 
+void DrawableObject::createShaders(const std::string& vertexShaderPath, const std::string& fragmentShaderPath, Camera* camera, std::vector<Light*> lights) {
+    shader = ShaderFactory::createShader(vertexShaderPath, fragmentShaderPath, camera, lights);
+}
+
 void DrawableObject::createShaders(Shader* shader) {
     this->shader = shader;
 }

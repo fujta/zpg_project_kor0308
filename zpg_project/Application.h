@@ -11,6 +11,12 @@
 #include "SceneFactory.h"
 #include "UserInputController.h"
 
+#define DEFAULT_SCENE_INDEX 0
+#define DEFAULT_VIEWPORT_HEIGHT 600
+#define DEFAULT_VIEWPORT_WIDTH 800
+
+#define NUMBER_OF_SCENES 4
+
 class Application {
 private:
     GLFWwindow* window;
@@ -23,9 +29,6 @@ private:
 
     static void onMouseCallback(GLFWwindow* window, double xpos, double ypos);
     static void framebufferSizeCallback(GLFWwindow* window, int width, int height);
-
-    void changeSceneOnUserInteraction();
-    void userActions(float deltaTime);
 
     float lastX;
     float lastY;

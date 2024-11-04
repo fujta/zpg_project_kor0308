@@ -2,6 +2,7 @@
 
 #include <glm/glm.hpp>
 #include <vector>
+#include <string>
 
 #include "ILightObserver.h";
 
@@ -26,6 +27,8 @@ public:
 	void notifyObservers();
 	void addObserver(ILightObserver* observer);
 	void removeObserver(ILightObserver* observer);
+
+	std::string virtual getFragmentShaderName() = 0;
 private:
     glm::vec3 lightPosition;
     glm::vec4 lightColor;

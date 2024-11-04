@@ -34,3 +34,13 @@ DrawableObject* Scene::getDrawableObject(int index) {
 
     return nullptr;
 }
+
+void Scene::addAnimation(Animation* animation) {
+	animations.push_back(animation);
+}
+
+void Scene::updateAnimationFrame() {
+	for (auto animation : animations) {
+		animation->update();
+	}
+}

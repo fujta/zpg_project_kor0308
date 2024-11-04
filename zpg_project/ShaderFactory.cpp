@@ -11,3 +11,9 @@ Shader* ShaderFactory::createShader(const string& vertexShaderPath, const string
     return shader;
 }
 
+Shader* ShaderFactory::createShader(const string& vertexShaderPath, const string& fragmentShaderPath, Camera* camera, std::vector<Light*> lights) {
+    Shader* shader = new MultipleLightsShader(camera, lights, vertexShaderPath, fragmentShaderPath);
+
+    return shader;
+}
+

@@ -19,7 +19,7 @@ void UserInputController::handleCameraMovement(GLFWwindow* window, float deltaTi
 }
 
 void UserInputController::handleSceneChange(GLFWwindow* window, int& currentSceneIndex)
-{
+{	
 	if (glfwGetKey(window, GLFW_KEY_1) == GLFW_PRESS) {
 		currentSceneIndex = 0;
 	}

@@ -29,7 +29,7 @@ void Application::initialization() {
         exit(EXIT_FAILURE);
     }
 
-    window = glfwCreateWindow(800, 600, "ZPG", NULL, NULL);
+    window = glfwCreateWindow(DEFAULT_VIEWPORT_WIDTH, DEFAULT_VIEWPORT_HEIGHT, "ZPG", NULL, NULL);
     if (!window) {
         glfwTerminate();
         exit(EXIT_FAILURE);
@@ -39,7 +39,7 @@ void Application::initialization() {
     glewExperimental = GL_TRUE;
     glewInit();
 
-    glViewport(0, 0, 800, 600);
+    glViewport(0, 0, DEFAULT_VIEWPORT_WIDTH, DEFAULT_VIEWPORT_HEIGHT);
 
     glfwSetCursorPosCallback(window, onMouseCallback);
     glfwSetFramebufferSizeCallback(window, framebufferSizeCallback);
@@ -61,6 +61,7 @@ void Application::run() {
 		userInputController->handleSceneChange(window, currentSceneIndex);
 		userInputController->handleCameraMovement(window, deltaTime, scenes[currentSceneIndex]->getCamera());
 
+		scenes[currentSceneIndex]->updateAnimationFrame();
         scenes[currentSceneIndex]->render();
 
         glfwSwapBuffers(window);
@@ -101,5 +102,5 @@ void Application::createScenes() {
 	scenes.push_back(SceneFactory::createLightScene());
 	scenes.push_back(SceneFactory::createLightDemonstrateScene());
 
-    currentSceneIndex = 0;
+    currentSceneIndex = DEFAULT_SCENE_INDEX;
 }

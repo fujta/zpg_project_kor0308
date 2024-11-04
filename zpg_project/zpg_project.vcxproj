@@ -130,15 +130,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Animation.cpp" />
     <ClCompile Include="Application.cpp" />
+    <ClCompile Include="BlinnLight.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="ConstantLight.cpp" />
     <ClCompile Include="DrawableObject.cpp" />
+    <ClCompile Include="LambertLight.cpp" />
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="ModelFactory.cpp" />
+    <ClCompile Include="MultipleLightsShader.cpp" />
     <ClCompile Include="NumberGenerator.cpp" />
+    <ClCompile Include="PhongLight.cpp" />
     <ClCompile Include="Rotate.cpp" />
+    <ClCompile Include="RotateAnimation.cpp" />
     <ClCompile Include="Scale.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneFactory.cpp" />
@@ -148,22 +155,30 @@
     <ClCompile Include="TransformFacade.cpp" />
     <ClCompile Include="Transformation.cpp" />
     <ClCompile Include="Translate.cpp" />
+    <ClCompile Include="TranslateAnimation.cpp" />
     <ClCompile Include="UserInputController.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Animation.h" />
     <ClInclude Include="Application.h" />
+    <ClInclude Include="BlinnLight.h" />
     <ClInclude Include="bushes.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CameraMovementEnum.h" />
+    <ClInclude Include="ConstantLight.h" />
     <ClInclude Include="ICameraObserver.h" />
     <ClInclude Include="DrawableObject.h" />
     <ClInclude Include="ILightObserver.h" />
+    <ClInclude Include="LambertLight.h" />
     <ClInclude Include="Light.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="ModelFactory.h" />
+    <ClInclude Include="MultipleLightsShader.h" />
     <ClInclude Include="NumberGenerator.h" />
+    <ClInclude Include="PhongLight.h" />
     <ClInclude Include="plain.h" />
     <ClInclude Include="Rotate.h" />
+    <ClInclude Include="RotateAnimation.h" />
     <ClInclude Include="Scale.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneFactory.h" />
@@ -176,6 +191,7 @@
     <ClInclude Include="TransformFacade.h" />
     <ClInclude Include="Transformation.h" />
     <ClInclude Include="Translate.h" />
+    <ClInclude Include="TranslateAnimation.h" />
     <ClInclude Include="tree.h" />
     <ClInclude Include="UserInputController.h" />
   </ItemGroup>
@@ -183,6 +199,7 @@
     <None Include="baseFragmentShader.glsl" />
     <None Include="baseVertexShader.glsl" />
     <None Include="blinnPhongLightFragmentShader.glsl" />
+    <None Include="ClassDiagram.cd" />
     <None Include="constantLightFragmentShader.glsl" />
     <None Include="lambertLightFragmentShader.glsl" />
     <None Include="lightVertexShader.glsl" />

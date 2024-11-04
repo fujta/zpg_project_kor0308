@@ -1,10 +1,11 @@
 #pragma once
 
+#include <vector>
+#include "Animation.h"
 #include "DrawableObject.h"
 #include "Shader.h"
 #include "ShaderFactory.h"
 #include "Camera.h"
-#include <vector>
 
 class Scene {
 public:
@@ -17,8 +18,13 @@ public:
 
     Camera* getCamera();
 
+    void addAnimation(Animation* animation);
+    void updateAnimationFrame();
+
 private:
     std::vector<DrawableObject*> drawableObjects;
+    std::vector<Animation*> animations;
+
     Camera* camera;
 };
 

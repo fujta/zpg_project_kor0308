@@ -73,12 +73,21 @@
     <Filter Include="Header Files\Transform\_transformations">
       <UniqueIdentifier>{d7eae59a-0aa9-443c-a88e-c3e0e44d1d0d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Light\LightTypes">
+      <UniqueIdentifier>{f008c29d-90c4-4449-803c-8954491ed246}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Light\LightTypes">
+      <UniqueIdentifier>{5ae65ead-43cc-40bc-bfb2-2357e22296b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Animation">
+      <UniqueIdentifier>{5cf3d7e1-cb95-40f6-b0e2-744a950a62dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Animation">
+      <UniqueIdentifier>{540ca98b-7efa-418c-b9d9-20d1ac20b601}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Application.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="DrawableObject.cpp">
@@ -131,6 +140,33 @@
     </ClCompile>
     <ClCompile Include="TransformFacade.cpp">
       <Filter>Source Files\Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="MultipleLightsShader.cpp">
+      <Filter>Source Files\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="PhongLight.cpp">
+      <Filter>Source Files\Light\LightTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="LambertLight.cpp">
+      <Filter>Source Files\Light\LightTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="ConstantLight.cpp">
+      <Filter>Source Files\Light\LightTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="BlinnLight.cpp">
+      <Filter>Source Files\Light\LightTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="RotateAnimation.cpp">
+      <Filter>Source Files\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="Animation.cpp">
+      <Filter>Source Files\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="Application.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TranslateAnimation.cpp">
+      <Filter>Source Files\Animation</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -215,6 +251,30 @@
     <ClInclude Include="ILightObserver.h">
       <Filter>Header Files\Light</Filter>
     </ClInclude>
+    <ClInclude Include="MultipleLightsShader.h">
+      <Filter>Header Files\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="BlinnLight.h">
+      <Filter>Header Files\Light\LightTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="ConstantLight.h">
+      <Filter>Header Files\Light\LightTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="LambertLight.h">
+      <Filter>Header Files\Light\LightTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="PhongLight.h">
+      <Filter>Header Files\Light\LightTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="Animation.h">
+      <Filter>Header Files\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="RotateAnimation.h">
+      <Filter>Header Files\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="TranslateAnimation.h">
+      <Filter>Header Files\Animation</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="baseFragmentShader.glsl">
@@ -238,5 +298,6 @@
     <None Include="phongLightFragmentShader.glsl">
       <Filter>Source Files\_shaders\fragment_shaders</Filter>
     </None>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

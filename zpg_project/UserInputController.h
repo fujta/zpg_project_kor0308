@@ -1,6 +1,7 @@
 #pragma once
-#include "Camera.h"
+#include  <iostream>
 #include <GLFW/glfw3.h>
+#include "Camera.h"
 
 class UserInputController
 {

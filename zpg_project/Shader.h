@@ -15,16 +15,15 @@
 #include "ILightObserver.h"
 
 class Shader : public ICameraObserver, public ILightObserver {
-private:
+protected:
     GLuint shaderProgram; // Must not be accessible from outside
-    Camera* camera;
-    Light* light;
-	ShaderLoader* shaderLoader;
-
+    ShaderLoader* shaderLoader;
     GLint viewMatrixLoc;
     GLint projectionMatrixLoc;
+    Camera* camera;
 
-    GLuint compileShader(const char* source, GLenum type);
+private: 
+    Light* light;
 
 public:
     Shader(Camera* camera, Light* light, const string& vertexShaderPath, const string& fragmentShaderPath);
@@ -33,6 +32,9 @@ public:
     void setUniformColor(float r, float g, float b, float a);
     void setUniformMatrix(const glm::mat4& modelMatrix);
     void use();
+
+    void addLight(Light* light);
+    void setCamera(Camera* camera);
 
     void onCameraUpdated() override;
     void onLightUpdated() override;

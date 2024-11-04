@@ -9,7 +9,6 @@
 #include <sstream>
 
 
-
 using namespace std;
 
 class ShaderLoader

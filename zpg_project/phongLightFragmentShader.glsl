@@ -1,26 +1,45 @@
-#version 330
+#version 330 core
+
+#define MAX_LIGHTS 10
 
 in vec3 FragPos;
 in vec3 Normal;
 out vec4 out_Color;
 
-uniform vec3 lightPosition;
-uniform vec4 lightColor;
+struct Light {
+    vec4 position;
+    vec4 color;
+};
+
+uniform int numberOfLights;
+uniform Light lights[MAX_LIGHTS];
 uniform vec3 viewPosition;
-//uniform vec4 objectColor; TODO: add object color when needed
+uniform vec4 objectColor;
+uniform float shininess;
 
 void main() {
-    vec4 ambient = vec4(0.1, 0.1, 0.1, 1.0) * lightColor;
-
     vec3 norm = normalize(Normal);
-    vec3 lightDir = normalize(lightPosition - FragPos);
-    float diff = max(dot(norm, lightDir), 0.0);
-    vec4 diffuse = diff * lightColor;
+    vec4 finalColor = vec4(0.0);
 
-    vec3 viewDir = normalize(viewPosition - FragPos);
-    vec3 reflectDir = reflect(-lightDir, norm);
-    float spec = pow(max(dot(viewDir, reflectDir), 0.0), 32.0);
-    vec4 specular = vec4(0.5, 0.5, 0.5, 1.0) * spec * lightColor;
+    // Ambient
+    vec4 ambient = vec4(0.1, 0.1, 0.1, 1.0) * objectColor;
+    finalColor += ambient;
 
-    out_Color = ambient + diffuse + specular;
+    for (int i = 0; i < numberOfLights; i++) {
+        // Diffuse
+        vec3 lightDir = normalize(vec3(lights[i].position) - FragPos);
+        float diff = max(dot(norm, lightDir), 0.0);
+        vec4 diffuse = diff * lights[i].color;
+
+        // Specular
+        vec3 viewDir = normalize(viewPosition - FragPos);
+        vec3 reflectDir = reflect(-lightDir, norm);
+        float spec = pow(max(dot(viewDir, reflectDir), 0.0), shininess);
+        vec4 specular = spec * lights[i].color;
+
+
+        finalColor += diffuse * objectColor + specular;
+    }
+
+    out_Color = finalColor;
 }

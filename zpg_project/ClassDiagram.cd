@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Application" Collapsed="true">
+    <Position X="10" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAIAgIAABMAAIAAAgAAAIAAAABGAAQIAIAACAAAAAA=</HashCode>
+      <FileName>Application.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DrawableObject" Collapsed="true">
+    <Position X="13.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAgAAggAAAAAAAAAAAAAAAAAQAIAABAAAAEAYAAA=</HashCode>
+      <FileName>DrawableObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UserInputController" Collapsed="true">
+    <Position X="15.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAgAAA=</HashCode>
+      <FileName>UserInputController.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NumberGenerator" Collapsed="true">
+    <Position X="11.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>NumberGenerator.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MultipleLightsShader" Collapsed="true">
+    <Position X="0.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAABAAQAAAAAAIAAAAAABAAQAAAAAA=</HashCode>
+      <FileName>MultipleLightsShader.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Shader" Collapsed="true">
+    <Position X="0.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAADAAhBAAAIABAAAACAAAAIAAAAAJBAAAAAAAQA=</HashCode>
+      <FileName>Shader.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShaderFactory" Collapsed="true">
+    <Position X="10" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>ShaderFactory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShaderLoader" Collapsed="true">
+    <Position X="11.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAMEACAAAAAAAAAAAAAAAAAAAAAAAEAAAAIAAAQAAA=</HashCode>
+      <FileName>ShaderLoader.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model" Collapsed="true">
+    <Position X="15.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAgCAAAAAAAAAAAAAAAACAAAAAAAAAAgAAAAUAAA=</HashCode>
+      <FileName>Model.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ModelFactory" Collapsed="true">
+    <Position X="10" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ModelFactory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Scene" Collapsed="true">
+    <Position X="13.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAwgAAAAAAAQAIAAAAAEAAAAAAQAAA=</HashCode>
+      <FileName>Scene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SceneFactory" Collapsed="true">
+    <Position X="15.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAgAABAAAAAAAQAABAAAAAAAAAAAQA=</HashCode>
+      <FileName>SceneFactory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Camera" Collapsed="true">
+    <Position X="11.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAOIAAgAEAQIAA4IAEAIAECAAAAABAIAgAACgAAgAA=</HashCode>
+      <FileName>Camera.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICameraObserver" Collapsed="true">
+    <Position X="3.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ICameraObserver.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ILightObserver" Collapsed="true">
+    <Position X="0.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ILightObserver.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Light" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAJIAEAEAAQIAGAQAFQAgACAAABAQAAAAAAyAEIAAA=</HashCode>
+      <FileName>Light.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BlinnLight" Collapsed="true">
+    <Position X="0.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BlinnLight.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConstantLight" Collapsed="true">
+    <Position X="3" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ConstantLight.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LambertLight" Collapsed="true">
+    <Position X="5.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LambertLight.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PhongLight" Collapsed="true">
+    <Position X="7.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PhongLight.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TransformFacade" Collapsed="true">
+    <Position X="13.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAgAAAAAAAEAAAAAABAAgAAA=</HashCode>
+      <FileName>TransformFacade.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Rotate" Collapsed="true">
+    <Position X="5.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAQAAEAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Rotate.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Scale" Collapsed="true">
+    <Position X="0.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAIAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Scale.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Transformation" Collapsed="true">
+    <Position X="3" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Transformation.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Translate" Collapsed="true">
+    <Position X="3" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Translate.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="CameraMovement" Collapsed="true">
+    <Position X="10" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAgAIAAAAAAAAA=</HashCode>
+      <FileName>CameraMovementEnum.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ShapeType" Collapsed="true">
+    <Position X="11.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIIAAAAAAABAAQAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>ModelFactory.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

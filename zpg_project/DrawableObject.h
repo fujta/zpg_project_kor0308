@@ -13,6 +13,7 @@ public:
 
     void render();
     void createShaders(const std::string& vertexShaderPath, const std::string& fragmentShaderPath, Camera* camera, Light* light = nullptr);
+	void createShaders(const std::string& vertexShaderPath, const std::string& fragmentShaderPath, Camera* camera, std::vector<Light*> lights);
     void createShaders(Shader* shader);
     void createModel();
     TransformFacade& setTransform();
