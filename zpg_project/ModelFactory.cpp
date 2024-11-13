@@ -5,6 +5,7 @@
 #include "bushes.h"
 #include "tree.h"
 #include "suzi_smooth.h"
+#include "plain.h"
 
 Model* ModelFactory::createModel(ShapeType type, glm::vec3 position) {
     float* points = nullptr;
@@ -21,6 +22,10 @@ Model* ModelFactory::createModel(ShapeType type, glm::vec3 position) {
 	else if (type == SPHERE) {
 		points = sphere;
 		pointCount = 20520;
+    }
+	else if (type == PLAIN) {
+		points = plain;
+		pointCount = 36;
 	}
     else {
         std::cout << "Warning! Missing shape type in ModelFactory.cpp\n";

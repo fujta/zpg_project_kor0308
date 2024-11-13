@@ -135,6 +135,7 @@
     <ClCompile Include="BlinnLight.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="ConstantLight.cpp" />
+    <ClCompile Include="DirectionalLight.cpp" />
     <ClCompile Include="DrawableObject.cpp" />
     <ClCompile Include="LambertLight.cpp" />
     <ClCompile Include="Light.cpp" />
@@ -152,6 +153,7 @@
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="ShaderFactory.cpp" />
     <ClCompile Include="ShaderLoader.cpp" />
+    <ClCompile Include="Spotlight.cpp" />
     <ClCompile Include="TransformFacade.cpp" />
     <ClCompile Include="Transformation.cpp" />
     <ClCompile Include="Translate.cpp" />
@@ -166,6 +168,7 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CameraMovementEnum.h" />
     <ClInclude Include="ConstantLight.h" />
+    <ClInclude Include="DirectionalLight.h" />
     <ClInclude Include="ICameraObserver.h" />
     <ClInclude Include="DrawableObject.h" />
     <ClInclude Include="ILightObserver.h" />
@@ -186,6 +189,7 @@
     <ClInclude Include="ShaderFactory.h" />
     <ClInclude Include="ShaderLoader.h" />
     <ClInclude Include="sphere.h" />
+    <ClInclude Include="Spotlight.h" />
     <ClInclude Include="suzi_flat.h" />
     <ClInclude Include="suzi_smooth.h" />
     <ClInclude Include="TransformFacade.h" />
@@ -201,9 +205,11 @@
     <None Include="blinnPhongLightFragmentShader.glsl" />
     <None Include="ClassDiagram.cd" />
     <None Include="constantLightFragmentShader.glsl" />
+    <None Include="directionalLightFragmentShader.glsl" />
     <None Include="lambertLightFragmentShader.glsl" />
     <None Include="lightVertexShader.glsl" />
     <None Include="phongLightFragmentShader.glsl" />
+    <None Include="spotlightFragmentShader.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -6,39 +6,67 @@ SceneFactory::~SceneFactory() {
 }
 
 Scene* SceneFactory::createBaseScene() {
-    // First Scene - Single bush and tree
-    Scene* scene1 = new Scene(4.0f / 3.0f);
+    Scene* scene = new Scene(4.0f / 3.0f);
 
-    // Create multiple objects
-    DrawableObject* bushObject = new DrawableObject(ShapeType::BUSH);
-    bushObject->createShaders("baseVertexShader.glsl", "baseFragmentShader.glsl", scene1->getCamera());
-    bushObject->createModel();
+    // Create a spotlight
+    Spotlight* spotlight = new Spotlight(scene->getCamera());
 
-    // Set transformations
-    bushObject->setTransform()
-        .addTransformation(new Translate(glm::vec3(1.0f, 1.0f, 0.0f)))
-        .addTransformation(new Scale(glm::vec3(2.0f, 2.0f, 2.0f)))
-        .addTransformation(new Rotate(90.0f, glm::vec3(0.5f, 0.5f, 0.5f)));
-    scene1->addDrawableObject(bushObject);
+    // Create a shader for the spotlight
+    ShaderFactory factory;
+    Shader* spotlightShader = factory.createShader("lightVertexShader.glsl", spotlight->getFragmentShaderName(), scene->getCamera(), spotlight);
 
-    DrawableObject* treeObject = new DrawableObject(ShapeType::TREE);
-    treeObject->createShaders("baseVertexShader.glsl", "baseFragmentShader.glsl", scene1->getCamera());
-    treeObject->createModel();
-    scene1->addDrawableObject(treeObject);
+    // Create a drawable object
+    DrawableObject* object = new DrawableObject(ShapeType::SPHERE);
+    object->createShaders(spotlightShader);
+    object->createModel();
+    object->setTransform()
+        .addTransformation(new Translate(glm::vec3(0.0f, 0.0f, 0.0f)))
+        .addTransformation(new Scale(glm::vec3(1.0f)));
 
-	return scene1;
+    spotlight->setPosition(glm::vec3(0.0f, 5.0f, 0.0f));
+    spotlight->setDirection(glm::vec3(0.0f, -1.0f, 0.0f));
+    spotlight->setCutOff(12.5f);
+    spotlight->setOuterCutOff(17.5f);
+    spotlight->setColor(glm::vec4(1.0f));
+
+    scene->addDrawableObject(object);
+
+    return scene;
 }
+
+//Scene* SceneFactory::createBaseScene() {
+//    // First Scene - Single bush and tree
+//    Scene* scene1 = new Scene(4.0f / 3.0f);
+//
+//    // Create multiple objects
+//    DrawableObject* bushObject = new DrawableObject(ShapeType::BUSH);
+//    bushObject->createShaders("baseVertexShader.glsl", "baseFragmentShader.glsl", scene1->getCamera());
+//    bushObject->createModel();
+//
+//    // Set transformations
+//    bushObject->setTransform()
+//        .addTransformation(new Translate(glm::vec3(1.0f, 1.0f, 0.0f)))
+//        .addTransformation(new Scale(glm::vec3(2.0f, 2.0f, 2.0f)))
+//        .addTransformation(new Rotate(90.0f, glm::vec3(0.5f, 0.5f, 0.5f)));
+//    scene1->addDrawableObject(bushObject);
+//
+//    DrawableObject* treeObject = new DrawableObject(ShapeType::TREE);
+//    treeObject->createShaders("baseVertexShader.glsl", "baseFragmentShader.glsl", scene1->getCamera());
+//    treeObject->createModel();
+//    scene1->addDrawableObject(treeObject);
+//
+//	return scene1;
+//}
 
 Scene* SceneFactory::createForestScene() {
     // Second Scene - Forest
     Scene* scene2 = new Scene(4.0f / 3.0f);
-    Light* lamberLight = new LambertLight();
+    Spotlight* spotlight = new Spotlight(scene2->getCamera());
 
     int numTrees = 50;
     for (int i = 0; i < numTrees; ++i) {
-
         DrawableObject* treeObject = new DrawableObject(ShapeType::TREE);
-        treeObject->createShaders("lightVertexShader.glsl", lamberLight->getFragmentShaderName(), scene2->getCamera(), lamberLight);
+        treeObject->createShaders("lightVertexShader.glsl", spotlight->getFragmentShaderName(), scene2->getCamera(), spotlight);
         treeObject->createModel();
 
         float randX = NumberGenerator::randomFloat(-5.0f, 5.0f);
@@ -62,10 +90,25 @@ Scene* SceneFactory::createForestScene() {
         }    
     }
 
-    lamberLight->setPosition(glm::vec3(0.0f, 2.0f, 0.0f));
-    lamberLight->setColor(glm::vec4(1.0f, 1.0f, 1.0f, 1.0f));
-    lamberLight->setObjectColor(glm::vec4(0.0f, 1.0f, 0.0f, 1.0f));
-    lamberLight->setShininess(1.0f);
+    spotlight->setPosition(glm::vec3(5.0f, 5.0f, 0.0f));
+    spotlight->setDirection(glm::vec3(0.0f, -1.0f, 0.0f));
+    spotlight->setCutOff(12.5f);
+    spotlight->setOuterCutOff(17.5f);
+    spotlight->setColor(glm::vec4(1.0f));
+
+    Spotlight* spotlight2 = new Spotlight(scene2->getCamera());
+    DrawableObject* plain = new DrawableObject(ShapeType::PLAIN);
+    plain->createShaders("lightVertexShader.glsl", spotlight2->getFragmentShaderName(), scene2->getCamera(), spotlight2);
+    plain->createModel();
+    plain->setTransform()
+        .addTransformation(new Scale(glm::vec3(15.0f, 1.0f, 15.0f)));
+    scene2->addDrawableObject(plain);
+
+    spotlight2->setPosition(glm::vec3(5.0f, 5.0f, 0.0f));
+    spotlight2->setDirection(glm::vec3(0.0f, -1.0f, 0.0f));
+    spotlight2->setCutOff(12.5f);
+    spotlight2->setOuterCutOff(17.5f);
+    spotlight2->setColor(glm::vec4(1.0, 0.0, 0.0,1.0f));
 
     int numBushes = 50;
     for (int i = 0; i < numBushes; ++i) {
@@ -125,6 +168,18 @@ Scene* SceneFactory::createForestScene() {
 	phong->setColor(glm::vec4(1.0f, 1.0f, 1.0f, 1.0f));
 	phong->setPosition(glm::vec3(0.0f, 0.0f, 0.0f));
 	phong->setShininess(1.0f);
+
+    // Test directional light
+	DirectionalLight* directionalLight = new DirectionalLight();
+	DrawableObject* sphereObject = new DrawableObject(ShapeType::SPHERE);
+	sphereObject->createShaders("lightVertexShader.glsl", directionalLight->getFragmentShaderName(), scene2->getCamera(), directionalLight);
+	sphereObject->createModel();
+	sphereObject->setTransform()
+		.addTransformation(new Translate(glm::vec3(0.0f, 0.0f, 0.0f)))
+		.addTransformation(new Scale(glm::vec3(0.5f, 0.5f, 0.5f)));
+	scene2->addDrawableObject(sphereObject);
+
+	directionalLight->setDirection(glm::vec3(1.0f, 0.0f, 0.0f));
 
 	return scene2;
 }

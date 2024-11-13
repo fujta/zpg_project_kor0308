@@ -14,6 +14,9 @@
 #include "ICameraObserver.h"
 #include "ILightObserver.h"
 
+#include "Spotlight.h"
+#include "DirectionalLight.h"
+
 class Shader : public ICameraObserver, public ILightObserver {
 protected:
     GLuint shaderProgram; // Must not be accessible from outside

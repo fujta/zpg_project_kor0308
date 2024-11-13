@@ -95,3 +95,7 @@ void Camera::setAspectRatio(float aspectRatio) {
     this->aspectRatio = aspectRatio;
     notifyObservers();
 }
+
+glm::vec3 Camera::getTarget() {
+	return target;
+}

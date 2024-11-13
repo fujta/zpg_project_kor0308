@@ -14,6 +14,8 @@
 #include "LambertLight.h"
 #include "PhongLight.h"
 #include "BlinnLight.h"
+#include "Spotlight.h"
+#include "DirectionalLight.h"
 
 class SceneFactory
 {

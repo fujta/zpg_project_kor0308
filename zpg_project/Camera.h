@@ -34,6 +34,8 @@ public:
 	glm::vec3 getPosition();
     glm::mat4 getViewMatrix();
     glm::mat4 getProjectionMatrix();
+	glm::vec3 getTarget();
+
     void processMouseMovement(float xoffset, float yoffset);
     void processKeyboard(CameraMovement direction, float deltaTime);
 

@@ -168,6 +168,12 @@
     <ClCompile Include="TranslateAnimation.cpp">
       <Filter>Source Files\Animation</Filter>
     </ClCompile>
+    <ClCompile Include="Spotlight.cpp">
+      <Filter>Source Files\Light\LightTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectionalLight.cpp">
+      <Filter>Source Files\Light\LightTypes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h">
@@ -275,6 +281,12 @@
     <ClInclude Include="TranslateAnimation.h">
       <Filter>Header Files\Animation</Filter>
     </ClInclude>
+    <ClInclude Include="Spotlight.h">
+      <Filter>Header Files\Light\LightTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectionalLight.h">
+      <Filter>Header Files\Light\LightTypes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="baseFragmentShader.glsl">
@@ -299,5 +311,11 @@
       <Filter>Source Files\_shaders\fragment_shaders</Filter>
     </None>
     <None Include="ClassDiagram.cd" />
+    <None Include="directionalLightFragmentShader.glsl">
+      <Filter>Source Files\_shaders\fragment_shaders</Filter>
+    </None>
+    <None Include="spotlightFragmentShader.glsl">
+      <Filter>Source Files\_shaders\fragment_shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

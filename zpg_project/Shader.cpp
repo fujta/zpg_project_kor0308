@@ -78,7 +78,6 @@ void Shader::onLightUpdated() {
     glm::vec4 objectColor = light->getObjectColor();
     float shininess = light->getShininess();
 
-	cout << shininess << endl;
 
     glUniform3fv(glGetUniformLocation(shaderProgram, "lightPosition"), 1, glm::value_ptr(lightPosition));
     glUniform4fv(glGetUniformLocation(shaderProgram, "lightColor"), 1, glm::value_ptr(lightColor));
@@ -92,6 +91,25 @@ void Shader::onLightUpdated() {
     glUniform4fv(glGetUniformLocation(shaderProgram, "lights[0].color"), 1, glm::value_ptr(lightColor));
     glUniform1f(glGetUniformLocation(shaderProgram, "lights[0].intensity"), 1.0f);
     glUniform1f(glGetUniformLocation(shaderProgram, "lights[0].ambientStrength"), 0.1f);
+
+    // Spotlight-specific uniforms
+    if (Spotlight* spotlight = dynamic_cast<Spotlight*>(light)) {
+        glUniform3fv(glGetUniformLocation(shaderProgram, "spotlight.position"), 1, glm::value_ptr(spotlight->getPosition()));
+        glUniform3fv(glGetUniformLocation(shaderProgram, "spotlight.direction"), 1, glm::value_ptr(spotlight->getDirection()));
+        glUniform4fv(glGetUniformLocation(shaderProgram, "spotlight.color"), 1, glm::value_ptr(spotlight->getColor()));
+        glUniform1f(glGetUniformLocation(shaderProgram, "spotlight.cutOff"), spotlight->getCutOff());
+        glUniform1f(glGetUniformLocation(shaderProgram, "spotlight.outerCutOff"), spotlight->getOuterCutOff());
+
+        // Set attenuation factors to default values
+        glUniform1f(glGetUniformLocation(shaderProgram, "spotlight.constant"), 1.0f);
+        glUniform1f(glGetUniformLocation(shaderProgram, "spotlight.linear"), 0.0f);
+        glUniform1f(glGetUniformLocation(shaderProgram, "spotlight.quadratic"), 0.0f);
+    }
+
+    if (DirectionalLight* directional = dynamic_cast<DirectionalLight*>(light)) {
+		glUniform3fv(glGetUniformLocation(shaderProgram, "dirLight.direction"), 1, glm::value_ptr(directional->getDirection()));
+		glUniform4fv(glGetUniformLocation(shaderProgram, "dirLight.color"), 1, glm::value_ptr(directional->getColor()));
+    }
 }
 
 
