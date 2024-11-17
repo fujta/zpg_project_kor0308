@@ -25,6 +25,7 @@ public:
 
 	static Scene* createBaseScene();
 	static Scene* createForestScene();
+	static Scene* createDarkForestScene();
 	static Scene* createLightScene();
 	static Scene* createLightDemonstrateScene();
 };

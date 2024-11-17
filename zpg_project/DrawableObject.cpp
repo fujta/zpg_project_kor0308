@@ -33,6 +33,7 @@ void DrawableObject::render() {
         shader->use();
         shader->setUniformMatrix(transformFacade->getModelMatrix());
         model->render(shapeType);
+		shader->unuse();
     }
     else {
         std::cerr << "Shader is nullptr, cannot render DrawableObject." << std::endl;

@@ -28,11 +28,18 @@ void MultipleLightsShader::onLightUpdated() {
 
     for (int i = 0; i < numberOfLights; ++i) {
         std::string positionName = "lights[" + std::to_string(i) + "].position";
-        std::string colorName = "lights[" + std::to_string(i) + "].color";
-
         glm::vec4 lightPosition = glm::vec4(lights[i]->getPosition(), 1.0f);
+        std::string colorName = "lights[" + std::to_string(i) + "].color";
         glUniform4fv(glGetUniformLocation(shaderProgram, positionName.c_str()), 1, glm::value_ptr(lightPosition));
         glUniform4fv(glGetUniformLocation(shaderProgram, colorName.c_str()), 1, glm::value_ptr(lights[i]->getColor()));
+
+        std::string materialRaName = "lights[" + std::to_string(i) + "].material.ra";
+        std::string materialRdName = "lights[" + std::to_string(i) + "].material.rd";
+        std::string materialRsName = "lights[" + std::to_string(i) + "].material.rs";
+        glUniform1f(glGetUniformLocation(shaderProgram, materialRaName.c_str()), lights[i]->getMaterial()->getRa());
+        glUniform1f(glGetUniformLocation(shaderProgram, materialRdName.c_str()), lights[i]->getMaterial()->getRd());
+        glUniform1f(glGetUniformLocation(shaderProgram, materialRsName.c_str()), lights[i]->getMaterial()->getRs());
+
     }
 
     if (!lights.empty()) {

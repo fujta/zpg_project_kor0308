@@ -2,6 +2,21 @@
 
 void UserInputController::handleCameraMovement(GLFWwindow* window, float deltaTime, Camera* camera)
 {
+	static bool isCursorDisabled = false;
+
+	if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_RIGHT) == GLFW_PRESS) {
+		if (!isCursorDisabled) {
+			glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+			isCursorDisabled = true;
+		}
+	}
+	else if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_RIGHT) == GLFW_RELEASE) {
+		if (isCursorDisabled) {
+			glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+			isCursorDisabled = false;
+		}
+	}
+
 	float cameraSpeed = 1.5f * deltaTime;
 
 	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
@@ -15,7 +30,7 @@ void UserInputController::handleCameraMovement(GLFWwindow* window, float deltaTi
 	}
 	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
 		camera->processKeyboard(RIGHT, cameraSpeed);
-	}
+	}	
 }
 
 void UserInputController::handleSceneChange(GLFWwindow* window, int& currentSceneIndex)
@@ -31,5 +46,8 @@ void UserInputController::handleSceneChange(GLFWwindow* window, int& currentScen
 	}
 	if (glfwGetKey(window, GLFW_KEY_4) == GLFW_PRESS) {
 		currentSceneIndex = 3;
+	}
+	if (glfwGetKey(window, GLFW_KEY_5) == GLFW_PRESS) {
+		currentSceneIndex = 4;
 	}
 }

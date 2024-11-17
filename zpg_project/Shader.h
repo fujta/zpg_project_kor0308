@@ -28,6 +28,12 @@ protected:
 private: 
     Light* light;
 
+	void updateCommonLightUniforms();
+    void updateMaterialUniforms();
+    void updatePointLightUniforms();
+    void updateSpotlightUniforms(Spotlight* spotlight);
+    void updateDirectionalLightUniforms(DirectionalLight* directional);
+
 public:
     Shader(Camera* camera, Light* light, const string& vertexShaderPath, const string& fragmentShaderPath);
     ~Shader();
@@ -35,6 +41,7 @@ public:
     void setUniformColor(float r, float g, float b, float a);
     void setUniformMatrix(const glm::mat4& modelMatrix);
     void use();
+	void unuse();
 
     void addLight(Light* light);
     void setCamera(Camera* camera);

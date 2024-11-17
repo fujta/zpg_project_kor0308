@@ -43,8 +43,6 @@ void Application::initialization() {
 
     glfwSetCursorPosCallback(window, onMouseCallback);
     glfwSetFramebufferSizeCallback(window, framebufferSizeCallback);
-
-    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 }
 
 void Application::run() {
@@ -74,6 +72,11 @@ void Application::onMouseCallback(GLFWwindow* window, double xpos, double ypos) 
     Application* app = Application::getInstance();
     Camera* camera = app->scenes[app->currentSceneIndex]->getCamera();
 
+    int cursorState = glfwGetInputMode(window, GLFW_CURSOR);
+    if (cursorState == GLFW_CURSOR_NORMAL) {
+        return;
+    }
+
     if (app->firstMouse) {
         app->lastX = xpos;
         app->lastY = ypos;
@@ -99,6 +102,7 @@ void Application::framebufferSizeCallback(GLFWwindow* window, int width, int hei
 void Application::createScenes() {
 	scenes.push_back(SceneFactory::createBaseScene());
 	scenes.push_back(SceneFactory::createForestScene());
+	scenes.push_back(SceneFactory::createDarkForestScene());
 	scenes.push_back(SceneFactory::createLightScene());
 	scenes.push_back(SceneFactory::createLightDemonstrateScene());
 

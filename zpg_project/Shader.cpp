@@ -55,6 +55,11 @@ void Shader::setCamera(Camera* camera) {
     }
 }
 
+void Shader::unuse()
+{
+	glUseProgram(0);
+}
+
 void Shader::onCameraUpdated() {
     this->use();
 
@@ -72,12 +77,26 @@ void Shader::onLightUpdated() {
 
     this->use();
 
+    updateCommonLightUniforms();
+    updateMaterialUniforms();
+
+    if (Spotlight* spotlight = dynamic_cast<Spotlight*>(light)) {
+        updateSpotlightUniforms(spotlight);
+    }
+    else if (DirectionalLight* directional = dynamic_cast<DirectionalLight*>(light)) {
+        updateDirectionalLightUniforms(directional);
+    }
+    else {
+        updatePointLightUniforms();
+    }
+}
+
+void Shader::updateCommonLightUniforms() {
     glm::vec3 lightPosition = light->getPosition();
     glm::vec4 lightColor = light->getColor();
     glm::vec3 viewPosition = camera->getPosition();
     glm::vec4 objectColor = light->getObjectColor();
     float shininess = light->getShininess();
-
 
     glUniform3fv(glGetUniformLocation(shaderProgram, "lightPosition"), 1, glm::value_ptr(lightPosition));
     glUniform4fv(glGetUniformLocation(shaderProgram, "lightColor"), 1, glm::value_ptr(lightColor));
@@ -85,33 +104,47 @@ void Shader::onLightUpdated() {
     glUniform4fv(glGetUniformLocation(shaderProgram, "objectColor"), 1, glm::value_ptr(objectColor));
     glUniform1f(glGetUniformLocation(shaderProgram, "shininess"), shininess);
     glUniform1i(glGetUniformLocation(shaderProgram, "numberOfLights"), 1);
+}
 
+void Shader::updateMaterialUniforms() {
+    glUniform1f(glGetUniformLocation(shaderProgram, "lights[0].material.ra"), light->getMaterial()->getRa());
+    glUniform1f(glGetUniformLocation(shaderProgram, "lights[0].material.rd"), light->getMaterial()->getRd());
+    glUniform1f(glGetUniformLocation(shaderProgram, "lights[0].material.rs"), light->getMaterial()->getRs());
+}
+
+void Shader::updateSpotlightUniforms(Spotlight* spotlight) {
+    glUniform3fv(glGetUniformLocation(shaderProgram, "spotlight.position"), 1, glm::value_ptr(spotlight->getPosition()));
+    glUniform3fv(glGetUniformLocation(shaderProgram, "spotlight.direction"), 1, glm::value_ptr(spotlight->getDirection()));
+    glUniform4fv(glGetUniformLocation(shaderProgram, "spotlight.color"), 1, glm::value_ptr(spotlight->getColor()));
+    glUniform1f(glGetUniformLocation(shaderProgram, "spotlight.cutOff"), spotlight->getCutOff());
+    glUniform1f(glGetUniformLocation(shaderProgram, "spotlight.outerCutOff"), spotlight->getOuterCutOff());
+
+    // Set attenuation factors to default values
+    glUniform1f(glGetUniformLocation(shaderProgram, "spotlight.constant"), 1.0f);
+    glUniform1f(glGetUniformLocation(shaderProgram, "spotlight.linear"), 0.0f);
+    glUniform1f(glGetUniformLocation(shaderProgram, "spotlight.quadratic"), 0.0f);
+
+    // Spotlight material properties
+    glUniform1f(glGetUniformLocation(shaderProgram, "material.ra"), spotlight->getMaterial()->getRa());
+    glUniform1f(glGetUniformLocation(shaderProgram, "material.rd"), spotlight->getMaterial()->getRd());
+    glUniform1f(glGetUniformLocation(shaderProgram, "material.rs"), spotlight->getMaterial()->getRs());
+}
+
+void Shader::updatePointLightUniforms() {
+    glm::vec3 lightPosition = light->getPosition();
+    glm::vec4 lightColor = light->getColor();
     glm::vec4 lightPosition4 = glm::vec4(lightPosition, 1.0f);
+
     glUniform4fv(glGetUniformLocation(shaderProgram, "lights[0].position"), 1, glm::value_ptr(lightPosition4));
     glUniform4fv(glGetUniformLocation(shaderProgram, "lights[0].color"), 1, glm::value_ptr(lightColor));
     glUniform1f(glGetUniformLocation(shaderProgram, "lights[0].intensity"), 1.0f);
     glUniform1f(glGetUniformLocation(shaderProgram, "lights[0].ambientStrength"), 0.1f);
-
-    // Spotlight-specific uniforms
-    if (Spotlight* spotlight = dynamic_cast<Spotlight*>(light)) {
-        glUniform3fv(glGetUniformLocation(shaderProgram, "spotlight.position"), 1, glm::value_ptr(spotlight->getPosition()));
-        glUniform3fv(glGetUniformLocation(shaderProgram, "spotlight.direction"), 1, glm::value_ptr(spotlight->getDirection()));
-        glUniform4fv(glGetUniformLocation(shaderProgram, "spotlight.color"), 1, glm::value_ptr(spotlight->getColor()));
-        glUniform1f(glGetUniformLocation(shaderProgram, "spotlight.cutOff"), spotlight->getCutOff());
-        glUniform1f(glGetUniformLocation(shaderProgram, "spotlight.outerCutOff"), spotlight->getOuterCutOff());
-
-        // Set attenuation factors to default values
-        glUniform1f(glGetUniformLocation(shaderProgram, "spotlight.constant"), 1.0f);
-        glUniform1f(glGetUniformLocation(shaderProgram, "spotlight.linear"), 0.0f);
-        glUniform1f(glGetUniformLocation(shaderProgram, "spotlight.quadratic"), 0.0f);
-    }
-
-    if (DirectionalLight* directional = dynamic_cast<DirectionalLight*>(light)) {
-		glUniform3fv(glGetUniformLocation(shaderProgram, "dirLight.direction"), 1, glm::value_ptr(directional->getDirection()));
-		glUniform4fv(glGetUniformLocation(shaderProgram, "dirLight.color"), 1, glm::value_ptr(directional->getColor()));
-    }
 }
 
+void Shader::updateDirectionalLightUniforms(DirectionalLight* directional) {
+    glUniform3fv(glGetUniformLocation(shaderProgram, "dirLight.direction"), 1, glm::value_ptr(directional->getDirection()));
+    glUniform4fv(glGetUniformLocation(shaderProgram, "dirLight.color"), 1, glm::value_ptr(directional->getColor()));
+}
 
 void Shader::use() {
     glUseProgram(shaderProgram);

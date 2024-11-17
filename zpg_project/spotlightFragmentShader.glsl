@@ -5,7 +5,11 @@ in vec3 Normal;
 
 out vec4 FragColor;
 
-uniform vec3 viewPosition;
+struct Material {
+    float ra;
+    float rd;
+    float rs;
+};
 
 struct Spotlight {
     vec3 position;
@@ -20,26 +24,28 @@ struct Spotlight {
     float quadratic;
 };
 
+uniform Material material;
 uniform Spotlight spotlight;
-
+uniform vec3 viewPosition;
 uniform vec4 objectColor;
 uniform float shininess;
 
 void main() {
-    // Ambient
-    vec3 ambient = 0.1 * spotlight.color.rgb;
-
-    // Diffuse
     vec3 norm = normalize(Normal);
     vec3 lightDir = normalize(spotlight.position - FragPos);
-    float diff = max(dot(norm, lightDir), 0.0);
-    vec3 diffuse = diff * spotlight.color.rgb;
 
-    // Specular
+    // Ambientní složka
+    vec3 ambient = material.ra * 0.1 * spotlight.color.rgb;
+
+    // Difúzní složka
+    float diff = max(dot(norm, lightDir), 0.0);
+    vec3 diffuse = material.rd * diff * spotlight.color.rgb;
+
+    // Spekulární složka
     vec3 viewDir = normalize(viewPosition - FragPos);
     vec3 reflectDir = reflect(-lightDir, norm);
     float spec = pow(max(dot(viewDir, reflectDir), 0.0), shininess);
-    vec3 specular = spec * spotlight.color.rgb;
+    vec3 specular = material.rs * spec * spotlight.color.rgb;
 
     // Spotlight intensity
     float theta = dot(lightDir, normalize(-spotlight.direction));

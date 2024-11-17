@@ -140,6 +140,7 @@
     <ClCompile Include="LambertLight.cpp" />
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Material.cpp" />
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="ModelFactory.cpp" />
     <ClCompile Include="MultipleLightsShader.cpp" />
@@ -174,6 +175,7 @@
     <ClInclude Include="ILightObserver.h" />
     <ClInclude Include="LambertLight.h" />
     <ClInclude Include="Light.h" />
+    <ClInclude Include="Material.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="ModelFactory.h" />
     <ClInclude Include="MultipleLightsShader.h" />

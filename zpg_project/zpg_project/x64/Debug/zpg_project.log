@@ -2,4 +2,7 @@
 C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\Light.h(7,10): warning C4067: Po direktivě preprocesoru byly neočekávané tokeny – očekával se nový řádek.
   (kompilování zdrojového souboru SceneFactory.cpp)
   
+C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\Light.h(8,10): warning C4067: Po direktivě preprocesoru byly neočekávané tokeny – očekával se nový řádek.
+  (kompilování zdrojového souboru SceneFactory.cpp)
+  
   zpg_project.vcxproj -> C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\x64\Debug\zpg_project.exe

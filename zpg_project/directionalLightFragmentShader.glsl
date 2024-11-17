@@ -1,40 +1,44 @@
 #version 330 core
 
-in vec3 FragPos;   // Pozice fragmentu ve svìtových souøadnicích
-in vec3 Normal;    // Normála fragmentu
+in vec3 FragPos;
+in vec3 Normal;
 
-out vec4 FragColor; // Barva výstupu
+out vec4 FragColor;
 
-uniform vec3 viewPosition; // Pozice kamery
-
-// Struktura pro smìrové svìtlo
-struct DirectionalLight {
-    vec3 direction; // Smìr svìtla
-    vec4 color;     // Barva svìtla (RGB + intenzita)
+struct Material {
+    float ra;
+    float rd;
+    float rs;
 };
 
-uniform DirectionalLight dirLight;
+struct DirectionalLight {
+    vec3 direction;
+    vec4 color;
+};
 
-uniform vec4 objectColor; // Barva objektu
-uniform float shininess;  // Lesklost povrchu (faktor spekulárního lesku)
+uniform Material material;
+uniform DirectionalLight dirLight;
+uniform vec3 viewPosition;
+uniform vec4 objectColor;
+uniform float shininess;
 
 void main() {
-    // Ambientní složka
-    vec3 ambient = 0.1 * dirLight.color.rgb;
-
-    // Difúzní složka
     vec3 norm = normalize(Normal);
-    vec3 lightDir = normalize(-dirLight.direction); // Smìr od fragmentu ke svìtlu
+
+    // Ambient
+    vec3 ambient = material.ra * 0.1 * dirLight.color.rgb;
+
+    // Diffuse
+    vec3 lightDir = normalize(-dirLight.direction);
     float diff = max(dot(norm, lightDir), 0.0);
-    vec3 diffuse = diff * dirLight.color.rgb;
+    vec3 diffuse = material.rd * diff * dirLight.color.rgb;
 
-    // Spekulární složka
-    vec3 viewDir = normalize(viewPosition - FragPos); // Smìr od fragmentu ke kameøe
-    vec3 reflectDir = reflect(-lightDir, norm);      // Odražený smìr svìtla
+    // Specular
+    vec3 viewDir = normalize(viewPosition - FragPos);
+    vec3 reflectDir = reflect(-lightDir, norm);
     float spec = pow(max(dot(viewDir, reflectDir), 0.0), shininess);
-    vec3 specular = spec * dirLight.color.rgb;
+    vec3 specular = material.rs * spec * dirLight.color.rgb;
 
-    // Kombinace složek osvìtlení
     vec3 result = (ambient + diffuse + specular) * objectColor.rgb;
-    FragColor = vec4(result, objectColor.a); // Výstupní barva
+    FragColor = vec4(result, objectColor.a);
 }

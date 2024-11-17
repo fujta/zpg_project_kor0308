@@ -5,6 +5,9 @@
 #include <string>
 
 #include "ILightObserver.h";
+#include "Material.h";
+
+class Material;
 
 class Light
 {
@@ -23,6 +26,7 @@ public:
 	glm::vec3& getViewPosition();
 	glm::vec4& getObjectColor();
 	float getShininess();
+	Material* getMaterial();
 
 	void notifyObservers();
 	void addObserver(ILightObserver* observer);
@@ -35,6 +39,8 @@ private:
     glm::vec3 viewPosition;
 	glm::vec4 objectColor;
 	float shininess;
+
+	Material* material;
 
 	std::vector<ILightObserver*> observers;
 };

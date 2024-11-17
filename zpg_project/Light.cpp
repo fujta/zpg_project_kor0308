@@ -8,6 +8,7 @@ Light::Light()
 	lightColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
 	objectColor = glm::vec4(0.5f, 0.5f, 0.5f, 0.5f);
 	shininess = 32.0f;
+	material = new Material(this);
 }
 
 Light::~Light()
@@ -72,6 +73,11 @@ glm::vec4& Light::getObjectColor()
 float Light::getShininess()
 {
 	return shininess;
+}
+
+Material* Light::getMaterial()
+{
+	return material;
 }
 
 void Light::notifyObservers()
