@@ -104,13 +104,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\..\libs\glm-master;$(SolutionDir)\..\libs\glew-2.1.0\include;$(SolutionDir)\..\libs\glfw-3.4.bin.WIN64\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\..\libs\glm-master;$(SolutionDir)\..\libs\glew-2.1.0\include;$(SolutionDir)\..\libs\glfw-3.4.bin.WIN64\include;$(SolutionDir)\..\libs\soil\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)\..\libs\glfw-3.4.bin.WIN64\lib-vc2022;$(SolutionDir)\..\libs\glew-2.1.0\lib\Release\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;glu32.lib;glfw3.lib;glew32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)\..\libs\glfw-3.4.bin.WIN64\lib-vc2022;$(SolutionDir)\..\libs\glew-2.1.0\lib\Release\x64;$(SolutionDir)\..\libs\soil\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glu32.lib;glfw3.lib;glew32.lib;SOIL.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -155,6 +155,7 @@
     <ClCompile Include="ShaderFactory.cpp" />
     <ClCompile Include="ShaderLoader.cpp" />
     <ClCompile Include="Spotlight.cpp" />
+    <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TransformFacade.cpp" />
     <ClCompile Include="Transformation.cpp" />
     <ClCompile Include="Translate.cpp" />
@@ -194,6 +195,7 @@
     <ClInclude Include="Spotlight.h" />
     <ClInclude Include="suzi_flat.h" />
     <ClInclude Include="suzi_smooth.h" />
+    <ClInclude Include="Texture.h" />
     <ClInclude Include="TransformFacade.h" />
     <ClInclude Include="Transformation.h" />
     <ClInclude Include="Translate.h" />

@@ -10,6 +10,7 @@ enum ShapeType { TRIANGLE, SQUARE, BUSH, TREE, SPHERE, PLAIN };
 class ModelFactory {
 public:
     static Model* createModel(ShapeType type, glm::vec3 position);
+    static Model* createModelWithTexture(ShapeType type, glm::vec3 position);
 };
 
 #endif

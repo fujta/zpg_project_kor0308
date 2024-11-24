@@ -24,8 +24,17 @@ void DrawableObject::createShaders(Shader* shader) {
     this->shader = shader;
 }
 
-void DrawableObject::createModel() {
-    model = ModelFactory::createModel(shapeType, glm::vec3(0.0f, 0.0f, 0.0f));
+void DrawableObject::createModel(const std::string& texturePath) {
+    texture = new Texture(texturePath);
+    texture->load();
+
+    if (texturePath == "") {
+        model = ModelFactory::createModel(shapeType, glm::vec3(0.0f, 0.0f, 0.0f));
+    }
+    else
+    {
+        model = ModelFactory::createModelWithTexture(shapeType, glm::vec3(0.0f, 0.0f, 0.0f));
+    }
 }
 
 void DrawableObject::render() {

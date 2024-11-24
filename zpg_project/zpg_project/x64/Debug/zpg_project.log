@@ -1,8 +1,5 @@
-﻿  SceneFactory.cpp
-C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\Light.h(7,10): warning C4067: Po direktivě preprocesoru byly neočekávané tokeny – očekával se nový řádek.
-  (kompilování zdrojového souboru SceneFactory.cpp)
-  
-C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\Light.h(8,10): warning C4067: Po direktivě preprocesoru byly neočekávané tokeny – očekával se nový řádek.
-  (kompilování zdrojového souboru SceneFactory.cpp)
-  
-  zpg_project.vcxproj -> C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\x64\Debug\zpg_project.exe
+﻿  Texture.cpp
+C:\Users\kordu\Desktop\zpg\zpg_project_kor0308\zpg_project\Light.h(7,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\kordu\Desktop\zpg\zpg_project_kor0308\zpg_project\Light.h(8,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\kordu\Desktop\zpg\zpg_project_kor0308\zpg_project\Texture.h(27,9): error C3646: 'textureID': unknown override specifier
+C:\Users\kordu\Desktop\zpg\zpg_project_kor0308\zpg_project\Texture.h(27,2): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
