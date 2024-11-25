@@ -1,40 +1,49 @@
 #include "Texture.h"
 
-Texture::Texture(std::string texturePath)
-{
-	this->texturePath = texturePath;
-}
+Texture::Texture(const std::string& texturePath) : textureID(0), texturePath(texturePath) {}
 
 Texture::~Texture()
 {
 }
 
-void Texture::load()
-{
-	glGenTextures(1, &textureID);
-	glBindTexture(GL_TEXTURE_2D, textureID);
 
-	int width, height;
-	unsigned char* image = SOIL_load_image(texturePath.c_str(), &width, &height, 0, SOIL_LOAD_RGBA);
+void Texture::load() {
+    glGenTextures(1, &textureID);
+    glBindTexture(GL_TEXTURE_2D, textureID);
 
-	if (image == nullptr)
-	{
-		std::cerr << "Failed to load texture: " << texturePath << std::endl;
-	}
+    textureID = SOIL_load_OGL_texture(
+        texturePath.c_str(),
+        SOIL_LOAD_RGBA,
+        SOIL_CREATE_NEW_ID,
+        SOIL_FLAG_INVERT_Y
+    );
 
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, image);
-	glGenerateMipmap(GL_TEXTURE_2D);
+    if (!textureID) {
+        std::cerr << "Failed to load texture: " << texturePath << std::endl;
 
-	SOIL_free_image_data(image);
-	glBindTexture(GL_TEXTURE_2D, 0);
+        return;
+    }
+
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+
+    glGenerateMipmap(GL_TEXTURE_2D);
+
+    glBindTexture(GL_TEXTURE_2D, 0);
 }
 
-void Texture::bind()
-{
-	glBindTexture(GL_TEXTURE_2D, textureID);
+void Texture::bind(GLenum textureUnit) const {
+    glActiveTexture(textureUnit);
+    glBindTexture(GL_TEXTURE_2D, textureID);
 }
 
-void Texture::unbind()
-{
-	glBindTexture(GL_TEXTURE_2D, 0);
+void Texture::unbind() const {
+    glBindTexture(GL_TEXTURE_2D, 0);
+}
+
+GLuint Texture::getTextureID() const {
+    return textureID;
 }

@@ -8,12 +8,14 @@
 class Texture
 {
 public:
-	Texture(std::string texturePath);
-	~Texture();
+    Texture(const std::string& texturePath);
+    ~Texture();
 
-	void load();
-	void bind();
-	void unbind();
+    void load();
+    void bind(GLenum textureUnit = GL_TEXTURE0) const;
+    void unbind() const;
+
+    GLuint getTextureID() const;
 
 private:
 	std::string texturePath;

@@ -28,8 +28,14 @@ Model* ModelFactory::createModel(ShapeType type, glm::vec3 position) {
 		pointCount = 36;
 	}
     else {
-        std::cout << "Warning! Missing shape type in ModelFactory.cpp\n";
+        throw new runtime_error("Missing model type");
     }
 
     return new Model(points, pointCount);
+}
+
+Model* ModelFactory::createModelWithTexture(ShapeType type, glm::vec3 position)
+{
+    throw new runtime_error("Not implemented yet");
+    //return nullptr;
 }

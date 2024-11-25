@@ -9,14 +9,18 @@
 class DrawableObject
 {
 public:
-    DrawableObject(ShapeType shapeType);
+    DrawableObject(ShapeType shapeType, const std::string& texturePath = "");
     ~DrawableObject();
 
     void render();
+
     void createShaders(const std::string& vertexShaderPath, const std::string& fragmentShaderPath, Camera* camera, Light* light = nullptr);
 	void createShaders(const std::string& vertexShaderPath, const std::string& fragmentShaderPath, Camera* camera, std::vector<Light*> lights);
+
     void createShaders(Shader* shader);
-    void createModel(const std::string& texturePath = "");
+
+    void createModel();
+
     TransformFacade& setTransform();
 
 private:

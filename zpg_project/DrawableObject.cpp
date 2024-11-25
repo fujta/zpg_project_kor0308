@@ -1,8 +1,12 @@
 #include "DrawableObject.h"
 
-DrawableObject::DrawableObject(ShapeType shapeType) : model(nullptr), shader(nullptr) {
+DrawableObject::DrawableObject(ShapeType shapeType, const std::string& texturePath) : model(nullptr), shader(nullptr), texture(nullptr) {
     this->shapeType = shapeType;
     this->transformFacade = new TransformFacade();
+
+    if (texturePath != "") {
+        this->texture = new Texture(texturePath);
+    }
 }
 
 DrawableObject::~DrawableObject()
@@ -24,15 +28,10 @@ void DrawableObject::createShaders(Shader* shader) {
     this->shader = shader;
 }
 
-void DrawableObject::createModel(const std::string& texturePath) {
-    texture = new Texture(texturePath);
-    texture->load();
-
-    if (texturePath == "") {
+void DrawableObject::createModel() {
+    if (this->texture == nullptr) {
         model = ModelFactory::createModel(shapeType, glm::vec3(0.0f, 0.0f, 0.0f));
-    }
-    else
-    {
+    } else {
         model = ModelFactory::createModelWithTexture(shapeType, glm::vec3(0.0f, 0.0f, 0.0f));
     }
 }

@@ -1,5 +1,69 @@
-﻿  Texture.cpp
-C:\Users\kordu\Desktop\zpg\zpg_project_kor0308\zpg_project\Light.h(7,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\kordu\Desktop\zpg\zpg_project_kor0308\zpg_project\Light.h(8,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\kordu\Desktop\zpg\zpg_project_kor0308\zpg_project\Texture.h(27,9): error C3646: 'textureID': unknown override specifier
-C:\Users\kordu\Desktop\zpg\zpg_project_kor0308\zpg_project\Texture.h(27,2): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+﻿  Application.cpp
+D:\kor0308\zpg_project_kor0308\zpg_project\Light.h(7,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'Application.cpp')
+  
+D:\kor0308\zpg_project_kor0308\zpg_project\Light.h(8,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'Application.cpp')
+  
+D:\kor0308\zpg_project_kor0308\zpg_project\Application.cpp(53,28): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\kor0308\zpg_project_kor0308\zpg_project\Application.cpp(81,22): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\kor0308\zpg_project_kor0308\zpg_project\Application.cpp(82,22): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\kor0308\zpg_project_kor0308\zpg_project\Application.cpp(86,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\kor0308\zpg_project_kor0308\zpg_project\Application.cpp(87,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\kor0308\zpg_project_kor0308\zpg_project\Application.cpp(89,18): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\kor0308\zpg_project_kor0308\zpg_project\Application.cpp(90,18): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  DrawableObject.cpp
+D:\kor0308\zpg_project_kor0308\zpg_project\Light.h(7,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'DrawableObject.cpp')
+  
+D:\kor0308\zpg_project_kor0308\zpg_project\Light.h(8,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'DrawableObject.cpp')
+  
+  Model.cpp
+  ModelFactory.cpp
+  RotateAnimation.cpp
+D:\kor0308\zpg_project_kor0308\zpg_project\Light.h(7,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'RotateAnimation.cpp')
+  
+D:\kor0308\zpg_project_kor0308\zpg_project\Light.h(8,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'RotateAnimation.cpp')
+  
+  Scene.cpp
+D:\kor0308\zpg_project_kor0308\zpg_project\Light.h(7,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'Scene.cpp')
+  
+D:\kor0308\zpg_project_kor0308\zpg_project\Light.h(8,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'Scene.cpp')
+  
+  SceneFactory.cpp
+D:\kor0308\zpg_project_kor0308\zpg_project\Light.h(7,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'SceneFactory.cpp')
+  
+D:\kor0308\zpg_project_kor0308\zpg_project\Light.h(8,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'SceneFactory.cpp')
+  
+  TranslateAnimation.cpp
+D:\kor0308\zpg_project_kor0308\zpg_project\Light.h(7,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'TranslateAnimation.cpp')
+  
+D:\kor0308\zpg_project_kor0308\zpg_project\Light.h(8,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'TranslateAnimation.cpp')
+  
+  main.cpp
+D:\kor0308\zpg_project_kor0308\zpg_project\Light.h(7,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'main.cpp')
+  
+D:\kor0308\zpg_project_kor0308\zpg_project\Light.h(8,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'main.cpp')
+  
+  Generating Code...
+  SOIL.lib(SOIL.obj) : MSIL .netmodule or module compiled with /GL found; restarting link with /LTCG; add /LTCG to the link command line to improve linker performance
+LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/LTCG' specification
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+  Generating code
+  Finished generating code
+SOIL.lib(SOIL.obj) : warning LNK4099: PDB '' was not found with 'SOIL.lib(SOIL.obj)' or at ''; linking object as if no debug info
+SOIL.lib(stb_image_aug.obj) : warning LNK4099: PDB '' was not found with 'SOIL.lib(stb_image_aug.obj)' or at ''; linking object as if no debug info
+SOIL.lib(image_helper.obj) : warning LNK4099: PDB '' was not found with 'SOIL.lib(image_helper.obj)' or at ''; linking object as if no debug info
+SOIL.lib(image_DXT.obj) : warning LNK4099: PDB '' was not found with 'SOIL.lib(image_DXT.obj)' or at ''; linking object as if no debug info
+  zpg_project.vcxproj -> D:\kor0308\zpg_project_kor0308\zpg_project\x64\Debug\zpg_project.exe

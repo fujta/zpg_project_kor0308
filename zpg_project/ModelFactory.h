@@ -3,6 +3,9 @@
 
 #include <glm/ext/vector_float3.hpp>
 #include <iostream>
+#include <stdexcept>
+using namespace std;
+
 
 class Model;
 enum ShapeType { TRIANGLE, SQUARE, BUSH, TREE, SPHERE, PLAIN };
