@@ -2,13 +2,13 @@
 
 Model::Model() {}
 
-Model::Model(float* points, int pointCount) : points(points), pointCount(pointCount) {
+Model::Model(float* points, GLsizeiptr pointCount) : points(points), pointCount(pointCount) {
 	this->VAO = 0;
 	this->VBO = 0;
      
     glGenBuffers(1, &VBO); 
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glBufferData(GL_ARRAY_BUFFER, pointCount * sizeof(float), points, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, pointCount, points, GL_STATIC_DRAW);
 	// if error violation occurs, check the size of the buffer
 
     glGenVertexArrays(1, &VAO);

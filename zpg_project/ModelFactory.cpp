@@ -8,15 +8,17 @@
 #include "suzi_smooth.h"
 #include "plain.h"
 
-Model* ModelFactory::createModel(ShapeType type, glm::vec3 position) {
+Model* ModelFactory::createModel(ShapeType type) {
 	ModelObject modelObject = getModelObject(type);
 
     return new Model(modelObject.points, modelObject.pointCount);
 }
 
-Model* ModelFactory::createModelWithTexture(ShapeType type, glm::vec3 position)
+Model* ModelFactory::createModelWithTexture(ShapeType type)
 {
     ModelObject modelObject = getModelObject(type);
+
+    cout << modelObject.pointCount << endl;
 
 	return new ModelWithTexture(modelObject.points, modelObject.pointCount);
 }
@@ -24,29 +26,33 @@ Model* ModelFactory::createModelWithTexture(ShapeType type, glm::vec3 position)
 ModelObject ModelFactory::getModelObject(ShapeType type)
 {
     float* points = nullptr;
-    int pointCount = 0;
+    GLsizeiptr pointCount;
+    ModelObject ret;
 
     if (type == BUSH) {
         points = bushes;
-        pointCount = 26190;
+        pointCount = sizeof(bushes);
     }
     else if (type == TREE) {
         points = tree;
-        pointCount = 550814;
+        pointCount = sizeof(tree);
     }
     else if (type == SPHERE) {
         points = sphere;
-        pointCount = 20520;
+        pointCount = sizeof(sphere);
     }
     else if (type == PLAIN) {
         points = plain;
-        pointCount = 192;
+        pointCount = sizeof(plain);
     }
     else {
         throw new runtime_error("Missing model type");
     }
 
-	return { points, pointCount };
+	ret.points = points;
+	ret.pointCount = pointCount;
+
+	return ret;
 }
 
 

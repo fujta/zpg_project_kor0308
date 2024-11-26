@@ -4,7 +4,7 @@
 class ModelWithTexture : public Model
 {
 public:
-	ModelWithTexture(float* points, int pointCount);
+	ModelWithTexture(float* points, GLsizeiptr pointCount);
 	~ModelWithTexture();
 };
 

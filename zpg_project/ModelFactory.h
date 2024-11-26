@@ -10,7 +10,7 @@ using namespace std;
 
 typedef struct ModelObject {
 	float* points;
-	int pointCount;
+	size_t pointCount;
 };
 
 class Model;
@@ -19,8 +19,8 @@ enum ShapeType { TRIANGLE, SQUARE, BUSH, TREE, SPHERE, PLAIN };
 
 class ModelFactory {
 public:
-    static Model* createModel(ShapeType type, glm::vec3 position);
-    static Model* createModelWithTexture(ShapeType type, glm::vec3 position);
+    static Model* createModel(ShapeType type);
+    static Model* createModelWithTexture(ShapeType type);
 	static ModelObject getModelObject(ShapeType type);
 };
 

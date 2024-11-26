@@ -8,10 +8,10 @@ class Model {
 protected:
     GLuint VBO, VAO;
     float* points;
-    int pointCount;
+    GLsizeiptr pointCount;
 
 public:
-    Model(float* points, int pointCount);
+    Model(float* points, GLsizeiptr pointCount);
     Model();
     ~Model();
     void render(ShapeType shapeType);

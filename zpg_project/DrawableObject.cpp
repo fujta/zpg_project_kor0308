@@ -35,9 +35,9 @@ void DrawableObject::createShaders(Shader* shader) {
 
 void DrawableObject::createModel() {
     if (this->texture == nullptr) {
-        model = ModelFactory::createModel(shapeType, glm::vec3(0.0f, 0.0f, 0.0f));
+        model = ModelFactory::createModel(shapeType);
     } else {
-        model = ModelFactory::createModelWithTexture(shapeType, glm::vec3(0.0f, 0.0f, 0.0f));
+        model = ModelFactory::createModelWithTexture(shapeType);
     }
 }
 

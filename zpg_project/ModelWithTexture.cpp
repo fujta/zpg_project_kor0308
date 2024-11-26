@@ -1,6 +1,6 @@
 #include "ModelWithTexture.h"
 
-ModelWithTexture::ModelWithTexture(float* points, int pointCount) : Model(points, pointCount)
+ModelWithTexture::ModelWithTexture(float* points, GLsizeiptr pointCount) : Model(points, pointCount)
 {
 	this->VAO = 0;
 	this->VBO = 0;
@@ -8,7 +8,7 @@ ModelWithTexture::ModelWithTexture(float* points, int pointCount) : Model(points
 	//vertex buffer object (VBO)
 	glGenBuffers(1, &VBO); // generate the VBO
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(points), points, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, pointCount, points, GL_STATIC_DRAW);
 
 	//vertex attribute object(VAO)
 	glGenVertexArrays(1, &VAO);
