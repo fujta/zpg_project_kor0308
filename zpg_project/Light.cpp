@@ -90,7 +90,6 @@ void Light::notifyObservers()
 void Light::addObserver(ILightObserver* observer)
 {
 	observers.push_back(observer);
-	std::cout << "Observer added: " << observer << std::endl;
 }
 
 void Light::removeObserver(ILightObserver* observer)

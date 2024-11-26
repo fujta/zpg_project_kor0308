@@ -91,8 +91,8 @@ Scene* SceneFactory::createForestScene() {
         }    
     }
 
-    DrawableObject* plain = new DrawableObject(ShapeType::PLAIN);
-    plain->createShaders("lightVertexShader.glsl", lambertLight->getFragmentShaderName(), scene2->getCamera(), lambertLight);
+    DrawableObject* plain = new DrawableObject(ShapeType::PLAIN, "grass.png");
+    plain->createShaders("textureVertexShader.glsl", "textureFragmentShader.glsl", scene2->getCamera(), lambertLight);
     plain->createModel();
     plain->setTransform()
         .addTransformation(new Scale(glm::vec3(15.0f, 1.0f, 15.0f)));
@@ -204,7 +204,7 @@ Scene* SceneFactory::createDarkForestScene() {
     spotlight->setColor(glm::vec4(1.0f));
 
     Spotlight* spotlight2 = new Spotlight(darkForestScene->getCamera());
-    DrawableObject* plain = new DrawableObject(ShapeType::PLAIN);
+    DrawableObject* plain = new DrawableObject(ShapeType::PLAIN, "grass.png");
     plain->createShaders("lightVertexShader.glsl", spotlight2->getFragmentShaderName(), darkForestScene->getCamera(), spotlight2);
     plain->createModel();
     plain->setTransform()

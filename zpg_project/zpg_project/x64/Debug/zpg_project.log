@@ -1,69 +1,20 @@
-﻿  Application.cpp
-D:\kor0308\zpg_project_kor0308\zpg_project\Light.h(7,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  (compiling source file 'Application.cpp')
+﻿  DrawableObject.cpp
+C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\ModelFactory.h(14,2): warning C4091: typedef : Levá strana ModelObject se ignoruje, pokud není deklarovaná žádná proměnná.
+  (kompilování zdrojového souboru DrawableObject.cpp)
   
-D:\kor0308\zpg_project_kor0308\zpg_project\Light.h(8,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  (compiling source file 'Application.cpp')
+C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\Light.h(7,10): warning C4067: Po direktivě preprocesoru byly neočekávané tokeny – očekával se nový řádek.
+  (kompilování zdrojového souboru DrawableObject.cpp)
   
-D:\kor0308\zpg_project_kor0308\zpg_project\Application.cpp(53,28): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-D:\kor0308\zpg_project_kor0308\zpg_project\Application.cpp(81,22): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-D:\kor0308\zpg_project_kor0308\zpg_project\Application.cpp(82,22): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-D:\kor0308\zpg_project_kor0308\zpg_project\Application.cpp(86,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-D:\kor0308\zpg_project_kor0308\zpg_project\Application.cpp(87,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-D:\kor0308\zpg_project_kor0308\zpg_project\Application.cpp(89,18): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-D:\kor0308\zpg_project_kor0308\zpg_project\Application.cpp(90,18): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-  DrawableObject.cpp
-D:\kor0308\zpg_project_kor0308\zpg_project\Light.h(7,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  (compiling source file 'DrawableObject.cpp')
+C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\Light.h(8,10): warning C4067: Po direktivě preprocesoru byly neočekávané tokeny – očekával se nový řádek.
+  (kompilování zdrojového souboru DrawableObject.cpp)
   
-D:\kor0308\zpg_project_kor0308\zpg_project\Light.h(8,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  (compiling source file 'DrawableObject.cpp')
-  
-  Model.cpp
-  ModelFactory.cpp
-  RotateAnimation.cpp
-D:\kor0308\zpg_project_kor0308\zpg_project\Light.h(7,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  (compiling source file 'RotateAnimation.cpp')
-  
-D:\kor0308\zpg_project_kor0308\zpg_project\Light.h(8,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  (compiling source file 'RotateAnimation.cpp')
-  
-  Scene.cpp
-D:\kor0308\zpg_project_kor0308\zpg_project\Light.h(7,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  (compiling source file 'Scene.cpp')
-  
-D:\kor0308\zpg_project_kor0308\zpg_project\Light.h(8,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  (compiling source file 'Scene.cpp')
-  
-  SceneFactory.cpp
-D:\kor0308\zpg_project_kor0308\zpg_project\Light.h(7,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  (compiling source file 'SceneFactory.cpp')
-  
-D:\kor0308\zpg_project_kor0308\zpg_project\Light.h(8,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  (compiling source file 'SceneFactory.cpp')
-  
-  TranslateAnimation.cpp
-D:\kor0308\zpg_project_kor0308\zpg_project\Light.h(7,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  (compiling source file 'TranslateAnimation.cpp')
-  
-D:\kor0308\zpg_project_kor0308\zpg_project\Light.h(8,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  (compiling source file 'TranslateAnimation.cpp')
-  
-  main.cpp
-D:\kor0308\zpg_project_kor0308\zpg_project\Light.h(7,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  (compiling source file 'main.cpp')
-  
-D:\kor0308\zpg_project_kor0308\zpg_project\Light.h(8,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  (compiling source file 'main.cpp')
-  
-  Generating Code...
-  SOIL.lib(SOIL.obj) : MSIL .netmodule or module compiled with /GL found; restarting link with /LTCG; add /LTCG to the link command line to improve linker performance
-LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/LTCG' specification
-LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
-  Generating code
-  Finished generating code
-SOIL.lib(SOIL.obj) : warning LNK4099: PDB '' was not found with 'SOIL.lib(SOIL.obj)' or at ''; linking object as if no debug info
-SOIL.lib(stb_image_aug.obj) : warning LNK4099: PDB '' was not found with 'SOIL.lib(stb_image_aug.obj)' or at ''; linking object as if no debug info
-SOIL.lib(image_helper.obj) : warning LNK4099: PDB '' was not found with 'SOIL.lib(image_helper.obj)' or at ''; linking object as if no debug info
-SOIL.lib(image_DXT.obj) : warning LNK4099: PDB '' was not found with 'SOIL.lib(image_DXT.obj)' or at ''; linking object as if no debug info
-  zpg_project.vcxproj -> D:\kor0308\zpg_project_kor0308\zpg_project\x64\Debug\zpg_project.exe
+  SOIL.lib(SOIL.obj) : Našel se modul .net MSIL nebo modul zkompilovaný pomocí /GL. Propojení se restartuje s parametrem /LTCG. Výkon linkeru můžete zlepšit přidáním parametru /LTCG na příkazový řádek propojení.
+LINK : warning LNK4075: /INCREMENTAL se ignoruje kvůli specifikaci /LTCG.
+LINK : warning LNK4098: Výchozí knihovna MSVCRT je v konfliktu s použitím jiných knihoven. Použijte /NODEFAULTLIB:library.
+  Vytváří se kód.
+  Vytváření kódu se dokončilo.
+SOIL.lib(SOIL.obj) : warning LNK4099: Soubor .pdb  se nenašel s SOIL.lib(SOIL.obj) nebo na . Objekt se propojí, jako by nebyly dostupné žádné ladicí informace.
+SOIL.lib(stb_image_aug.obj) : warning LNK4099: Soubor .pdb  se nenašel s SOIL.lib(stb_image_aug.obj) nebo na . Objekt se propojí, jako by nebyly dostupné žádné ladicí informace.
+SOIL.lib(image_helper.obj) : warning LNK4099: Soubor .pdb  se nenašel s SOIL.lib(image_helper.obj) nebo na . Objekt se propojí, jako by nebyly dostupné žádné ladicí informace.
+SOIL.lib(image_DXT.obj) : warning LNK4099: Soubor .pdb  se nenašel s SOIL.lib(image_DXT.obj) nebo na . Objekt se propojí, jako by nebyly dostupné žádné ladicí informace.
+  zpg_project.vcxproj -> C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\x64\Debug\zpg_project.exe

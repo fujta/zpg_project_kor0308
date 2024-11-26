@@ -1,9 +1,15 @@
 #include "Model.h"
 
+Model::Model() {}
+
 Model::Model(float* points, int pointCount) : points(points), pointCount(pointCount) {
+	this->VAO = 0;
+	this->VBO = 0;
+     
     glGenBuffers(1, &VBO); 
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     glBufferData(GL_ARRAY_BUFFER, pointCount * sizeof(float), points, GL_STATIC_DRAW);
+	// if error violation occurs, check the size of the buffer
 
     glGenVertexArrays(1, &VAO);
     glBindVertexArray(VAO);
@@ -29,7 +35,7 @@ void Model::render(ShapeType shapeType) {
 		glDrawArrays(GL_TRIANGLE_FAN, 0, pointCount / 3);
     }
     else if (shapeType == TREE) {
-        glDrawArrays(GL_TRIANGLES, 0, 92814);
+        glDrawArrays(GL_TRIANGLES, 0, pointCount);
     }
     else if (shapeType == SQUARE) {
         glDrawArrays(GL_TRIANGLE_STRIP, 0, pointCount / 3);

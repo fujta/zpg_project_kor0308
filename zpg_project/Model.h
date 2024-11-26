@@ -5,13 +5,14 @@
 #include "ModelFactory.h"
 
 class Model {
-private:
+protected:
     GLuint VBO, VAO;
     float* points;
     int pointCount;
 
 public:
     Model(float* points, int pointCount);
+    Model();
     ~Model();
     void render(ShapeType shapeType);
 };

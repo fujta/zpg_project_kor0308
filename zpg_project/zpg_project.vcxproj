@@ -143,6 +143,7 @@
     <ClCompile Include="Material.cpp" />
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="ModelFactory.cpp" />
+    <ClCompile Include="ModelWithTexture.cpp" />
     <ClCompile Include="MultipleLightsShader.cpp" />
     <ClCompile Include="NumberGenerator.cpp" />
     <ClCompile Include="PhongLight.cpp" />
@@ -179,6 +180,7 @@
     <ClInclude Include="Material.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="ModelFactory.h" />
+    <ClInclude Include="ModelWithTexture.h" />
     <ClInclude Include="MultipleLightsShader.h" />
     <ClInclude Include="NumberGenerator.h" />
     <ClInclude Include="PhongLight.h" />
@@ -214,6 +216,8 @@
     <None Include="lightVertexShader.glsl" />
     <None Include="phongLightFragmentShader.glsl" />
     <None Include="spotlightFragmentShader.glsl" />
+    <None Include="textureFragmentShader.glsl" />
+    <None Include="textureVertexShader.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

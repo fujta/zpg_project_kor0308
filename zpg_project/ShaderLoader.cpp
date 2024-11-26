@@ -15,7 +15,6 @@ string ShaderLoader::loadFile(const char *fname)
 }
 
 GLuint ShaderLoader::loadShader(const char *vertexFile, const char *fragmentFile){
-	printf("Shader::loadShader %s %s \n", vertexFile, fragmentFile);
 	string vertexShaderString = loadFile(vertexFile);
 	string fragmentShaderString = loadFile(fragmentFile);
 	int vlen = vertexShaderString.length();

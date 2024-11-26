@@ -3,7 +3,6 @@
 #include <string>
 #include <GL/glew.h>
 #include <SOIL.h>
-#include <glm/glm.hpp>
 
 class Texture
 {
@@ -20,5 +19,6 @@ public:
 private:
 	std::string texturePath;
 	GLuint textureID;
+    GLuint textureUnit;
 };
 

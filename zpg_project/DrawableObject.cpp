@@ -1,11 +1,16 @@
 #include "DrawableObject.h"
 
-DrawableObject::DrawableObject(ShapeType shapeType, const std::string& texturePath) : model(nullptr), shader(nullptr), texture(nullptr) {
+DrawableObject::DrawableObject(ShapeType shapeType, const std::string& texturePath) : model(nullptr), shader(nullptr) {
     this->shapeType = shapeType;
     this->transformFacade = new TransformFacade();
 
     if (texturePath != "") {
+        cout << "Texture path: " << texturePath << endl;
         this->texture = new Texture(texturePath);
+        texture->load(); // Load the texture
+    }
+    else {
+		this->texture = nullptr;
     }
 }
 
@@ -40,7 +45,10 @@ void DrawableObject::render() {
     if (shader) {
         shader->use();
         shader->setUniformMatrix(transformFacade->getModelMatrix());
+        shader->useTexture(texture);
         model->render(shapeType);
+
+		texture->unbind();
 		shader->unuse();
     }
     else {

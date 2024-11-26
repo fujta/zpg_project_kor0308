@@ -16,6 +16,7 @@
 
 #include "Spotlight.h"
 #include "DirectionalLight.h"
+#include "Texture.h"
 
 class Shader : public ICameraObserver, public ILightObserver {
 protected:
@@ -48,6 +49,8 @@ public:
 
     void onCameraUpdated() override;
     void onLightUpdated() override;
+
+	void useTexture(Texture* texture);
 };
 
 #endif // SHADER_H

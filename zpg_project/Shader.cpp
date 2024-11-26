@@ -60,6 +60,19 @@ void Shader::unuse()
 	glUseProgram(0);
 }
 
+void Shader::useTexture(Texture* texture)
+{
+    if (texture && texture->getTextureID() != 0) {
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, texture->getTextureID());
+        glUniform1i(glGetUniformLocation(shaderProgram, "textureUnitID"), 0);
+        glUniform1i(glGetUniformLocation(shaderProgram, "hasTexture"), GL_TRUE);
+    }
+    else {
+        glUniform1i(glGetUniformLocation(shaderProgram, "hasTexture"), GL_FALSE);
+    }
+}
+
 void Shader::onCameraUpdated() {
     this->use();
 
