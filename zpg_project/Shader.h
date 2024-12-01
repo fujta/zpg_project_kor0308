@@ -29,6 +29,8 @@ protected:
 private: 
     Light* light;
 
+	bool isSkyboxShader;
+
 	void updateCommonLightUniforms();
     void updateMaterialUniforms();
     void updatePointLightUniforms();
@@ -51,6 +53,8 @@ public:
     void onLightUpdated() override;
 
 	void useTexture(Texture* texture);
+
+	void setSkyboxShader(bool isSkyboxShader);
 };
 
 #endif // SHADER_H

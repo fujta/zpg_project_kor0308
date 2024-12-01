@@ -23,10 +23,15 @@ public:
 
     TransformFacade& setTransform();
 
+    bool isSkybox() const;
+
 private:
     ShapeType shapeType;
+    TransformFacade* transformFacade;
+
+protected:
     Model* model;
     Shader* shader;
-    TransformFacade* transformFacade;
     Texture* texture;
+
 };

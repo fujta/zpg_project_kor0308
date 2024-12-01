@@ -1,6 +1,6 @@
 #include "ModelWithTexture.h"
 
-ModelWithTexture::ModelWithTexture(float* points, GLsizeiptr pointCount) : Model(points, pointCount)
+ModelWithTexture::ModelWithTexture(float* points, GLsizeiptr pointCount) : Model()
 {
 	this->VAO = 0;
 	this->VBO = 0;

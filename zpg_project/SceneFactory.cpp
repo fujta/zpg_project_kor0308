@@ -23,46 +23,27 @@ Scene* SceneFactory::createBaseScene() {
         .addTransformation(new Translate(glm::vec3(0.0f, 0.0f, 0.0f)))
         .addTransformation(new Scale(glm::vec3(1.0f)));
 
-    spotlight->setPosition(glm::vec3(0.0f, 5.0f, 0.0f));
-    spotlight->setDirection(glm::vec3(0.0f, -1.0f, 0.0f));
-    spotlight->setCutOff(12.5f);
-    spotlight->setOuterCutOff(17.5f);
-    spotlight->setColor(glm::vec4(1.0f));
+    //spotlight->setPosition(glm::vec3(0.0f, 5.0f, 0.0f));
+    //spotlight->setDirection(glm::vec3(0.0f, -1.0f, 0.0f));
+    //spotlight->setCutOff(12.5f);
+    //spotlight->setOuterCutOff(17.5f);
+    //spotlight->setColor(glm::vec4(1.0f));
 
     scene->addDrawableObject(object);
 
     return scene;
 }
 
-//Scene* SceneFactory::createBaseScene() {
-//    // First Scene - Single bush and tree
-//    Scene* scene1 = new Scene(4.0f / 3.0f);
-//
-//    // Create multiple objects
-//    DrawableObject* bushObject = new DrawableObject(ShapeType::BUSH);
-//    bushObject->createShaders("baseVertexShader.glsl", "baseFragmentShader.glsl", scene1->getCamera());
-//    bushObject->createModel();
-//
-//    // Set transformations
-//    bushObject->setTransform()
-//        .addTransformation(new Translate(glm::vec3(1.0f, 1.0f, 0.0f)))
-//        .addTransformation(new Scale(glm::vec3(2.0f, 2.0f, 2.0f)))
-//        .addTransformation(new Rotate(90.0f, glm::vec3(0.5f, 0.5f, 0.5f)));
-//    scene1->addDrawableObject(bushObject);
-//
-//    DrawableObject* treeObject = new DrawableObject(ShapeType::TREE);
-//    treeObject->createShaders("baseVertexShader.glsl", "baseFragmentShader.glsl", scene1->getCamera());
-//    treeObject->createModel();
-//    scene1->addDrawableObject(treeObject);
-//
-//	return scene1;
-//}
-
 Scene* SceneFactory::createForestScene() {
     // Second Scene - Forest
     Scene* scene2 = new Scene(4.0f / 3.0f);
 
 	LambertLight* lambertLight = new LambertLight();
+
+	Skybox* skybox = new Skybox();
+	skybox->createShaders(scene2->getCamera(), lambertLight);
+	skybox->createModel();
+	scene2->addDrawableObject(skybox);
 
     int numTrees = 50;
     for (int i = 0; i < numTrees; ++i) {

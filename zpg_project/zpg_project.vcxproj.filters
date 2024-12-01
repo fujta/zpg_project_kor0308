@@ -186,6 +186,15 @@
     <ClCompile Include="Texture.cpp">
       <Filter>Source Files\Texture</Filter>
     </ClCompile>
+    <ClCompile Include="Skybox.cpp">
+      <Filter>Source Files\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="ModelSkybox.cpp">
+      <Filter>Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="ModelWithTexture.cpp">
+      <Filter>Source Files\Model</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h">
@@ -305,6 +314,15 @@
     <ClInclude Include="Texture.h">
       <Filter>Header Files\Texture</Filter>
     </ClInclude>
+    <ClInclude Include="Skybox.h">
+      <Filter>Header Files\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelWithTexture.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelSkybox.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="baseFragmentShader.glsl">
@@ -334,6 +352,21 @@
     </None>
     <None Include="spotlightFragmentShader.glsl">
       <Filter>Source Files\_shaders\fragment_shaders</Filter>
+    </None>
+    <None Include="skycube.h">
+      <Filter>Header Files\_objects</Filter>
+    </None>
+    <None Include="textureFragmentShader.glsl">
+      <Filter>Source Files\_shaders\fragment_shaders</Filter>
+    </None>
+    <None Include="textureVertexShader.glsl">
+      <Filter>Source Files\_shaders\vertex_shaders</Filter>
+    </None>
+    <None Include="fragmentShaderCubemap.glsl">
+      <Filter>Source Files\_shaders\fragment_shaders</Filter>
+    </None>
+    <None Include="vertexShaderCubemap.glsl">
+      <Filter>Source Files\_shaders\vertex_shaders</Filter>
     </None>
   </ItemGroup>
 </Project>

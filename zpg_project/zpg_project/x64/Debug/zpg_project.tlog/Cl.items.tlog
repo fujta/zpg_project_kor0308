@@ -11,6 +11,7 @@ C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\main.cpp;C:\Users\Vojta\D
 C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\Material.cpp;C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\zpg_project\x64\Debug\Material.obj
 C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\Model.cpp;C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\zpg_project\x64\Debug\Model.obj
 C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\ModelFactory.cpp;C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\zpg_project\x64\Debug\ModelFactory.obj
+C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\ModelSkybox.cpp;C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\zpg_project\x64\Debug\ModelSkybox.obj
 C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\ModelWithTexture.cpp;C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\zpg_project\x64\Debug\ModelWithTexture.obj
 C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\MultipleLightsShader.cpp;C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\zpg_project\x64\Debug\MultipleLightsShader.obj
 C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\NumberGenerator.cpp;C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\zpg_project\x64\Debug\NumberGenerator.obj
@@ -23,6 +24,7 @@ C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\SceneFactory.cpp;C:\Users
 C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\Shader.cpp;C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\zpg_project\x64\Debug\Shader.obj
 C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\ShaderFactory.cpp;C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\zpg_project\x64\Debug\ShaderFactory.obj
 C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\ShaderLoader.cpp;C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\zpg_project\x64\Debug\ShaderLoader.obj
+C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\Skybox.cpp;C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\zpg_project\x64\Debug\Skybox.obj
 C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\Spotlight.cpp;C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\zpg_project\x64\Debug\Spotlight.obj
 C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\Texture.cpp;C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\zpg_project\x64\Debug\Texture.obj
 C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\TransformFacade.cpp;C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\zpg_project\x64\Debug\TransformFacade.obj

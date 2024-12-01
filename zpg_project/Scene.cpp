@@ -18,8 +18,23 @@ Camera* Scene::getCamera() {
 
 void Scene::render() {
     for (auto drawableObject : drawableObjects) {
-        drawableObject->render();
+        if (!drawableObject->isSkybox()) {
+            drawableObject->render();
+        }
     }
+
+    // Render skybox
+    glDepthFunc(GL_LEQUAL);
+    glDepthMask(GL_FALSE);
+
+    for (auto drawableObject : drawableObjects) {
+        if (drawableObject->isSkybox()) {
+            drawableObject->render();
+        }
+    }
+
+    glDepthMask(GL_TRUE);
+    glDepthFunc(GL_LESS);
 }
 
 void Scene::addDrawableObject(DrawableObject* drawableObject)

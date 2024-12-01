@@ -3,22 +3,21 @@
 
 Shader::Shader(Camera* camera, Light* light, const string& vertexShaderPath, const string& fragmentShaderPath) {
     shaderProgram = 0;
+	isSkyboxShader = false;
 
 	this->setCamera(camera);
 	this->addLight(light);
-
-    this->camera = camera;
-    camera->addObserver(this);
-
-    this->light = light;
-    if (light) {
-        this->light->addObserver(this);
-    }
      
     shaderLoader = new ShaderLoader(vertexShaderPath.c_str(), fragmentShaderPath.c_str(), &shaderProgram);
     viewMatrixLoc = glGetUniformLocation(shaderProgram, "viewMatrix");
     projectionMatrixLoc = glGetUniformLocation(shaderProgram, "projectionMatrix");
     onCameraUpdated();
+    onLightUpdated();
+    
+    if (Spotlight* spotlight = dynamic_cast<Spotlight*>(light)) {
+        spotlight->onCameraUpdated();
+    }
+
 }
 
 Shader::~Shader() {
@@ -37,6 +36,7 @@ Shader::~Shader() {
 
 void Shader::addLight(Light* light) {
     if (!light) return;
+
     this->light = light;
     light->addObserver(this);
     onLightUpdated();
@@ -60,12 +60,27 @@ void Shader::unuse()
 	glUseProgram(0);
 }
 
+void Shader::setSkyboxShader(bool isSkyboxShader) {
+	this->isSkyboxShader = isSkyboxShader;
+}
+
 void Shader::useTexture(Texture* texture)
 {
     if (texture && texture->getTextureID() != 0) {
         glActiveTexture(GL_TEXTURE0);
-        glBindTexture(GL_TEXTURE_2D, texture->getTextureID());
-        glUniform1i(glGetUniformLocation(shaderProgram, "textureUnitID"), 0);
+
+        if (texture->isSkyboxTexture()) {
+            glBindTexture(GL_TEXTURE_CUBE_MAP, texture->getTextureID());
+            GLint skyboxLoc = glGetUniformLocation(shaderProgram, "UISky");
+            if (skyboxLoc != -1) {
+                glUniform1i(skyboxLoc, 0);
+            }
+        }
+        else {
+            glBindTexture(GL_TEXTURE_2D, texture->getTextureID());
+            glUniform1i(glGetUniformLocation(shaderProgram, "textureUnitID"), 0);
+        }
+
         glUniform1i(glGetUniformLocation(shaderProgram, "hasTexture"), GL_TRUE);
     }
     else {
@@ -73,17 +88,27 @@ void Shader::useTexture(Texture* texture)
     }
 }
 
+
 void Shader::onCameraUpdated() {
     this->use();
 
-    glm::mat4 view = camera->getViewMatrix();
+    glm::mat4 view;
     glm::mat4 projection = camera->getProjectionMatrix();
-    glm::vec3 viewPosition = camera->getPosition();
+
+    if (isSkyboxShader) {
+        view = glm::mat4(glm::mat3(camera->getViewMatrix()));
+    }
+    else {
+        view = camera->getViewMatrix();
+    }
 
     glUniformMatrix4fv(viewMatrixLoc, 1, GL_FALSE, glm::value_ptr(view));
     glUniformMatrix4fv(projectionMatrixLoc, 1, GL_FALSE, glm::value_ptr(projection));
+
+    glm::vec3 viewPosition = camera->getPosition();
     glUniform3fv(glGetUniformLocation(shaderProgram, "viewPosition"), 1, glm::value_ptr(viewPosition));
 }
+
 
 void Shader::onLightUpdated() {
     if (!light) return;

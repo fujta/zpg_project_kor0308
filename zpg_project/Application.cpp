@@ -47,6 +47,7 @@ void Application::initialization() {
 
 void Application::run() {
     glEnable(GL_DEPTH_TEST); // Do depth comparisons and update the depth buffer.
+    glEnable(GL_TEXTURE_CUBE_MAP_SEAMLESS);
 
     while (!glfwWindowShouldClose(window)) {
 

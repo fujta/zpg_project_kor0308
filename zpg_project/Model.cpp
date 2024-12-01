@@ -46,7 +46,11 @@ void Model::render(ShapeType shapeType) {
     else if (shapeType == PLAIN) {
         glDrawArrays(GL_TRIANGLES, 0, 6);
     }
+    else if (shapeType == SKYCUBE) {
+        glDrawArrays(GL_TRIANGLES, 0, 108);
+    }
     else {
 		std::cout << "Warning! Missing shape type in model.cpp\n";
+		throw std::runtime_error("Missing shape type in model.cpp");
     }
 }

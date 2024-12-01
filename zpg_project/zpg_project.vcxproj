@@ -143,6 +143,7 @@
     <ClCompile Include="Material.cpp" />
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="ModelFactory.cpp" />
+    <ClCompile Include="ModelSkybox.cpp" />
     <ClCompile Include="ModelWithTexture.cpp" />
     <ClCompile Include="MultipleLightsShader.cpp" />
     <ClCompile Include="NumberGenerator.cpp" />
@@ -155,6 +156,7 @@
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="ShaderFactory.cpp" />
     <ClCompile Include="ShaderLoader.cpp" />
+    <ClCompile Include="Skybox.cpp" />
     <ClCompile Include="Spotlight.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TransformFacade.cpp" />
@@ -180,6 +182,7 @@
     <ClInclude Include="Material.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="ModelFactory.h" />
+    <ClInclude Include="ModelSkybox.h" />
     <ClInclude Include="ModelWithTexture.h" />
     <ClInclude Include="MultipleLightsShader.h" />
     <ClInclude Include="NumberGenerator.h" />
@@ -193,6 +196,7 @@
     <ClInclude Include="Shader.h" />
     <ClInclude Include="ShaderFactory.h" />
     <ClInclude Include="ShaderLoader.h" />
+    <ClInclude Include="Skybox.h" />
     <ClInclude Include="sphere.h" />
     <ClInclude Include="Spotlight.h" />
     <ClInclude Include="suzi_flat.h" />
@@ -212,12 +216,15 @@
     <None Include="ClassDiagram.cd" />
     <None Include="constantLightFragmentShader.glsl" />
     <None Include="directionalLightFragmentShader.glsl" />
+    <None Include="fragmentShaderCubemap.glsl" />
     <None Include="lambertLightFragmentShader.glsl" />
     <None Include="lightVertexShader.glsl" />
     <None Include="phongLightFragmentShader.glsl" />
+    <None Include="skycube.h" />
     <None Include="spotlightFragmentShader.glsl" />
     <None Include="textureFragmentShader.glsl" />
     <None Include="textureVertexShader.glsl" />
+    <None Include="vertexShaderCubemap.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

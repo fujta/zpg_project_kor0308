@@ -5,9 +5,8 @@ DrawableObject::DrawableObject(ShapeType shapeType, const std::string& texturePa
     this->transformFacade = new TransformFacade();
 
     if (texturePath != "") {
-        cout << "Texture path: " << texturePath << endl;
         this->texture = new Texture(texturePath);
-        texture->load(); // Load the texture
+        texture->load();
     }
     else {
 		this->texture = nullptr;
@@ -39,6 +38,10 @@ void DrawableObject::createModel() {
     } else {
         model = ModelFactory::createModelWithTexture(shapeType);
     }
+}
+
+bool DrawableObject::isSkybox() const {
+    return shapeType == SKYCUBE;
 }
 
 void DrawableObject::render() {

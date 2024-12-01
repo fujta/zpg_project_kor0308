@@ -6,26 +6,43 @@ Texture::~Texture()
 {
 }
 
-void Texture::load() {
-    // Bind the texture before setting parameters
-    glBindTexture(GL_TEXTURE_2D, this->textureID);
+bool Texture::isSkyboxTexture() const {
+	return isSkybox;
+}
 
-    // Load the texture using SOIL, which returns a texture ID with data already uploaded
+void Texture::loadSkybox() {
+	glBindTexture(GL_TEXTURE_CUBE_MAP, this->textureID);
+
+	this->textureID = SOIL_load_OGL_cubemap("posx.jpg", "negx.jpg", "posy.jpg", "negy.jpg", "posz.jpg", "negz.jpg", SOIL_LOAD_RGB, SOIL_CREATE_NEW_ID, SOIL_FLAG_MIPMAPS);
+
+	if (this->textureID == 0) {
+		std::cerr << "Failed to load skybox texture: " << texturePath << std::endl;
+		throw std::runtime_error("Failed to load skybox texture: " + texturePath);
+
+		return;
+	}
+
+	glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
+
+	isSkybox = true;
+}
+
+void Texture::load() {
     this->textureID = SOIL_load_OGL_texture(
         this->texturePath.c_str(),
         SOIL_LOAD_RGBA,
         SOIL_CREATE_NEW_ID,
-        SOIL_FLAG_INVERT_Y
+        SOIL_FLAG_INVERT_Y | SOIL_FLAG_MIPMAPS
     );
 
-    // Check if the texture was loaded successfully
     if (this->textureID == 0) {
         std::cerr << "Failed to load texture: " << texturePath << std::endl;
         throw std::runtime_error("Failed to load texture: " + texturePath);
-        return;
-    } 
+    }
 
     glBindTexture(GL_TEXTURE_2D, 0);
+
+    isSkybox = false;
 }
 
 

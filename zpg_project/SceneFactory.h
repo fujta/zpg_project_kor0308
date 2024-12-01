@@ -1,6 +1,7 @@
 #pragma once
 #include "Scene.h"
 #include "DrawableObject.h"
+#include "Skybox.h"
 #include "NumberGenerator.h"
 
 #include "Scale.h"
