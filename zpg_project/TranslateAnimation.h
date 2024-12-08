@@ -10,7 +10,6 @@ class TranslateAnimation : public Animation {
 protected:
     glm::vec3 translationSpeed;
 
-    DrawableObject* object;
 private:
     glm::vec3 minPosition, maxPosition;
     glm::vec3 accumulatedTranslation;

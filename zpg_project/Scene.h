@@ -21,6 +21,9 @@ public:
     void addAnimation(Animation* animation);
     void updateAnimationFrame();
 
+    std::vector<DrawableObject*>& getDrawableObjects();
+    std::vector<Animation*>& getAnimations();
+
 private:
     std::vector<DrawableObject*> drawableObjects;
     std::vector<Animation*> animations;

@@ -22,10 +22,14 @@ void Scene::render() {
 
     for (auto drawableObject : drawableObjects) {
         if (!drawableObject->isSkybox()) {
+			glStencilFunc(GL_ALWAYS, drawableObject->getId(), 0xFF);
+            glStencilMask(0xFF);
+
             drawableObject->render();
         }
     }
 
+    glStencilMask(0x00);
     // Render skybox
     glDepthFunc(GL_LEQUAL);
     glDepthMask(GL_FALSE);
@@ -38,11 +42,21 @@ void Scene::render() {
 
     glDepthMask(GL_TRUE);
     glDepthFunc(GL_LESS);
+    glDisable(GL_STENCIL_TEST);
 }
 
 void Scene::addDrawableObject(DrawableObject* drawableObject)
 {
     drawableObjects.push_back(drawableObject);
+}
+
+std::vector<DrawableObject*>& Scene::getDrawableObjects() {
+	return drawableObjects;
+}
+
+std::vector<Animation*>& Scene::getAnimations()
+{
+	return animations;
 }
 
 DrawableObject* Scene::getDrawableObject(int index) {

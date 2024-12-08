@@ -1,7 +1,9 @@
 #include "TranslateAnimation.h"
 
 TranslateAnimation::TranslateAnimation(DrawableObject* obj, glm::vec3 speed, glm::vec3 minPos, glm::vec3 maxPos)
-    : object(obj), translationSpeed(speed), minPosition(minPos), maxPosition(maxPos), direction(glm::vec3(1.0f)), accumulatedTranslation(glm::vec3(0.0f)) {}
+    : translationSpeed(speed), minPosition(minPos), maxPosition(maxPos), direction(glm::vec3(1.0f)), accumulatedTranslation(glm::vec3(0.0f)) {
+	this->object = obj;
+}
 
 void TranslateAnimation::update() {
     glm::vec3 translation = translationSpeed * direction;

@@ -21,6 +21,8 @@
 
 #define NUMBER_OF_SCENES 4
 
+class UserInputController;
+
 class Application {
 private:
     GLFWwindow* window;
@@ -48,6 +50,8 @@ public:
     void initialization();
     void createScenes();
     void run();
+
+    void removeDrawableObjectById(int id);
 
     static Application* getInstance();
 };

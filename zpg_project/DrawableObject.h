@@ -33,8 +33,8 @@ private:
     TransformFacade* transformFacade;
     std::string objPath;
 
+    static int nextId;
 	int id;
-
 protected:
     Model* model;
     Shader* shader;

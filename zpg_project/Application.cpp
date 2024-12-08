@@ -58,6 +58,7 @@ void Application::run() {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		userInputController->handleSceneChange(window, currentSceneIndex);
+		userInputController->handleMouseClick(window);
 		userInputController->handleCameraMovement(window, deltaTime, scenes[currentSceneIndex]->getCamera());
 
 		scenes[currentSceneIndex]->updateAnimationFrame();
@@ -108,4 +109,29 @@ void Application::createScenes() {
 	scenes.push_back(SceneFactory::createLightDemonstrateScene());
 
     currentSceneIndex = DEFAULT_SCENE_INDEX;
+}
+
+void Application::removeDrawableObjectById(int id) {
+    Scene* currentScene = scenes[currentSceneIndex];
+    std::vector<Animation*>& animations = currentScene->getAnimations();
+    std::vector<DrawableObject*>& objects = currentScene->getDrawableObjects();
+
+    for (auto anim = animations.begin(); anim != animations.end(); anim++) {
+        if ((*anim)->getDrawableObject()->getId() == id) {
+            delete* anim;
+            animations.erase(anim);
+
+            return;
+        }
+    }
+
+    for (auto drawObject = objects.begin(); drawObject != objects.end(); drawObject++) {
+        if ((*drawObject)->getId() == id) {
+            delete* drawObject;
+            objects.erase(drawObject);
+
+            return;
+        }
+    }
+
 }

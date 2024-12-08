@@ -5,6 +5,7 @@ DrawableObject::DrawableObject(ShapeType shapeType, const std::string& texturePa
     this->transformFacade = new TransformFacade();
 	this->objPath = p_objPath;
 
+    this->id = nextId++;
     if (texturePath != "") {
         this->texture = new Texture(texturePath);
         texture->load();
@@ -66,6 +67,8 @@ void DrawableObject::render() {
 TransformFacade& DrawableObject::setTransform() {
     return *transformFacade;
 }
+
+int DrawableObject::nextId = 1;
 
 void DrawableObject::setId(int id) {
 	this->id = id;

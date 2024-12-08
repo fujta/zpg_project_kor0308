@@ -7,7 +7,6 @@
 class RotateAnimation : public Animation
 {
 private:
-    DrawableObject* object;
     float rotationSpeed;
     glm::vec3 rotationAxis;
 
