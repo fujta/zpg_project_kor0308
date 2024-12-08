@@ -104,13 +104,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\..\libs\glm-master;$(SolutionDir)\..\libs\glew-2.1.0\include;$(SolutionDir)\..\libs\glfw-3.4.bin.WIN64\include;$(SolutionDir)\..\libs\soil\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\..\libs\glm-master;$(SolutionDir)\..\libs\glew-2.1.0\include;$(SolutionDir)\..\libs\glfw-3.4.bin.WIN64\include;$(SolutionDir)\..\libs\soil\include;$(SolutionDir)\..\libs\assimp\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)\..\libs\glfw-3.4.bin.WIN64\lib-vc2022;$(SolutionDir)\..\libs\glew-2.1.0\lib\Release\x64;$(SolutionDir)\..\libs\soil\lib-vc2012\Platform_x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;glu32.lib;glfw3.lib;glew32.lib;SOIL.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)\..\libs\glfw-3.4.bin.WIN64\lib-vc2022;$(SolutionDir)\..\libs\glew-2.1.0\lib\Release\x64;$(SolutionDir)\..\libs\soil\lib-vc2012\Platform_x64;$(SolutionDir)\..\libs\assimp\lib\x64\v141\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glu32.lib;glfw3.lib;glew32.lib;SOIL.lib;assimp-vc140-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -147,6 +147,7 @@
     <ClCompile Include="ModelWithTexture.cpp" />
     <ClCompile Include="MultipleLightsShader.cpp" />
     <ClCompile Include="NumberGenerator.cpp" />
+    <ClCompile Include="ObjectModel.cpp" />
     <ClCompile Include="PhongLight.cpp" />
     <ClCompile Include="Rotate.cpp" />
     <ClCompile Include="RotateAnimation.cpp" />
@@ -186,6 +187,7 @@
     <ClInclude Include="ModelWithTexture.h" />
     <ClInclude Include="MultipleLightsShader.h" />
     <ClInclude Include="NumberGenerator.h" />
+    <ClInclude Include="ObjectModel.h" />
     <ClInclude Include="PhongLight.h" />
     <ClInclude Include="plain.h" />
     <ClInclude Include="Rotate.h" />

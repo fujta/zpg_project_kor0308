@@ -15,14 +15,18 @@ typedef struct ModelObject {
 
 class Model;
 class ModelWithTexture;
-enum ShapeType { TRIANGLE, SQUARE, BUSH, TREE, SPHERE, PLAIN, SKYCUBE };
+class ObjectModel;
+
+enum ShapeType { TRIANGLE, SQUARE, BUSH, TREE, SPHERE, PLAIN, SKYCUBE, OBJECT };
 
 class ModelFactory {
 public:
     static Model* createModel(ShapeType type);
     static Model* createModelWithTexture(ShapeType type);
     static Model* createModelWithSkybox(ShapeType type);
-	static ModelObject getModelObject(ShapeType type);
+	static Model* createModelFromObj(std::string fileName);
+
+	static ModelObject getModelVertexArray(ShapeType type);
 };
 
 #endif

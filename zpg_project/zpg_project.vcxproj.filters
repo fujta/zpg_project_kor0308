@@ -195,6 +195,9 @@
     <ClCompile Include="ModelWithTexture.cpp">
       <Filter>Source Files\Model</Filter>
     </ClCompile>
+    <ClCompile Include="ObjectModel.cpp">
+      <Filter>Source Files\Model</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h">
@@ -321,6 +324,9 @@
       <Filter>Header Files\Model</Filter>
     </ClInclude>
     <ClInclude Include="ModelSkybox.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectModel.h">
       <Filter>Header Files\Model</Filter>
     </ClInclude>
   </ItemGroup>

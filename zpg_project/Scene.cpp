@@ -17,6 +17,9 @@ Camera* Scene::getCamera() {
 }
 
 void Scene::render() {
+    glEnable(GL_STENCIL_TEST);
+	glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
+
     for (auto drawableObject : drawableObjects) {
         if (!drawableObject->isSkybox()) {
             drawableObject->render();

@@ -1,4 +1,13 @@
-﻿  Texture.cpp
+﻿  SceneFactory.cpp
+C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\ModelFactory.h(14,2): warning C4091: typedef : Levá strana ModelObject se ignoruje, pokud není deklarovaná žádná proměnná.
+  (kompilování zdrojového souboru SceneFactory.cpp)
+  
+C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\Light.h(7,10): warning C4067: Po direktivě preprocesoru byly neočekávané tokeny – očekával se nový řádek.
+  (kompilování zdrojového souboru SceneFactory.cpp)
+  
+C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\Light.h(8,10): warning C4067: Po direktivě preprocesoru byly neočekávané tokeny – očekával se nový řádek.
+  (kompilování zdrojového souboru SceneFactory.cpp)
+  
   SOIL.lib(SOIL.obj) : Našel se modul .net MSIL nebo modul zkompilovaný pomocí /GL. Propojení se restartuje s parametrem /LTCG. Výkon linkeru můžete zlepšit přidáním parametru /LTCG na příkazový řádek propojení.
 LINK : warning LNK4075: /INCREMENTAL se ignoruje kvůli specifikaci /LTCG.
 LINK : warning LNK4098: Výchozí knihovna MSVCRT je v konfliktu s použitím jiných knihoven. Použijte /NODEFAULTLIB:library.

@@ -1,8 +1,9 @@
 #include "DrawableObject.h"
 
-DrawableObject::DrawableObject(ShapeType shapeType, const std::string& texturePath) : model(nullptr), shader(nullptr) {
+DrawableObject::DrawableObject(ShapeType shapeType, const std::string& texturePath, const std::string& p_objPath) : model(nullptr), shader(nullptr) {
     this->shapeType = shapeType;
     this->transformFacade = new TransformFacade();
+	this->objPath = p_objPath;
 
     if (texturePath != "") {
         this->texture = new Texture(texturePath);
@@ -35,7 +36,10 @@ void DrawableObject::createShaders(Shader* shader) {
 void DrawableObject::createModel() {
     if (this->texture == nullptr) {
         model = ModelFactory::createModel(shapeType);
-    } else {
+    } else if (this->texture != nullptr && this->objPath != "") {
+		model = ModelFactory::createModelFromObj(objPath);
+    }
+    else {
         model = ModelFactory::createModelWithTexture(shapeType);
     }
 }
@@ -61,4 +65,12 @@ void DrawableObject::render() {
 
 TransformFacade& DrawableObject::setTransform() {
     return *transformFacade;
+}
+
+void DrawableObject::setId(int id) {
+	this->id = id;
+}
+
+int DrawableObject::getId() {
+    return this->id;
 }

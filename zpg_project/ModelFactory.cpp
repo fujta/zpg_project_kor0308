@@ -1,7 +1,9 @@
 #include "ModelFactory.h"
+
 #include "Model.h"
 #include "ModelWithTexture.h"
 #include "ModelSkybox.h"
+#include "ObjectModel.h"
 
 #include "sphere.h"
 #include "bushes.h"
@@ -11,14 +13,14 @@
 #include "skycube.h"
 
 Model* ModelFactory::createModel(ShapeType type) {
-	ModelObject modelObject = getModelObject(type);
+	ModelObject modelObject = getModelVertexArray(type);
 
     return new Model(modelObject.points, modelObject.pointCount);
 }
 
 Model* ModelFactory::createModelWithTexture(ShapeType type)
 {
-    ModelObject modelObject = getModelObject(type);
+    ModelObject modelObject = getModelVertexArray(type);
 
 
 	return new ModelWithTexture(modelObject.points, modelObject.pointCount);
@@ -26,12 +28,17 @@ Model* ModelFactory::createModelWithTexture(ShapeType type)
 
 Model* ModelFactory::createModelWithSkybox(ShapeType type)
 {
-    ModelObject modelObject = getModelObject(type);
+    ModelObject modelObject = getModelVertexArray(type);
 
     return new ModelSkybox(modelObject.points, modelObject.pointCount);
 }
 
-ModelObject ModelFactory::getModelObject(ShapeType type)
+Model* ModelFactory::createModelFromObj(std::string fileName)
+{
+	return new ObjectModel(fileName);
+}
+
+ModelObject ModelFactory::getModelVertexArray(ShapeType type)
 {
     float* points = nullptr;
     GLsizeiptr pointCount;

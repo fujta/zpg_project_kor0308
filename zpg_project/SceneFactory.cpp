@@ -45,6 +45,14 @@ Scene* SceneFactory::createForestScene() {
 	skybox->createModel();
 	scene2->addDrawableObject(skybox);
 
+	DrawableObject* houseObject = new DrawableObject(ShapeType::OBJECT, "house.png", "house.obj");
+	houseObject->createShaders("textureVertexShader.glsl", "textureFragmentShader.glsl", scene2->getCamera());
+	houseObject->createModel();
+    houseObject->setTransform()
+		.addTransformation(new Translate(glm::vec3(0.0f, 0.0f, 0.0f)))
+		.addTransformation(new Scale(glm::vec3(0.3f, 0.3f, 0.3f)));
+	scene2->addDrawableObject(houseObject);
+
     int numTrees = 50;
     for (int i = 0; i < numTrees; ++i) {
         DrawableObject* treeObject = new DrawableObject(ShapeType::TREE);
@@ -109,6 +117,13 @@ Scene* SceneFactory::createForestScene() {
 
     lights.push_back(phong);
     lights.push_back(phongBludicka);
+
+    DrawableObject* loginObject = new DrawableObject(ShapeType::OBJECT, "house.png", "login.obj");
+    loginObject->createShaders("textureVertexShader.glsl", "textureFragmentShader.glsl", scene2->getCamera());
+    loginObject->createModel();
+    loginObject->setTransform()
+        .addTransformation(new Translate(glm::vec3(5.0f, 0.0f, 0.0f)));
+    scene2->addDrawableObject(loginObject);
 
     // Three trees to test multiple lights - bludi�ky
     DrawableObject* treeObject1 = new DrawableObject(ShapeType::TREE);

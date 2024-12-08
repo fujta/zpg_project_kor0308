@@ -14,7 +14,7 @@ public:
     Model(float* points, GLsizeiptr pointCount);
     Model();
     ~Model();
-    void render(ShapeType shapeType);
+    virtual void render(ShapeType shapeType);
 };
 
 #endif

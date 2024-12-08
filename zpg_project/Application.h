@@ -11,6 +11,10 @@
 #include "SceneFactory.h"
 #include "UserInputController.h"
 
+#include<assimp/Importer.hpp>// C++ importerinterface
+#include<assimp/scene.h>// aiSceneoutputdata structure
+#include<assimp/postprocess.h>// Post processingflags
+
 #define DEFAULT_SCENE_INDEX 0
 #define DEFAULT_VIEWPORT_HEIGHT 600
 #define DEFAULT_VIEWPORT_WIDTH 800

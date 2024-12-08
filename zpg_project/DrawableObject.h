@@ -9,7 +9,7 @@
 class DrawableObject
 {
 public:
-    DrawableObject(ShapeType shapeType, const std::string& texturePath = "");
+    DrawableObject(ShapeType shapeType, const std::string& texturePath = "", const std::string& p_objPath = "");
     ~DrawableObject();
 
     void render();
@@ -25,9 +25,15 @@ public:
 
     bool isSkybox() const;
 
+    void setId(int id);
+    int getId();
+
 private:
     ShapeType shapeType;
     TransformFacade* transformFacade;
+    std::string objPath;
+
+	int id;
 
 protected:
     Model* model;
