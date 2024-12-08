@@ -11,6 +11,6 @@ uniform mat4 projectionMatrix;
 out vec2 uvc; // Texture coordinates for fragment shader
 
 void main() {
-    gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4(vp, 1.0); // MVP transformation
+    gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4(vp, 1.0);
     uvc = uv; // Pass texture coordinates to fragment shader
 }

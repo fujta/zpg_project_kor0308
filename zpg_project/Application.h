@@ -47,6 +47,7 @@ public:
     Application();
     ~Application();
 
+	std::vector<Scene*>& getScenes();
     void initialization();
     void createScenes();
     void run();

@@ -96,6 +96,7 @@ void Shader::onCameraUpdated() {
     glm::mat4 projection = camera->getProjectionMatrix();
 
     if (isSkyboxShader) {
+		// Forbid camera translation
         view = glm::mat4(glm::mat3(camera->getViewMatrix()));
     }
     else {
@@ -180,6 +181,10 @@ void Shader::updatePointLightUniforms() {
 }
 
 void Shader::updateDirectionalLightUniforms(DirectionalLight* directional) {
+    glUniform1f(glGetUniformLocation(shaderProgram, "material.ra"), directional->getMaterial()->getRa());
+    glUniform1f(glGetUniformLocation(shaderProgram, "material.rd"), directional->getMaterial()->getRd());
+    glUniform1f(glGetUniformLocation(shaderProgram, "material.rs"), directional->getMaterial()->getRs());
+
     glUniform3fv(glGetUniformLocation(shaderProgram, "dirLight.direction"), 1, glm::value_ptr(directional->getDirection()));
     glUniform4fv(glGetUniformLocation(shaderProgram, "dirLight.color"), 1, glm::value_ptr(directional->getColor()));
 }

@@ -3,7 +3,7 @@
  *
  * @brief Main function
  *
- * @author ...
+ * @author Vojtěch Korduliak, kor0308
   **/
 #include "Application.h"
 

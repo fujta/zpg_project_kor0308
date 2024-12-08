@@ -21,7 +21,7 @@ ObjectModel::ObjectModel(std::string fileName) : Model()
 
     const aiScene* scene = importer.ReadFile(fileName, importOptions);
 
-    if (scene) { //pokud bylo nacteni uspesne
+    if (scene) {
         printf("scene->mNumMeshes = %d\n", scene->mNumMeshes);
         printf("scene->mNumMaterials = %d\n", scene->mNumMaterials);
         //Materials

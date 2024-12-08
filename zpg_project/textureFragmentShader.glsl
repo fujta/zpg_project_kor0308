@@ -9,7 +9,7 @@ uniform vec4 objectColor;        // Fallback color if no texture is provided
 
 void main() {
     if (hasTexture) {
-        frag_colour = texture(textureUnitID, uvc); // Use texture color
+        frag_colour = texture(textureUnitID, uvc);
     } else {
         frag_colour = objectColor; // Use fallback color
     }

@@ -11,6 +11,6 @@ class UserInputController
 public:
 	void handleCameraMovement(GLFWwindow* window, float deltaTime, Camera* camera);
 	void handleSceneChange(GLFWwindow* window, int& currentSceneIndex);
-	void handleMouseClick(GLFWwindow* window);
+	void handleMouseClick(GLFWwindow* window, int currentSceneIndex);
 };
 

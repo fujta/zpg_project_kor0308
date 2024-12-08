@@ -30,10 +30,57 @@ void UserInputController::handleCameraMovement(GLFWwindow* window, float deltaTi
 	}
 	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
 		camera->processKeyboard(RIGHT, cameraSpeed);
-	}	
+	}
 }
 
-void UserInputController::handleMouseClick(GLFWwindow* window) {
+void UserInputController::handleMouseClick(GLFWwindow* window, int currentSceneIndex) {
+	if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS &&
+		glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS) {
+
+		Application* app = Application::getInstance();
+		if (!app) return;
+
+		Scene* currentScene = app->getScenes()[currentSceneIndex];
+		if (!currentScene) return;
+
+		Camera* camera = currentScene->getCamera();
+		if (!camera) return;
+		
+		int width, height;
+		glfwGetFramebufferSize(window, &width, &height);
+		double xpos, ypos;
+		glfwGetCursorPos(window, &xpos, &ypos);
+		double newY = height - ypos;
+		float depth;
+		glReadPixels((int)xpos, (int)newY, 1, 1, GL_DEPTH_COMPONENT, GL_FLOAT, &depth);
+
+		if (depth < 1.0f) {
+			glm::mat4 view = camera->getViewMatrix();
+			glm::mat4 projection = camera->getProjectionMatrix();
+			glm::vec4 viewport = glm::vec4(0, 0, width, height);
+			glm::vec3 screenPos = glm::vec3((float)xpos, (float)newY, depth);
+			glm::vec3 worldPos = glm::unProject(screenPos, view, projection, viewport);
+
+			LambertLight* lambertLight = new LambertLight();
+
+			DrawableObject* treeObject = new DrawableObject(ShapeType::TREE);
+			treeObject->createShaders("lightVertexShader.glsl", lambertLight->getFragmentShaderName(), currentScene->getCamera(), lambertLight);
+			treeObject->createModel();
+
+			treeObject->setTransform()
+				.addTransformation(new Translate(worldPos))
+				.addTransformation(new Scale(glm::vec3(0.1f, 0.1f, 0.1f)));
+			currentScene->addDrawableObject(treeObject);
+
+			lambertLight->setPosition(glm::vec3(0.0f, 2.0f, 0.0f));
+			lambertLight->setColor(glm::vec4(1.0f, 1.0f, 1.0f, 1.0f));
+			lambertLight->setObjectColor(glm::vec4(0.0f, 1.0f, 0.0f, 1.0f));
+		}
+
+		return;
+	}
+
+
 	if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS) {
 		Application* app = Application::getInstance();
 		if (!app) return;

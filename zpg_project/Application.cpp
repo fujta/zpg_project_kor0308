@@ -23,6 +23,11 @@ Application* Application::getInstance() {
     return instance;
 }
 
+std::vector<Scene*>& Application::getScenes()
+{
+	return scenes;
+}
+
 void Application::initialization() {
     if (!glfwInit()) {
         std::cerr << "ERROR: could not start GLFW3\n";
@@ -58,11 +63,12 @@ void Application::run() {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		userInputController->handleSceneChange(window, currentSceneIndex);
-		userInputController->handleMouseClick(window);
 		userInputController->handleCameraMovement(window, deltaTime, scenes[currentSceneIndex]->getCamera());
 
 		scenes[currentSceneIndex]->updateAnimationFrame();
         scenes[currentSceneIndex]->render();
+
+        userInputController->handleMouseClick(window, currentSceneIndex);
 
         glfwSwapBuffers(window);
         glfwPollEvents();

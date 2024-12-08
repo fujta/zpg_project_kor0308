@@ -282,7 +282,8 @@ Scene* SceneFactory::createDarkForestScene() {
         .addTransformation(new Scale(glm::vec3(0.5f, 0.5f, 0.5f)));
     darkForestScene->addDrawableObject(sphereObject);
 
-    directionalLight->setDirection(glm::vec3(1.0f, 0.0f, 0.0f));
+    directionalLight->setDirection(glm::vec3(-1.0f, 0.0f, 0.0f));
+    directionalLight->setColor(glm::vec4(1.0f, 0.0f, 0.0f, 0.0f));
 
     return darkForestScene;
 }
@@ -297,7 +298,7 @@ Scene* SceneFactory::createLightScene() {
 
 	std::vector<Light*> lights;
 	lights.push_back(light);
-	//lights.push_back(light2);
+	lights.push_back(light2);
 
 	// Create only one shader with light
     ShaderFactory factory;

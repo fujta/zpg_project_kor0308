@@ -34,14 +34,14 @@ void main() {
     vec3 norm = normalize(Normal);
     vec3 lightDir = normalize(spotlight.position - FragPos);
 
-    // Ambientní složka
+    // Ambient
     vec3 ambient = material.ra * 0.1 * spotlight.color.rgb;
 
-    // Difúzní složka
+    // Diffuse
     float diff = max(dot(norm, lightDir), 0.0);
     vec3 diffuse = material.rd * diff * spotlight.color.rgb;
 
-    // Spekulární složka
+    // Specular
     vec3 viewDir = normalize(viewPosition - FragPos);
     vec3 reflectDir = reflect(-lightDir, norm);
     float spec = pow(max(dot(viewDir, reflectDir), 0.0), shininess);

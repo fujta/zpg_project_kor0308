@@ -1,4 +1,3 @@
-// Spotlight.cpp
 #include "Spotlight.h"
 
 Spotlight::Spotlight(Camera* camera)
