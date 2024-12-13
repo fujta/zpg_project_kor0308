@@ -1,6 +1,6 @@
 #include "Scale.h"
 
-glm::mat4 Scale::apply(const glm::mat4& modelMatrix) const
+glm::mat4 Scale::getMatrix()
 {
-	return glm::scale(modelMatrix, scale);
+	return glm::scale(glm::mat4(1.0f), scale);
 }

@@ -9,9 +9,9 @@ class Scale : public Transformation
 public:
     Scale(const glm::vec3& scale) : scale(scale) {}
 
-    glm::mat4 apply(const glm::mat4& modelMatrix) const override;
+    glm::mat4 getMatrix() override;
 
-private:
+protected:
     glm::vec3 scale;
 };
 

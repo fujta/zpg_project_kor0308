@@ -8,9 +8,9 @@ class Translate : public Transformation
 {
 public:
     Translate(const glm::vec3& translation) : translation(translation) {}
-    glm::mat4 apply(const glm::mat4& modelMatrix) const override;
+    glm::mat4 getMatrix() override;
 
-private:
+protected:
     glm::vec3 translation;
 };
 

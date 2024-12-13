@@ -137,6 +137,9 @@
     <ClCompile Include="ConstantLight.cpp" />
     <ClCompile Include="DirectionalLight.cpp" />
     <ClCompile Include="DrawableObject.cpp" />
+    <ClCompile Include="DynamicRotate.cpp" />
+    <ClCompile Include="DynamicScale.cpp" />
+    <ClCompile Include="DynamicTranslate.cpp" />
     <ClCompile Include="LambertLight.cpp" />
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="main.cpp" />
@@ -160,7 +163,7 @@
     <ClCompile Include="Skybox.cpp" />
     <ClCompile Include="Spotlight.cpp" />
     <ClCompile Include="Texture.cpp" />
-    <ClCompile Include="TransformFacade.cpp" />
+    <ClCompile Include="Transform.cpp" />
     <ClCompile Include="Transformation.cpp" />
     <ClCompile Include="Translate.cpp" />
     <ClCompile Include="TranslateAnimation.cpp" />
@@ -175,6 +178,9 @@
     <ClInclude Include="CameraMovementEnum.h" />
     <ClInclude Include="ConstantLight.h" />
     <ClInclude Include="DirectionalLight.h" />
+    <ClInclude Include="DynamicRotate.h" />
+    <ClInclude Include="DynamicScale.h" />
+    <ClInclude Include="DynamicTranslate.h" />
     <ClInclude Include="ICameraObserver.h" />
     <ClInclude Include="DrawableObject.h" />
     <ClInclude Include="ILightObserver.h" />
@@ -204,7 +210,7 @@
     <ClInclude Include="suzi_flat.h" />
     <ClInclude Include="suzi_smooth.h" />
     <ClInclude Include="Texture.h" />
-    <ClInclude Include="TransformFacade.h" />
+    <ClInclude Include="Transform.h" />
     <ClInclude Include="Transformation.h" />
     <ClInclude Include="Translate.h" />
     <ClInclude Include="TranslateAnimation.h" />

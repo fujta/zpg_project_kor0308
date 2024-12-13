@@ -5,6 +5,9 @@ C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\Camera.cpp;C:\Users\Vojta
 C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\ConstantLight.cpp;C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\zpg_project\x64\Debug\ConstantLight.obj
 C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\DirectionalLight.cpp;C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\zpg_project\x64\Debug\DirectionalLight.obj
 C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\DrawableObject.cpp;C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\zpg_project\x64\Debug\DrawableObject.obj
+C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\DynamicRotate.cpp;C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\zpg_project\x64\Debug\DynamicRotate.obj
+C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\DynamicScale.cpp;C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\zpg_project\x64\Debug\DynamicScale.obj
+C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\DynamicTranslate.cpp;C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\zpg_project\x64\Debug\DynamicTranslate.obj
 C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\LambertLight.cpp;C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\zpg_project\x64\Debug\LambertLight.obj
 C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\Light.cpp;C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\zpg_project\x64\Debug\Light.obj
 C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\main.cpp;C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\zpg_project\x64\Debug\main.obj
@@ -28,7 +31,7 @@ C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\ShaderLoader.cpp;C:\Users
 C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\Skybox.cpp;C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\zpg_project\x64\Debug\Skybox.obj
 C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\Spotlight.cpp;C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\zpg_project\x64\Debug\Spotlight.obj
 C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\Texture.cpp;C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\zpg_project\x64\Debug\Texture.obj
-C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\TransformFacade.cpp;C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\zpg_project\x64\Debug\TransformFacade.obj
+C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\Transform.cpp;C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\zpg_project\x64\Debug\Transform.obj
 C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\Transformation.cpp;C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\zpg_project\x64\Debug\Transformation.obj
 C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\Translate.cpp;C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\zpg_project\x64\Debug\Translate.obj
 C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\TranslateAnimation.cpp;C:\Users\Vojta\Desktop\zpg_project_kor0308\zpg_project\zpg_project\x64\Debug\TranslateAnimation.obj

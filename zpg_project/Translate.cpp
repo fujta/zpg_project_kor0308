@@ -1,6 +1,6 @@
 #include "Translate.h"
 
-glm::mat4 Translate::apply(const glm::mat4& modelMatrix) const
+glm::mat4 Translate::getMatrix()
 {
-	return glm::translate(modelMatrix, translation);
+	return glm::translate(glm::mat4(1.0f), translation);
 }

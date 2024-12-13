@@ -48,9 +48,8 @@ void main() {
     vec3 specular = material.rs * spec * spotlight.color.rgb;
 
     // Spotlight intensity
-    float theta = dot(lightDir, normalize(-spotlight.direction));
-    float epsilon = spotlight.cutOff - spotlight.outerCutOff;
-    float intensity = clamp((theta - spotlight.outerCutOff) / epsilon, 0.0, 1.0);
+    float dotLF = dot(lightDir, normalize(spotlight.direction));
+    float intensity = clamp((dotLF - spotlight.outerCutOff) / (spotlight.cutOff - spotlight.outerCutOff), 0.0, 1.0);
 
     // Combine results
     vec3 result = (ambient + (diffuse + specular) * intensity) * objectColor.rgb;

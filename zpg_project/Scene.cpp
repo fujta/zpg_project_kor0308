@@ -17,33 +17,28 @@ Camera* Scene::getCamera() {
 }
 
 void Scene::render() {
+    for (auto drawableObject : drawableObjects) {
+        if (drawableObject->isSkybox()) {
+            glDisable(GL_DEPTH_TEST);
+            drawableObject->render();
+            glEnable(GL_DEPTH_TEST);
+        }
+    }
+
     glEnable(GL_STENCIL_TEST);
-	glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
+    glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
 
     for (auto drawableObject : drawableObjects) {
         if (!drawableObject->isSkybox()) {
-			glStencilFunc(GL_ALWAYS, drawableObject->getId(), 0xFF);
-            glStencilMask(0xFF);
+            glStencilFunc(GL_ALWAYS, drawableObject->getId(), 0xFF);
 
             drawableObject->render();
         }
     }
 
-    glStencilMask(0x00);
-    // Render skybox
-    glDepthFunc(GL_LEQUAL);
-    glDepthMask(GL_FALSE);
-
-    for (auto drawableObject : drawableObjects) {
-        if (drawableObject->isSkybox()) {
-            drawableObject->render();
-        }
-    }
-
-    glDepthMask(GL_TRUE);
-    glDepthFunc(GL_LESS);
     glDisable(GL_STENCIL_TEST);
 }
+
 
 void Scene::addDrawableObject(DrawableObject* drawableObject)
 {

@@ -10,9 +10,9 @@ public:
     Rotate(float angleDegrees, const glm::vec3& axis)
         : angleDegrees(angleDegrees), axis(glm::normalize(axis)) {}
 
-    glm::mat4 apply(const glm::mat4& modelMatrix) const override;
+    glm::mat4 getMatrix() override;
 
-private:
+protected:
     float angleDegrees;
     glm::vec3 axis;
 };

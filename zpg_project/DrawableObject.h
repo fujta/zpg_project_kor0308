@@ -3,7 +3,7 @@
 #include "Model.h"
 #include "Shader.h"
 #include "ShaderFactory.h"
-#include "TransformFacade.h"
+#include "Transform.h"
 #include "Texture.h"
 
 class DrawableObject
@@ -21,7 +21,7 @@ public:
 
     void createModel();
 
-    TransformFacade& setTransform();
+    Transform& setTransform();
 
     bool isSkybox() const;
 
@@ -30,7 +30,7 @@ public:
 
 private:
     ShapeType shapeType;
-    TransformFacade* transformFacade;
+    Transform* transform;
     std::string objPath;
 
     static int nextId;

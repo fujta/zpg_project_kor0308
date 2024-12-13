@@ -60,7 +60,7 @@ void Application::run() {
         deltaTime = currentFrame - lastFrame;
         lastFrame = currentFrame;
 
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 
 		userInputController->handleSceneChange(window, currentSceneIndex);
 		userInputController->handleCameraMovement(window, deltaTime, scenes[currentSceneIndex]->getCamera());
@@ -82,6 +82,8 @@ void Application::onMouseCallback(GLFWwindow* window, double xpos, double ypos) 
 
     int cursorState = glfwGetInputMode(window, GLFW_CURSOR);
     if (cursorState == GLFW_CURSOR_NORMAL) {
+        app->firstMouse = true;
+
         return;
     }
 

@@ -16,6 +16,6 @@ void TranslateAnimation::update() {
         }
     }
 
-    TransformFacade& transform = object->setTransform();
+    Transform& transform = object->setTransform();
     transform.addTransformation(new Translate(translation));
 }

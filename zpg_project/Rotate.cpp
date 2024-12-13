@@ -1,6 +1,6 @@
 #include "Rotate.h"
 
-glm::mat4 Rotate::apply(const glm::mat4& modelMatrix) const
+glm::mat4 Rotate::getMatrix()
 {
-	return glm::rotate(modelMatrix, glm::radians(angleDegrees), axis);
+	return glm::rotate(glm::mat4(1.0f), glm::radians(angleDegrees), axis);
 }

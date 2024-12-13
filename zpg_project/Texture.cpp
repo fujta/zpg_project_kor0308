@@ -4,6 +4,9 @@ Texture::Texture(const std::string& texturePath) : textureID(0), texturePath(tex
 
 Texture::~Texture()
 {
+    if (this->textureID) {
+        glDeleteTextures(1, &this->textureID);
+    }
 }
 
 bool Texture::isSkyboxTexture() const {

@@ -45,11 +45,12 @@ Scene* SceneFactory::createForestScene() {
 	skybox->createModel();
 	scene2->addDrawableObject(skybox);
 
+    Light* objectsLight = new PhongLight();
 	DrawableObject* houseObject = new DrawableObject(ShapeType::OBJECT, "house.png", "house.obj");
-	houseObject->createShaders("textureVertexShader.glsl", "textureFragmentShader.glsl", scene2->getCamera());
+	houseObject->createShaders("lightVertexShader.glsl", "textureFragmentShader.glsl", scene2->getCamera(), objectsLight);
 	houseObject->createModel();
     houseObject->setTransform()
-		.addTransformation(new Translate(glm::vec3(0.0f, 0.0f, 0.0f)))
+		.addTransformation(new Translate(glm::vec3(5.0f, 0.0f, 5.0f)))
 		.addTransformation(new Scale(glm::vec3(0.3f, 0.3f, 0.3f)));
 	scene2->addDrawableObject(houseObject);
 
@@ -75,17 +76,10 @@ Scene* SceneFactory::createForestScene() {
             glm::vec3 minPos(-15.0f, 0.0f, -15.0f);
             glm::vec3 maxPos(15.0f, 0.0f, 15.0f);
 
-            TranslateAnimation* translateAnim = new TranslateAnimation(treeObject, glm::vec3(0.1f, 0.0f, 0.1f), minPos, maxPos);
-            scene2->addAnimation(translateAnim);
+            treeObject->setTransform()
+                .addTransformation(new DynamicTranslate(glm::vec3(0, 0, 0), glm::vec3(0.1f, 0.0f, 0.1f), minPos, maxPos));
         }    
     }
-
-    DrawableObject* plain = new DrawableObject(ShapeType::PLAIN, "grass.png");
-    plain->createShaders("textureVertexShader.glsl", "textureFragmentShader.glsl", scene2->getCamera(), lambertLight);
-    plain->createModel();
-    plain->setTransform()
-        .addTransformation(new Scale(glm::vec3(15.0f, 1.0f, 15.0f)));
-    scene2->addDrawableObject(plain);
 
     // Set light properties
     lambertLight->setPosition(glm::vec3(0.0f, 2.0f, 0.0f));
@@ -111,6 +105,16 @@ Scene* SceneFactory::createForestScene() {
         scene2->addDrawableObject(bushObject);
     }
 
+    Light* plainLight = new PhongLight();
+    DrawableObject* plain = new DrawableObject(ShapeType::PLAIN, "grass.png");
+    plain->createShaders("lightVertexShader.glsl", "textureFragmentShader.glsl", scene2->getCamera(), plainLight);
+    plain->createModel();
+    plain->setTransform()
+        .addTransformation(new Scale(glm::vec3(15.0f, 1.0f, 15.0f)));
+    scene2->addDrawableObject(plain);
+    plainLight->setShininess(120.0f);
+    plainLight->setPosition(glm::vec3(0.0f, 1.0f, 0.0f));
+
     Light* phong = new PhongLight();
     Light* phongBludicka = new PhongLight();
     std::vector<Light*> lights;
@@ -118,12 +122,23 @@ Scene* SceneFactory::createForestScene() {
     lights.push_back(phong);
     lights.push_back(phongBludicka);
 
-    DrawableObject* loginObject = new DrawableObject(ShapeType::OBJECT, "house.png", "login.obj");
-    loginObject->createShaders("textureVertexShader.glsl", "textureFragmentShader.glsl", scene2->getCamera());
+    DrawableObject* loginObject = new DrawableObject(ShapeType::OBJECT, "textureMin.jpg", "login.obj");
+    loginObject->createShaders("lightVertexShader.glsl", "textureFragmentShader.glsl", scene2->getCamera(), objectsLight);
     loginObject->createModel();
     loginObject->setTransform()
-        .addTransformation(new Translate(glm::vec3(5.0f, 0.0f, 0.0f)));
+        .addTransformation(new Translate(glm::vec3(2.0f, 0.0f, 0.0f)));
     scene2->addDrawableObject(loginObject);
+    objectsLight->setShininess(120.0f);
+    objectsLight->setPosition(glm::vec3(0.0f, 3.0f, 0.0f));
+
+    DrawableObject* bmw = new DrawableObject(ShapeType::OBJECT, "", "bmw.obj");
+    bmw->createShaders("lightVertexShader.glsl", "textureFragmentShader.glsl", scene2->getCamera(), objectsLight);
+    bmw->createModel();
+    bmw->setTransform()
+        .addTransformation(new Translate(glm::vec3(3.0f, 0.2f, 3.5f)))
+        .addTransformation(new Scale(glm::vec3(0.5f)))
+        .addTransformation(new Rotate(-90.0f, glm::vec3(0.0f, 1.0f, 0.0f)));
+    scene2->addDrawableObject(bmw);
 
     // Three trees to test multiple lights - bludi�ky
     DrawableObject* treeObject1 = new DrawableObject(ShapeType::TREE);
@@ -131,18 +146,16 @@ Scene* SceneFactory::createForestScene() {
     treeObject1->createModel();
     treeObject1->setTransform()
         .addTransformation(new Translate(glm::vec3(0.0f, 0.0f, 0.0f)))
-        .addTransformation(new Scale(glm::vec3(0.1f, 0.1f, 0.1f)));
+        .addTransformation(new Scale(glm::vec3(0.1f, 0.1f, 0.1f)))
+        .addTransformation(new DynamicRotate(0.0f, glm::vec3(0, 1, 0), 1.1f));
     scene2->addDrawableObject(treeObject1);
-
-    RotateAnimation* rotateAnim = new RotateAnimation(treeObject1, 0.5f, glm::vec3(0, 1, 0));
-    scene2->addAnimation(rotateAnim);
 
     DrawableObject* treeObject2 = new DrawableObject(ShapeType::TREE);
     treeObject2->createShaders("lightVertexShader.glsl", phong->getFragmentShaderName(), scene2->getCamera(), lights);
     treeObject2->createModel();
     treeObject2->setTransform()
         .addTransformation(new Translate(glm::vec3(0.0f, 0.0f, 1.0f)))
-        .addTransformation(new Scale(glm::vec3(0.1f, 0.1f, 0.1f)));
+		.addTransformation(new DynamicScale(glm::vec3(0.1f), glm::vec3(0.01f), glm::vec3(5.0f)));
     scene2->addDrawableObject(treeObject2);
 
     DrawableObject* treeObject3 = new DrawableObject(ShapeType::TREE);
@@ -188,8 +201,8 @@ Scene* SceneFactory::createDarkForestScene() {
             glm::vec3 minPos(-15.0f, 0.0f, -15.0f);
             glm::vec3 maxPos(15.0f, 0.0f, 15.0f);
 
-            TranslateAnimation* translateAnim = new TranslateAnimation(treeObject, glm::vec3(0.1f, 0.0f, 0.1f), minPos, maxPos);
-            darkForestScene->addAnimation(translateAnim);
+            treeObject->setTransform()
+                .addTransformation(new DynamicTranslate(glm::vec3(0, 0, 0), glm::vec3(0.1f, 0.0f, 0.1f), minPos, maxPos));
         }
     }
 
@@ -247,9 +260,6 @@ Scene* SceneFactory::createDarkForestScene() {
         .addTransformation(new Translate(glm::vec3(0.0f, 0.0f, 0.0f)))
         .addTransformation(new Scale(glm::vec3(0.1f, 0.1f, 0.1f)));
     darkForestScene->addDrawableObject(treeObject1);
-
-    RotateAnimation* rotateAnim = new RotateAnimation(treeObject1, 0.5f, glm::vec3(0, 1, 0));
-    darkForestScene->addAnimation(rotateAnim);
 
     DrawableObject* treeObject2 = new DrawableObject(ShapeType::TREE);
     treeObject2->createShaders("lightVertexShader.glsl", phong->getFragmentShaderName(), darkForestScene->getCamera(), lights);

@@ -22,15 +22,12 @@ ObjectModel::ObjectModel(std::string fileName) : Model()
     const aiScene* scene = importer.ReadFile(fileName, importOptions);
 
     if (scene) {
-        printf("scene->mNumMeshes = %d\n", scene->mNumMeshes);
-        printf("scene->mNumMaterials = %d\n", scene->mNumMaterials);
         //Materials
         for (unsigned int i = 0; i < scene->mNumMaterials; i++)
         {
             const aiMaterial* mat = scene->mMaterials[i];
             aiString name;
             mat->Get(AI_MATKEY_NAME, name);
-            printf("Material [%d] name %s\n", i, name.C_Str());
             aiColor4D d;
             glm::vec4 diffuse = glm::vec4(0.8f, 0.8f, 0.8f, 1.0f);
             if (AI_SUCCESS == aiGetMaterialColor(mat, AI_MATKEY_COLOR_DIFFUSE, &d))
@@ -104,10 +101,6 @@ ObjectModel::ObjectModel(std::string fileName) : Model()
             glBindBuffer(GL_ARRAY_BUFFER, 0);
             glBindVertexArray(VAO);
 
-            GLuint err = glGetError();
-            if (err != GL_NO_ERROR) {
-                std::cout << "GL ERROR: " << err << std::endl;
-            }
             indicesCount = mesh->mNumFaces * 3;
             delete[] pVertices;
             delete[] pIndices;

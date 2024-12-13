@@ -153,7 +153,7 @@ void Shader::updateMaterialUniforms() {
 
 void Shader::updateSpotlightUniforms(Spotlight* spotlight) {
     glUniform3fv(glGetUniformLocation(shaderProgram, "spotlight.position"), 1, glm::value_ptr(spotlight->getPosition()));
-    glUniform3fv(glGetUniformLocation(shaderProgram, "spotlight.direction"), 1, glm::value_ptr(spotlight->getDirection()));
+    glUniform3fv(glGetUniformLocation(shaderProgram, "spotlight.direction"), 1, glm::value_ptr(-spotlight->getDirection()));
     glUniform4fv(glGetUniformLocation(shaderProgram, "spotlight.color"), 1, glm::value_ptr(spotlight->getColor()));
     glUniform1f(glGetUniformLocation(shaderProgram, "spotlight.cutOff"), spotlight->getCutOff());
     glUniform1f(glGetUniformLocation(shaderProgram, "spotlight.outerCutOff"), spotlight->getOuterCutOff());

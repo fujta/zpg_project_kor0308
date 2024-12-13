@@ -8,12 +8,12 @@
 
 using namespace std;
 
-class TransformFacade {
+class Transform {
 public:
-	TransformFacade();
-	~TransformFacade();
+	Transform();
+	~Transform();
 
-	TransformFacade& addTransformation(Transformation* transformation);
+	Transform& addTransformation(Transformation* transformation);
 
     glm::mat4 getModelMatrix() const;
 

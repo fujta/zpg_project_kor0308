@@ -26,6 +26,12 @@ void main() {
     finalColor += ambient;
 
     for (int i = 0; i < numberOfLights; i++) {
+        float distance = clamp(length(vec3(lights[i].position) - FragPos), 0.0, 10.0);
+        float constant = 1.0;
+        float linear = 0.09;
+        float quadratic = 0.032;
+        float attenuation = 1.0 / (constant + linear * distance + quadratic * (distance * distance));
+
         // Diffuse
         vec3 lightDir = normalize(vec3(lights[i].position) - FragPos);
         float diff = max(dot(norm, lightDir), 0.0);
@@ -37,6 +43,8 @@ void main() {
         float spec = pow(max(dot(viewDir, reflectDir), 0.0), shininess);
         vec4 specular = spec * lights[i].color;
 
+        diffuse *= attenuation;
+        specular *= attenuation;
 
         finalColor += diffuse * objectColor + specular;
     }

@@ -17,19 +17,17 @@ void UserInputController::handleCameraMovement(GLFWwindow* window, float deltaTi
 		}
 	}
 
-	float cameraSpeed = 1.5f * deltaTime;
-
 	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
-		camera->processKeyboard(FORWARD, cameraSpeed);
+		camera->processKeyboard(FORWARD, deltaTime);
 	}
 	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
-		camera->processKeyboard(BACKWARD, cameraSpeed);
+		camera->processKeyboard(BACKWARD, deltaTime);
 	}
 	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
-		camera->processKeyboard(LEFT, cameraSpeed);
+		camera->processKeyboard(LEFT, deltaTime);
 	}
 	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
-		camera->processKeyboard(RIGHT, cameraSpeed);
+		camera->processKeyboard(RIGHT, deltaTime);
 	}
 }
 

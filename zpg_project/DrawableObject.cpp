@@ -2,7 +2,7 @@
 
 DrawableObject::DrawableObject(ShapeType shapeType, const std::string& texturePath, const std::string& p_objPath) : model(nullptr), shader(nullptr) {
     this->shapeType = shapeType;
-    this->transformFacade = new TransformFacade();
+    this->transform = new Transform();
 	this->objPath = p_objPath;
 
     this->id = nextId++;
@@ -19,7 +19,7 @@ DrawableObject::~DrawableObject()
 {
     delete model;
     delete shader;
-    delete transformFacade;
+    delete transform;
 }
 
 void DrawableObject::createShaders(const std::string& vertexShaderPath, const std::string& fragmentShaderPath, Camera* camera, Light* light) {
@@ -35,9 +35,9 @@ void DrawableObject::createShaders(Shader* shader) {
 }
 
 void DrawableObject::createModel() {
-    if (this->texture == nullptr) {
+    if (this->texture == nullptr && this->objPath == "") {
         model = ModelFactory::createModel(shapeType);
-    } else if (this->texture != nullptr && this->objPath != "") {
+    } else if (this->objPath != "") {
 		model = ModelFactory::createModelFromObj(objPath);
     }
     else {
@@ -52,7 +52,7 @@ bool DrawableObject::isSkybox() const {
 void DrawableObject::render() {
     if (shader) {
         shader->use();
-        shader->setUniformMatrix(transformFacade->getModelMatrix());
+        shader->setUniformMatrix(transform->getModelMatrix());
         shader->useTexture(texture);
         model->render(shapeType);
 
@@ -64,8 +64,8 @@ void DrawableObject::render() {
     }
 }
 
-TransformFacade& DrawableObject::setTransform() {
-    return *transformFacade;
+Transform& DrawableObject::setTransform() {
+    return *transform;
 }
 
 int DrawableObject::nextId = 1;

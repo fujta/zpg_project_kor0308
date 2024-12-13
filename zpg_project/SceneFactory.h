@@ -10,6 +10,10 @@
 #include "RotateAnimation.h"
 #include "TranslateAnimation.h"
 
+#include "DynamicScale.h"
+#include "DynamicTranslate.h"
+#include "DynamicRotate.h"
+
 #include "Light.h"
 #include "ConstantLight.h"
 #include "LambertLight.h"

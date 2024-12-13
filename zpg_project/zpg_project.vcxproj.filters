@@ -91,6 +91,12 @@
     <Filter Include="Source Files\Texture">
       <UniqueIdentifier>{88d566a4-5887-4990-ab95-7c342075a3cf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Transform\Dynamic">
+      <UniqueIdentifier>{05affae3-cd8c-4867-b193-84cf908542b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Transform\Dynamic">
+      <UniqueIdentifier>{c02b8951-059a-442c-86eb-0d8cfab58a53}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -144,7 +150,7 @@
     <ClCompile Include="ShaderLoader.cpp">
       <Filter>Source Files\Shader</Filter>
     </ClCompile>
-    <ClCompile Include="TransformFacade.cpp">
+    <ClCompile Include="Transform.cpp">
       <Filter>Source Files\Transform</Filter>
     </ClCompile>
     <ClCompile Include="MultipleLightsShader.cpp">
@@ -198,6 +204,15 @@
     <ClCompile Include="ObjectModel.cpp">
       <Filter>Source Files\Model</Filter>
     </ClCompile>
+    <ClCompile Include="DynamicScale.cpp">
+      <Filter>Source Files\Transform\Dynamic</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicTranslate.cpp">
+      <Filter>Source Files\Transform\Dynamic</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicRotate.cpp">
+      <Filter>Source Files\Transform\Dynamic</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h">
@@ -208,9 +223,6 @@
     </ClInclude>
     <ClInclude Include="bushes.h">
       <Filter>Header Files\_objects</Filter>
-    </ClInclude>
-    <ClInclude Include="DrawableObject.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="NumberGenerator.h">
       <Filter>Header Files\_utils</Filter>
@@ -275,7 +287,7 @@
     <ClInclude Include="ShaderLoader.h">
       <Filter>Header Files\Shader</Filter>
     </ClInclude>
-    <ClInclude Include="TransformFacade.h">
+    <ClInclude Include="Transform.h">
       <Filter>Header Files\Transform</Filter>
     </ClInclude>
     <ClInclude Include="ILightObserver.h">
@@ -328,6 +340,18 @@
     </ClInclude>
     <ClInclude Include="ObjectModel.h">
       <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawableObject.h">
+      <Filter>Header Files\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicScale.h">
+      <Filter>Header Files\Transform\Dynamic</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicTranslate.h">
+      <Filter>Header Files\Transform\Dynamic</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicRotate.h">
+      <Filter>Header Files\Transform\Dynamic</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
