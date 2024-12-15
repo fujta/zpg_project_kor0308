@@ -232,7 +232,6 @@
     <None Include="spotlightFragmentShader.glsl" />
     <None Include="textureFragmentShader.glsl" />
     <None Include="textureVertexShader.glsl" />
-    <None Include="vertexShaderCubemap.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

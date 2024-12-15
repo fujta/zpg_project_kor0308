@@ -19,7 +19,10 @@ Camera* Scene::getCamera() {
 void Scene::render() {
     for (auto drawableObject : drawableObjects) {
         if (drawableObject->isSkybox()) {
-            glDisable(GL_DEPTH_TEST);
+            if (((Skybox*)drawableObject)->getFollowCamera()) {
+                glDisable(GL_DEPTH_TEST);
+            }
+
             drawableObject->render();
             glEnable(GL_DEPTH_TEST);
         }
@@ -69,5 +72,13 @@ void Scene::addAnimation(Animation* animation) {
 void Scene::updateAnimationFrame() {
 	for (auto animation : animations) {
 		animation->update();
+	}
+}
+
+Skybox* Scene::getSkybox() {
+	for (auto drawableObject : drawableObjects) {
+		if (drawableObject->isSkybox()) {
+			return (Skybox*)drawableObject;
+		}
 	}
 }

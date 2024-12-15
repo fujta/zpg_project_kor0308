@@ -12,5 +12,6 @@ public:
 	void handleCameraMovement(GLFWwindow* window, float deltaTime, Camera* camera);
 	void handleSceneChange(GLFWwindow* window, int& currentSceneIndex);
 	void handleMouseClick(GLFWwindow* window, int currentSceneIndex);
+	void handleSkyboxFollow(GLFWwindow* window, Camera* camera, Skybox* skybox);
 };
 

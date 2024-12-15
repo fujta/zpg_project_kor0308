@@ -79,10 +79,14 @@ void Camera::processKeyboard(CameraMovement direction, float deltaTime) {
 
 void Camera::addObserver(ICameraObserver* observer) {
     observers.push_back(observer);
+
+	notifyObservers();
 }
 
 void Camera::removeObserver(ICameraObserver* observer) {
     observers.erase(std::remove(observers.begin(), observers.end(), observer), observers.end());
+
+    notifyObservers();
 }
 
 void Camera::notifyObservers() {

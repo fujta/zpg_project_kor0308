@@ -95,13 +95,7 @@ void Shader::onCameraUpdated() {
     glm::mat4 view;
     glm::mat4 projection = camera->getProjectionMatrix();
 
-    if (isSkyboxShader) {
-		// Forbid camera translation
-        view = glm::mat4(glm::mat3(camera->getViewMatrix()));
-    }
-    else {
-        view = camera->getViewMatrix();
-    }
+    view = camera->getViewMatrix();
 
     glUniformMatrix4fv(viewMatrixLoc, 1, GL_FALSE, glm::value_ptr(view));
     glUniformMatrix4fv(projectionMatrixLoc, 1, GL_FALSE, glm::value_ptr(projection));

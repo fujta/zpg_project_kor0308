@@ -6,6 +6,7 @@
 #include "Shader.h"
 #include "ShaderFactory.h"
 #include "Camera.h"
+#include "Skybox.h"
 
 class Scene {
 public:
@@ -23,6 +24,7 @@ public:
 
     std::vector<DrawableObject*>& getDrawableObjects();
     std::vector<Animation*>& getAnimations();
+    Skybox* getSkybox();
 
 private:
     std::vector<DrawableObject*> drawableObjects;

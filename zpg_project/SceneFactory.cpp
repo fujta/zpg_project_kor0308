@@ -40,7 +40,7 @@ Scene* SceneFactory::createForestScene() {
 
 	LambertLight* lambertLight = new LambertLight();
 
-	Skybox* skybox = new Skybox();
+	Skybox* skybox = new Skybox(scene2->getCamera());
 	skybox->createShaders(scene2->getCamera(), lambertLight);
 	skybox->createModel();
 	scene2->addDrawableObject(skybox);

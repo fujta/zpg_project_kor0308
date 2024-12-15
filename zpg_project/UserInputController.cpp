@@ -118,3 +118,21 @@ void UserInputController::handleSceneChange(GLFWwindow* window, int& currentScen
 		currentSceneIndex = 4;
 	}
 }
+
+void UserInputController::handleSkyboxFollow(GLFWwindow* window, Camera* camera, Skybox* skybox)
+{
+	static double lastPressTime = 0.0;
+	double currentTime = glfwGetTime();
+
+	if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS && (currentTime - lastPressTime > 0.3)) {
+		lastPressTime = currentTime;
+		skybox->setFollowCamera(!skybox->getFollowCamera());
+
+		if (skybox->getFollowCamera()) {
+			camera->addObserver(skybox);
+		}
+		else {
+			camera->removeObserver(skybox);
+		}
+	}	
+}

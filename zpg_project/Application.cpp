@@ -63,6 +63,7 @@ void Application::run() {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 
 		userInputController->handleSceneChange(window, currentSceneIndex);
+		userInputController->handleSkyboxFollow(window, scenes[currentSceneIndex]->getCamera(), scenes[currentSceneIndex]->getSkybox());
 		userInputController->handleCameraMovement(window, deltaTime, scenes[currentSceneIndex]->getCamera());
 
 		scenes[currentSceneIndex]->updateAnimationFrame();

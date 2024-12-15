@@ -1,11 +1,10 @@
 #version 450
 
-in vec3 fragmentLocalPosition;
+in vec3 aPosCoords;
 uniform samplerCube UISky;
 out vec4 frag_colour;
 
 void main () {
-	 
-    frag_colour = texture(UISky, fragmentLocalPosition);
+    frag_colour = texture(UISky, aPosCoords);
 }
 

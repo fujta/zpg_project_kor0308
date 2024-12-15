@@ -24,3 +24,12 @@ glm::mat4 Transform::getModelMatrix() const
 
 	return modelMatrix;
 }
+
+void Transform::removeTransformations()
+{
+	for (Transformation* transformation : transformations) {
+		delete transformation;
+	}
+
+	transformations.clear();
+}

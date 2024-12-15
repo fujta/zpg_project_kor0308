@@ -395,8 +395,5 @@
     <None Include="fragmentShaderCubemap.glsl">
       <Filter>Source Files\_shaders\fragment_shaders</Filter>
     </None>
-    <None Include="vertexShaderCubemap.glsl">
-      <Filter>Source Files\_shaders\vertex_shaders</Filter>
-    </None>
   </ItemGroup>
 </Project>

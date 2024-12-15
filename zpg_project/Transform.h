@@ -17,6 +17,8 @@ public:
 
     glm::mat4 getModelMatrix() const;
 
+	void removeTransformations();
+
 private:
 	vector<Transformation*> transformations;
 };

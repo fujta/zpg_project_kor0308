@@ -7,9 +7,17 @@ in vec3 Normal;
 in vec2 uvc;
 out vec4 out_Color;
 
+struct Material {
+    float ra;
+    float rd;
+    float rs;
+};
+
+
 struct Light {
     vec4 position;
     vec4 color;
+    Material material;
 };
 
 uniform int numberOfLights;
@@ -26,7 +34,7 @@ void main() {
     vec4 finalColor = vec4(0.0);
 
     // Ambient
-    vec4 ambient = vec4(0.1, 0.1, 0.1, 1.0);
+    vec4 ambient = lights[0].material.ra * vec4(0.1, 0.1, 0.1, 1.0);
     vec4 baseColor = hasTexture ? texture(textureUnitID, uvc) : objectColor;
     finalColor += ambient * baseColor;
 
@@ -41,13 +49,13 @@ void main() {
         // Diffuse component
         vec3 lightDir = normalize(vec3(lights[i].position) - FragPos);
         float diff = max(dot(norm, lightDir), 0.0);
-        vec4 diffuse = diff * lights[i].color;
+        vec4 diffuse = lights[i].material.rd * diff * lights[i].color;
 
         // Specular component
         vec3 viewDir = normalize(viewPosition - FragPos);
         vec3 reflectDir = reflect(-lightDir, norm);
         float spec = pow(max(dot(viewDir, reflectDir), 0.0), shininess);
-        vec4 specular = spec * lights[i].color;
+        vec4 specular = lights[i].material.rs * spec * lights[i].color;
 
         diffuse *= attenuation;
         specular *= attenuation;
